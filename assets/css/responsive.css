@@ -12,7 +12,8 @@
                 gap: 16px;
             }
 
-            .desktop-nav a {
+            .desktop-nav > a,
+            .nav-dropdown-link {
                 font-size: 8px;
             }
 
@@ -121,14 +122,43 @@
                 transform: translateY(0);
             }
 
-            .desktop-nav a {
+            .desktop-nav > a,
+            .nav-dropdown-link {
                 padding: 16px 3px;
                 border-bottom: .5px solid var(--line);
                 font-size: 11px;
             }
 
-            .desktop-nav a::after {
+            .desktop-nav > a::after,
+            .nav-dropdown-link::after {
                 display: none;
+            }
+
+            .nav-dropdown {
+                display: grid;
+                grid-template-columns: 1fr 44px;
+                align-items: center;
+                border-bottom: .5px solid var(--line);
+            }
+
+            .nav-dropdown-toggle {
+                width: 44px;
+                height: 48px;
+            }
+
+            .nav-dropdown-menu {
+                position: static;
+                grid-column: 1 / -1;
+                min-width: 0;
+                padding: 0 0 8px 12px;
+                border: 0;
+                background: transparent;
+                box-shadow: none;
+            }
+
+            .nav-dropdown-menu a {
+                padding: 10px 3px;
+                font-size: 10px;
             }
 
             .hero,
@@ -430,5 +460,19 @@
 
             .treatment-content h3 {
                 font-size: 20px;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .treatment-dialog {
+                max-height: 90vh;
+            }
+
+            .treatment-dialog-inner {
+                padding: 24px 20px;
+            }
+
+            .treatment-dialog-contact {
+                width: 100%;
             }
         }

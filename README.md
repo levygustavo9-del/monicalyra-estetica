@@ -38,6 +38,7 @@ Não há compilação, instalação de pacotes, banco de dados ou servidor de ap
 ## Funcionalidades
 
 - Navegação por âncoras e menu mobile acessível por teclado.
+- Carrossel de procedimentos que agrupa automaticamente os cards em páginas de cinco, com informações individuais em janelas acessíveis.
 - Animações discretas de entrada ao rolar a página, independentes da preferência de movimento do sistema.
 - Formulário com validação nativa de nome, e-mail e mensagem.
 - Ano do rodapé atualizado automaticamente.

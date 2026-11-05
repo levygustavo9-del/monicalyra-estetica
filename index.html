@@ -23,11 +23,15 @@
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&family=Italianno&family=Manrope:wght@400;500;600;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <script defer src="assets/js/main.js"></script>
     <script defer src="assets/js/navigation.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js"></script>
+    <script defer src="assets/js/treatments-carousel.js"></script>
+    <script defer src="assets/js/treatments.js"></script>
     <script defer src="assets/js/animations.js"></script>
     <script defer src="assets/js/forms.js"></script>
 </head>
@@ -44,8 +48,25 @@
             </button>
             <nav class="desktop-nav" id="primary-navigation" aria-label="Navegação principal">
                 <a href="#inicio">Início</a>
-                <a href="#sobre">Sobre</a>
-                <a href="#tratamentos">Tratamentos</a>
+                <a href="pages/sobre.html">Sobre</a>
+                <div class="nav-dropdown">
+                    <a class="nav-dropdown-link" href="#tratamentos">Tratamentos</a>
+                    <button class="nav-dropdown-toggle" type="button" aria-label="Mostrar tipos de tratamentos"
+                        aria-expanded="false" aria-controls="treatments-navigation">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                            aria-hidden="true">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+                    <ul class="nav-dropdown-menu" id="treatments-navigation">
+                        <li><a href="#bioestimuladores">Bioestimuladores de Colágeno</a></li>
+                        <li><a href="#skinbooster">Skinbooster</a></li>
+                        <li><a href="#harmonizacao-facial">Harmonização Facial</a></li>
+                        <li><a href="#terapias-regenerativas">Terapias Regenerativas</a></li>
+                        <li><a href="#tratamentos-da-pele">Tratamentos da Pele</a></li>
+                    </ul>
+                </div>
+                <a href="#depoimentos">Depoimentos</a>
                 <a href="#diferenciais">Diferenciais</a>
                 <a href="#contato">Contato</a>
             </nav>
@@ -121,8 +142,12 @@
                     <p class="copy">Cada pele tem sua história. Conheça possibilidades de cuidado que podem ser
                         consideradas em uma avaliação individual.</p>
                 </div>
-                <div class="treatments-grid">
-                    <article class="treatment-card reveal">
+                <div class="treatments-carousel swiper" role="region" aria-label="Procedimentos">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="treatments-grid">
+                    <!--TRATAMENTO 1 - Bioestimuladores de Colágeno-->
+                    <article class="treatment-card reveal" id="bioestimuladores">
                         <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=760&q=82"
                             alt="Cuidado facial em momento de relaxamento" loading="lazy" decoding="async">
                         <span class="treatment-number">01</span>
@@ -130,13 +155,24 @@
                             <h3>Bioestimuladores de Colágeno</h3>
                             <p>Uma possibilidade de cuidado para conversar em consulta.</p>
                         </div>
-                        <a class="card-arrow" href="#contato"
-                            aria-label="Saiba mais sobre bioestimuladores de colágeno"><svg viewBox="0 0 24 24"
+                        <button class="card-arrow" type="button" aria-label="Saiba mais sobre bioestimuladores de colágeno"
+                            aria-haspopup="dialog" aria-controls="treatment-details-dialog"><svg viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                                 <path d="M5 12h14m-6-6 6 6-6 6" />
-                            </svg></a>
+                            </svg></button>
+                        <template class="treatment-details">
+                            <h3>O que é</h3>
+                            <p>Bioestimuladores de colágeno são uma categoria de tratamentos que pode ser considerada para apoiar a firmeza e a qualidade da pele. A resposta tende a acontecer gradualmente e varia de pessoa para pessoa.</p>
+                            <h3>Quando pode ser indicado</h3>
+                            <p>A possibilidade é avaliada conforme as características da pele, o objetivo de cuidado, o histórico de saúde e as expectativas. A indicação depende de avaliação profissional individual.</p>
+                            <h3>Como é o planejamento</h3>
+                            <p>Na consulta, são discutidos a técnica e o produto apropriados, as áreas de cuidado, o número de sessões e o acompanhamento. Esses detalhes não são iguais para todos.</p>
+                            <h3>O que considerar</h3>
+                            <p>Benefícios, limitações, possíveis efeitos, cuidados antes e depois e prazo para reavaliação devem ser explicados antes de qualquer procedimento. Resultados não são garantidos.</p>
+                        </template>
                     </article>
-                    <article class="treatment-card reveal reveal-delay-1">
+                    <!--TRATAMENTO 2 - Skinbooster-->
+                    <article class="treatment-card reveal reveal-delay-1" id="skinbooster">
                         <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=760&q=82"
                             alt="Atendimento estético realizado com cuidado" loading="lazy" decoding="async">
                         <span class="treatment-number">02</span>
@@ -144,13 +180,25 @@
                             <h3>Skinbooster</h3>
                             <p>Uma abordagem delicada, sempre avaliada para cada pessoa.</p>
                         </div>
-                        <a class="card-arrow" href="#contato" aria-label="Saiba mais sobre Skinbooster"><svg
+                        <button class="card-arrow" type="button" aria-label="Saiba mais sobre Skinbooster"
+                            aria-haspopup="dialog" aria-controls="treatment-details-dialog"><svg
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
                                 aria-hidden="true">
                                 <path d="M5 12h14m-6-6 6 6-6 6" />
-                            </svg></a>
+                            </svg></button>
+                        <template class="treatment-details">
+                            <h3>O que é</h3>
+                            <p>Skinbooster é uma abordagem estética que pode envolver a aplicação de produtos injetáveis, frequentemente à base de ácido hialurônico, com foco na hidratação e na qualidade da pele — não em transformar os traços do rosto.</p>
+                            <h3>Quando pode ser indicado</h3>
+                            <p>A indicação depende da avaliação da pele, dos objetivos e do histórico de saúde. A consulta também ajuda a esclarecer se essa abordagem é adequada ou se outra opção faz mais sentido.</p>
+                            <h3>Como é o planejamento</h3>
+                            <p>O profissional explica o produto e a técnica propostos, as áreas a tratar, o número de sessões e o intervalo entre elas. O plano pode variar conforme cada caso.</p>
+                            <h3>O que considerar</h3>
+                            <p>Converse sobre benefícios esperados, limitações, possíveis efeitos e cuidados após o procedimento. A resposta individual varia e não há garantia de resultado.</p>
+                        </template>
                     </article>
-                    <article class="treatment-card reveal reveal-delay-2">
+                    <!--TRATAMENTO 3 - Harmonização Facial -->
+                    <article class="treatment-card reveal reveal-delay-2" id="harmonizacao-facial">
                         <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=760&q=82"
                             alt="Retrato ilustrativo com pele natural" loading="lazy" decoding="async">
                         <span class="treatment-number">03</span>
@@ -158,13 +206,25 @@
                             <h3>Harmonização Facial</h3>
                             <p>Equilíbrio e naturalidade como ponto de partida.</p>
                         </div>
-                        <a class="card-arrow" href="#contato" aria-label="Saiba mais sobre harmonização facial"><svg
+                        <button class="card-arrow" type="button" aria-label="Saiba mais sobre harmonização facial"
+                            aria-haspopup="dialog" aria-controls="treatment-details-dialog"><svg
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
                                 aria-hidden="true">
                                 <path d="M5 12h14m-6-6 6 6-6 6" />
-                            </svg></a>
+                            </svg></button>
+                        <template class="treatment-details">
+                            <h3>O que é</h3>
+                            <p>Harmonização facial é o planejamento individualizado de cuidados estéticos para buscar equilíbrio entre as características do rosto, respeitando a identidade e as proporções de cada pessoa.</p>
+                            <h3>Quando pode ser indicado</h3>
+                            <p>É considerada a partir dos objetivos, da avaliação facial e do histórico de saúde. Nem toda pessoa precisa de procedimentos, e a proposta deve ser compatível com suas necessidades.</p>
+                            <h3>Como é o planejamento</h3>
+                            <p>Durante a consulta, são conversados os objetivos e as opções possíveis. Se houver indicação, o profissional apresenta a técnica, as etapas, os limites e a necessidade de acompanhamento antes de qualquer decisão.</p>
+                            <h3>O que considerar</h3>
+                            <p>O resultado planejado deve respeitar a individualidade, sem promessas de transformação. Peça informações sobre riscos, possíveis efeitos, cuidados e alternativas.</p>
+                        </template>
                     </article>
-                    <article class="treatment-card reveal">
+                    <!--TRATAMENTO 5 - Terapias Regenerativas -->
+                    <article class="treatment-card reveal" id="terapias-regenerativas">
                         <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=1000&q=82"
                             alt="Produtos de cuidado com a pele em tons neutros" loading="lazy" decoding="async">
                         <span class="treatment-number">04</span>
@@ -172,13 +232,26 @@
                             <h3>Terapias Regenerativas</h3>
                             <p>Alternativas apresentadas com responsabilidade e atenção individual.</p>
                         </div>
-                        <a class="card-arrow" href="#contato" aria-label="Saiba mais sobre terapias regenerativas"><svg
+                        <button class="card-arrow" type="button" aria-label="Saiba mais sobre terapias regenerativas"
+                            aria-haspopup="dialog" aria-controls="treatment-details-dialog"><svg
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
                                 aria-hidden="true">
                                 <path d="M5 12h14m-6-6 6 6-6 6" />
-                            </svg></a>
+                            </svg></button>
+                        <template class="treatment-details">
+                            <h3>O que são</h3>
+                            <p>“Terapias regenerativas” pode se referir a diferentes abordagens voltadas ao cuidado e à renovação dos tecidos. A técnica, os produtos e a finalidade dependem do protocolo proposto.</p>
+                            <h3>Quando podem ser indicadas</h3>
+                            <p>A avaliação profissional considera a necessidade, o histórico de saúde e as evidências e autorizações aplicáveis a cada método. O nome da categoria, por si só, não define um procedimento específico.</p>
+                            <h3>Como é o planejamento</h3>
+                            <p>Antes de decidir, peça que sejam esclarecidos o método exato, os produtos utilizados, o objetivo, as etapas, as alternativas e o acompanhamento previsto.</p>
+                            <h3>O que considerar</h3>
+                            <p>Benefícios, limitações, riscos e cuidados variam de acordo com a técnica. A indicação e os resultados dependem de avaliação individual e não podem ser garantidos.</p>
+                        </template>
                     </article>
-                    <article class="treatment-card reveal reveal-delay-1">
+
+                    <!--TRATAMENTO 6 - Tratamento de Peles -->
+                    <article class="treatment-card reveal reveal-delay-1" id="tratamentos-da-pele">
                         <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=1000&q=82"
                             alt="Rotina de cuidados com a pele" loading="lazy" decoding="async">
                         <span class="treatment-number">05</span>
@@ -186,68 +259,202 @@
                             <h3>Tratamentos da Pele</h3>
                             <p>Um olhar atento às necessidades e ao momento de cada pele.</p>
                         </div>
-                        <a class="card-arrow" href="#contato" aria-label="Saiba mais sobre tratamentos da pele"><svg
+                        <button class="card-arrow" type="button" aria-label="Saiba mais sobre tratamentos da pele"
+                            aria-haspopup="dialog" aria-controls="treatment-details-dialog"><svg
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
                                 aria-hidden="true">
                                 <path d="M5 12h14m-6-6 6 6-6 6" />
-                            </svg></a>
+                            </svg></button>
+                        <template class="treatment-details">
+                            <h3>O que pode incluir</h3>
+                            <p>Os cuidados com a pele podem envolver diferentes rotinas e procedimentos. As opções dependem das características observadas e do objetivo definido em conjunto durante a avaliação.</p>
+                            <h3>Quando pode ser indicado</h3>
+                            <p>A consulta considera o tipo e o momento da pele, a rotina, as sensibilidades e o histórico de saúde. A avaliação ajuda a escolher uma abordagem adequada e segura.</p>
+                            <h3>Como é o planejamento</h3>
+                            <p>O plano pode combinar orientações de cuidado em casa e procedimentos, quando indicados. As etapas, os produtos e o intervalo entre sessões são explicados individualmente.</p>
+                            <h3>O que considerar</h3>
+                            <p>Converse sobre cuidados antes e depois, possíveis reações, limitações e acompanhamento. A resposta varia de pessoa para pessoa; não há resultado garantido.</p>
+                        </template>
                     </article>
+
+                    <!--TRATAMENTO 1 - Bioestimuladores de Colágeno-->
+                    <article class="treatment-card reveal" id="bioestimuladores">
+                        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=760&q=82"
+                            alt="Cuidado facial em momento de relaxamento" loading="lazy" decoding="async">
+                        <span class="treatment-number">01</span>
+                        <div class="treatment-content">
+                            <h3>Bioestimuladores de Colágeno</h3>
+                            <p>Uma possibilidade de cuidado para conversar em consulta.</p>
+                        </div>
+                        <button class="card-arrow" type="button" aria-label="Saiba mais sobre bioestimuladores de colágeno"
+                            aria-haspopup="dialog" aria-controls="treatment-details-dialog"><svg viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <path d="M5 12h14m-6-6 6 6-6 6" />
+                            </svg></button>
+                        <template class="treatment-details">
+                            <h3>O que é</h3>
+                            <p>Bioestimuladores de colágeno são uma categoria de tratamentos que pode ser considerada para apoiar a firmeza e a qualidade da pele. A resposta tende a acontecer gradualmente e varia de pessoa para pessoa.</p>
+                            <h3>Quando pode ser indicado</h3>
+                            <p>A possibilidade é avaliada conforme as características da pele, o objetivo de cuidado, o histórico de saúde e as expectativas. A indicação depende de avaliação profissional individual.</p>
+                            <h3>Como é o planejamento</h3>
+                            <p>Na consulta, são discutidos a técnica e o produto apropriados, as áreas de cuidado, o número de sessões e o acompanhamento. Esses detalhes não são iguais para todos.</p>
+                            <h3>O que considerar</h3>
+                            <p>Benefícios, limitações, possíveis efeitos, cuidados antes e depois e prazo para reavaliação devem ser explicados antes de qualquer procedimento. Resultados não são garantidos.</p>
+                        </template>
+                    </article>
+                    <!--TRATAMENTO 2 - Skinbooster-->
+                    <article class="treatment-card reveal reveal-delay-1" id="skinbooster">
+                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=760&q=82"
+                            alt="Atendimento estético realizado com cuidado" loading="lazy" decoding="async">
+                        <span class="treatment-number">02</span>
+                        <div class="treatment-content">
+                            <h3>Skinbooster</h3>
+                            <p>Uma abordagem delicada, sempre avaliada para cada pessoa.</p>
+                        </div>
+                        <button class="card-arrow" type="button" aria-label="Saiba mais sobre Skinbooster"
+                            aria-haspopup="dialog" aria-controls="treatment-details-dialog"><svg
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                aria-hidden="true">
+                                <path d="M5 12h14m-6-6 6 6-6 6" />
+                            </svg></button>
+                        <template class="treatment-details">
+                            <h3>O que é</h3>
+                            <p>Skinbooster é uma abordagem estética que pode envolver a aplicação de produtos injetáveis, frequentemente à base de ácido hialurônico, com foco na hidratação e na qualidade da pele — não em transformar os traços do rosto.</p>
+                            <h3>Quando pode ser indicado</h3>
+                            <p>A indicação depende da avaliação da pele, dos objetivos e do histórico de saúde. A consulta também ajuda a esclarecer se essa abordagem é adequada ou se outra opção faz mais sentido.</p>
+                            <h3>Como é o planejamento</h3>
+                            <p>O profissional explica o produto e a técnica propostos, as áreas a tratar, o número de sessões e o intervalo entre elas. O plano pode variar conforme cada caso.</p>
+                            <h3>O que considerar</h3>
+                            <p>Converse sobre benefícios esperados, limitações, possíveis efeitos e cuidados após o procedimento. A resposta individual varia e não há garantia de resultado.</p>
+                        </template>
+                    </article>
+                    <!--TRATAMENTO 3 - Harmonização Facial -->
+                    <article class="treatment-card reveal reveal-delay-2" id="harmonizacao-facial">
+                        <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=760&q=82"
+                            alt="Retrato ilustrativo com pele natural" loading="lazy" decoding="async">
+                        <span class="treatment-number">03</span>
+                        <div class="treatment-content">
+                            <h3>Harmonização Facial</h3>
+                            <p>Equilíbrio e naturalidade como ponto de partida.</p>
+                        </div>
+                        <button class="card-arrow" type="button" aria-label="Saiba mais sobre harmonização facial"
+                            aria-haspopup="dialog" aria-controls="treatment-details-dialog"><svg
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                aria-hidden="true">
+                                <path d="M5 12h14m-6-6 6 6-6 6" />
+                            </svg></button>
+                        <template class="treatment-details">
+                            <h3>O que é</h3>
+                            <p>Harmonização facial é o planejamento individualizado de cuidados estéticos para buscar equilíbrio entre as características do rosto, respeitando a identidade e as proporções de cada pessoa.</p>
+                            <h3>Quando pode ser indicado</h3>
+                            <p>É considerada a partir dos objetivos, da avaliação facial e do histórico de saúde. Nem toda pessoa precisa de procedimentos, e a proposta deve ser compatível com suas necessidades.</p>
+                            <h3>Como é o planejamento</h3>
+                            <p>Durante a consulta, são conversados os objetivos e as opções possíveis. Se houver indicação, o profissional apresenta a técnica, as etapas, os limites e a necessidade de acompanhamento antes de qualquer decisão.</p>
+                            <h3>O que considerar</h3>
+                            <p>O resultado planejado deve respeitar a individualidade, sem promessas de transformação. Peça informações sobre riscos, possíveis efeitos, cuidados e alternativas.</p>
+                        </template>
+                    </article>
+                    <!--TRATAMENTO 5 - Terapias Regenerativas -->
+                    <article class="treatment-card reveal" id="terapias-regenerativas">
+                        <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=1000&q=82"
+                            alt="Produtos de cuidado com a pele em tons neutros" loading="lazy" decoding="async">
+                        <span class="treatment-number">04</span>
+                        <div class="treatment-content">
+                            <h3>Terapias Regenerativas</h3>
+                            <p>Alternativas apresentadas com responsabilidade e atenção individual.</p>
+                        </div>
+                        <button class="card-arrow" type="button" aria-label="Saiba mais sobre terapias regenerativas"
+                            aria-haspopup="dialog" aria-controls="treatment-details-dialog"><svg
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                aria-hidden="true">
+                                <path d="M5 12h14m-6-6 6 6-6 6" />
+                            </svg></button>
+                        <template class="treatment-details">
+                            <h3>O que são</h3>
+                            <p>“Terapias regenerativas” pode se referir a diferentes abordagens voltadas ao cuidado e à renovação dos tecidos. A técnica, os produtos e a finalidade dependem do protocolo proposto.</p>
+                            <h3>Quando podem ser indicadas</h3>
+                            <p>A avaliação profissional considera a necessidade, o histórico de saúde e as evidências e autorizações aplicáveis a cada método. O nome da categoria, por si só, não define um procedimento específico.</p>
+                            <h3>Como é o planejamento</h3>
+                            <p>Antes de decidir, peça que sejam esclarecidos o método exato, os produtos utilizados, o objetivo, as etapas, as alternativas e o acompanhamento previsto.</p>
+                            <h3>O que considerar</h3>
+                            <p>Benefícios, limitações, riscos e cuidados variam de acordo com a técnica. A indicação e os resultados dependem de avaliação individual e não podem ser garantidos.</p>
+                        </template>
+                    </article>
+
+                    <!--TRATAMENTO 6 - Tratamento de Peles -->
+                    <article class="treatment-card reveal reveal-delay-1" id="tratamentos-da-pele">
+                        <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=1000&q=82"
+                            alt="Rotina de cuidados com a pele" loading="lazy" decoding="async">
+                        <span class="treatment-number">05</span>
+                        <div class="treatment-content">
+                            <h3>Tratamentos da Pele</h3>
+                            <p>Um olhar atento às necessidades e ao momento de cada pele.</p>
+                        </div>
+                        <button class="card-arrow" type="button" aria-label="Saiba mais sobre tratamentos da pele"
+                            aria-haspopup="dialog" aria-controls="treatment-details-dialog"><svg
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                aria-hidden="true">
+                                <path d="M5 12h14m-6-6 6 6-6 6" />
+                            </svg></button>
+                        <template class="treatment-details">
+                            <h3>O que pode incluir</h3>
+                            <p>Os cuidados com a pele podem envolver diferentes rotinas e procedimentos. As opções dependem das características observadas e do objetivo definido em conjunto durante a avaliação.</p>
+                            <h3>Quando pode ser indicado</h3>
+                            <p>A consulta considera o tipo e o momento da pele, a rotina, as sensibilidades e o histórico de saúde. A avaliação ajuda a escolher uma abordagem adequada e segura.</p>
+                            <h3>Como é o planejamento</h3>
+                            <p>O plano pode combinar orientações de cuidado em casa e procedimentos, quando indicados. As etapas, os produtos e o intervalo entre sessões são explicados individualmente.</p>
+                            <h3>O que considerar</h3>
+                            <p>Converse sobre cuidados antes e depois, possíveis reações, limitações e acompanhamento. A resposta varia de pessoa para pessoa; não há resultado garantido.</p>
+                        </template>
+                    </article>
+
+                    
+                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="treatments-carousel-controls" role="group" aria-label="Navegação dos procedimentos">
+                    <button class="treatments-carousel-prev" type="button" aria-label="Ver procedimentos anteriores"
+                        disabled>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            aria-hidden="true">
+                            <path d="M19 12H5m6 6-6-6 6-6" />
+                        </svg>
+                    </button>
+                    <span class="treatments-carousel-page" aria-live="polite" aria-atomic="true">01 / 01</span>
+                    <button class="treatments-carousel-next" type="button" aria-label="Ver próximos procedimentos"
+                        disabled>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            aria-hidden="true">
+                            <path d="M5 12h14m-6-6 6 6-6 6" />
+                        </svg>
+                    </button>
                 </div>
             </div>
+            
         </section>
 
-        <section class="about" id="sobre" aria-labelledby="about-title">
-            <div class="wrap about-grid">
-                <div class="about-visual reveal">
-                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=1000&q=85"
-                        alt="Retrato profissional ilustrativo em ambiente acolhedor" loading="lazy" decoding="async">
-                    <div class="about-stamp" aria-label="Cuidado individualizado e acolhedor">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"
+        <dialog class="treatment-dialog" id="treatment-details-dialog" aria-labelledby="treatment-dialog-title">
+            <div class="treatment-dialog-inner">
+                <div class="treatment-dialog-header">
+                    <span class="eyebrow">Cuidado sob medida</span>
+                    <button class="treatment-dialog-close" type="button" aria-label="Fechar informações do tratamento">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
                             aria-hidden="true">
-                            <path d="M12 20s-7-4.3-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.7-7 10-7 10Z" />
-                            <path d="M8 12h8" />
+                            <path d="m6 6 12 12M18 6 6 18" />
                         </svg>
-                        <span>Cuidado que valoriza sua essência</span>
-                    </div>
+                    </button>
                 </div>
-                <div class="about-copy reveal reveal-delay-1">
-                    <span class="eyebrow">Sobre a Mônica</span>
-                    <h2 class="display" id="about-title">Ciência, cuidado e <em>propósito.</em></h2>
-                    <p class="copy">A beleza não precisa de excessos para florescer. Esta proposta de atendimento une
-                        escuta atenta, olhar cuidadoso e uma abordagem contemporânea da estética regenerativa — com
-                        respeito à individualidade de cada pessoa.</p>
-                    <p class="demo-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                            aria-hidden="true">
-                            <circle cx="12" cy="12" r="9" />
-                            <path d="M12 11v5m0-8h.01" />
-                        </svg>Texto e imagem ilustrativos. Apresentação profissional a validar com a cliente.</p>
-                    <div class="about-points">
-                        <div class="about-point"><span class="point-index">01</span>
-                            <div>
-                                <h3>Formação e conhecimento</h3>
-                                <p>Trajetória acadêmica e qualificações a confirmar para a versão final.</p>
-                            </div>
-                        </div>
-                        <div class="about-point"><span class="point-index">02</span>
-                            <div>
-                                <h3>Tecnologia com critério</h3>
-                                <p>Recursos e abordagens definidos conforme avaliação individual.</p>
-                            </div>
-                        </div>
-                        <div class="about-point"><span class="point-index">03</span>
-                            <div>
-                                <h3>Atendimento humanizado</h3>
-                                <p>Escuta, acolhimento e cuidado em cada etapa da jornada.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="button button--outline" href="#contato">Conheça a proposta <svg viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                            <path d="M4 12h15m-6-6 6 6-6 6" />
-                        </svg></a>
-                </div>
+                <h2 class="display" id="treatment-dialog-title"></h2>
+                <div class="treatment-dialog-content"></div>
+                <p class="treatment-dialog-notice">As informações são gerais e não substituem uma avaliação profissional. Indicação, técnica, cuidados e resultados variam conforme cada pessoa.</p>
+                <a class="button treatment-dialog-contact" href="#contato">Converse sobre esse tratamento</a>
             </div>
-        </section>
+        </dialog>
+
 
         <section class="differentials" id="diferenciais" aria-labelledby="differentials-title">
             <div class="wrap">

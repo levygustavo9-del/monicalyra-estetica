@@ -447,6 +447,9 @@
             border-radius: 50%;
             color: var(--white);
             transition: background .4s var(--ease-smooth), color .4s var(--ease-smooth);
+            padding: 0;
+            background: transparent;
+            cursor: pointer;
         }
 
 
@@ -458,7 +461,8 @@
 
 
 
-        .treatment-card:hover .card-arrow {
+        .treatment-card:hover .card-arrow,
+        .treatment-card:focus-within .card-arrow {
             background: var(--white);
             color: var(--ink);
         }
