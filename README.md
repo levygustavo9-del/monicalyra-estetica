@@ -18,6 +18,7 @@ assets/
     navigation.js
     animations.js
     forms.js
+    experiences-carousel.js
 pages/
   politica-de-privacidade.html
   termos-de-uso.html
@@ -26,7 +27,7 @@ README.md
 .gitignore
 ```
 
-As fotografias ilustrativas são servidas pelo Unsplash e as fontes pelo Google Fonts. Por isso, esses recursos dependem de conexão à internet. Imagens oficiais podem ser adicionadas em `assets/images/` e apontadas no HTML/CSS quando forem fornecidas.
+As fotografias ilustrativas são servidas pelo Unsplash e as fontes pelo Google Fonts. Por isso, esses recursos dependem de conexão à internet. Imagens oficiais podem ser adicionadas em `assets/images/`; fotos autorizadas de experiências devem ficar em `imagens/experiencias/`.
 
 ## Como executar
 
@@ -43,7 +44,32 @@ Não há compilação, instalação de pacotes, banco de dados ou servidor de ap
 - Formulário com validação nativa de nome, e-mail e mensagem.
 - Ano do rodapé atualizado automaticamente.
 - Links de WhatsApp preparados para ativação após configurar o telefone.
+- Carrossel Swiper de experiências com fotos estáticas de antes e depois lado a lado; cartões-modelo são claramente sinalizados para substituição por conteúdo autorizado.
 - Páginas informativas preliminares de privacidade e termos.
+
+### Experiências e resultados
+
+Os três cartões iniciais da lista `experiences` em `assets/js/experiences-carousel.js` são apenas modelos: as áreas de imagem e os textos entre colchetes precisam ser substituídos, e não representam clientes, procedimentos, resultados ou depoimentos reais. Cada cartão mostra as fotos estáticas de antes e depois lado a lado, sem comparador interativo. Para publicar uma experiência, coloque as fotos autorizadas de antes, depois e, opcionalmente, perfil em `imagens/` e substitua um dos modelos por um registro como:
+
+```js
+{
+    id: "experiencia-01",
+    authorized: true,
+    beforeImage: "imagens/experiencias/antes-01.webp",
+    afterImage: "imagens/experiencias/depois-01.webp",
+    beforeAlt: "Descrição objetiva da foto de antes",
+    afterAlt: "Descrição objetiva da foto de depois",
+    procedure: "Nome confirmado do procedimento",
+    detail: "Informação complementar confirmada", // opcional
+    clientName: "Identificação autorizada", // opcional
+    age: "Idade autorizada", // opcional
+    profileImage: "imagens/experiencias/perfil-01.webp", // opcional
+    rating: 5, // opcional; somente avaliação real
+    testimonial: "Relato fornecido pela cliente" // opcional
+}
+```
+
+Remova `demo: true` do cartão-modelo e defina `authorized: true` somente após obter autorização para publicar as imagens e as informações. Use fotos próprias da mesma cliente, com enquadramento e iluminação comparáveis, e não as altere digitalmente. Avaliações, idade e depoimento devem ser incluídos apenas quando reais e autorizados. Os controles do Swiper aparecem automaticamente com mais de um cartão.
 
 ### Formulário
 

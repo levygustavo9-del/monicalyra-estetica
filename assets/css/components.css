@@ -181,6 +181,16 @@
     justify-self: end;
 }
 
+/* Header - Botão WhatsApp */
+.header-action .button--outline {
+    min-height: 48px;
+    padding-inline: 25px;
+    border-radius: 50px;
+    font-size: 9px;
+    letter-spacing: .14em;
+    transition: all .4s ease;
+}
+
 .menu-toggle {
     display: none;
     width: 44px;

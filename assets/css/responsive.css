@@ -301,7 +301,7 @@
                 padding: 0 25px 25px 0;
             }
 
-            .about-visual img {
+            .about-slideshow {
                 height: 425px;
             }
 
@@ -313,6 +313,36 @@
 
             .about-copy .display {
                 font-size: clamp(48px, 11vw, 63px);
+            }
+
+            .about-credentials {
+                margin-top: 65px;
+                padding-top: 38px;
+            }
+
+            .about-accordion-section {
+                margin-top: 65px;
+                padding-top: 38px;
+            }
+
+            .about-credentials-heading {
+                margin-bottom: 28px;
+            }
+
+            .about-credentials-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .about-credential,
+            .about-credential + .about-credential {
+                padding: 0;
+                border-left: 0;
+            }
+
+            .about-credential-title {
+                margin-bottom: 16px;
+                font-size: 27px;
             }
 
             .differentials {
@@ -366,18 +396,29 @@
                 font-size: clamp(45px, 10vw, 58px);
             }
 
-            .testimonial-grid {
-                grid-template-columns: 1fr;
+            .experience-carousel-controls {
                 gap: 12px;
             }
 
-            .quote-card {
-                min-height: unset;
-                padding: 25px;
+            .result-slide {
+                grid-template-columns: 1fr;
             }
 
-            .quote-card blockquote {
-                font-size: 22px;
+            .result-gallery {
+                padding: 7px;
+                gap: 7px;
+            }
+
+            .result-photo {
+                aspect-ratio: .95;
+            }
+
+            .result-details {
+                padding: 24px 21px 27px;
+            }
+
+            .result-procedure h3 {
+                font-size: 29px;
             }
 
             .contact {

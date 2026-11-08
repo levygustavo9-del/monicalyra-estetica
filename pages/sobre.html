@@ -28,6 +28,8 @@
     <link rel="stylesheet" href="/assets/css/responsive.css">
     <script defer src="/assets/js/main.js"></script>
     <script defer src="/assets/js/navigation.js"></script>
+    <script defer src="/assets/js/about-carousel.js"></script>
+    <script defer src="/assets/js/about-accordion.js"></script>
     <script defer src="/assets/js/animations.js"></script>
     <script defer src="/assets/js/forms.js"></script>
 </head>
@@ -71,8 +73,15 @@
     <section class="about" id="sobre" aria-labelledby="about-title">
             <div class="wrap about-grid">
                 <div class="about-visual reveal">
-                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=1000&q=85"
-                        alt="Retrato profissional ilustrativo em ambiente acolhedor" loading="lazy" decoding="async">
+                    <div class="about-slideshow" data-about-carousel role="group"
+                        aria-label="Fotografias de Mônica Lyra" aria-roledescription="apresentação de slides">
+                        <img class="about-slide is-active" src="/imagens/monica3.jpeg"
+                            alt="Mônica Lyra em retrato profissional" loading="eager" decoding="async">
+                        <img class="about-slide" src="/imagens/monica1.jpeg"
+                            alt="Mônica Lyra em retrato elegante" loading="eager" decoding="async" aria-hidden="true">
+                        <img class="about-slide" src="/imagens/monica2.jpeg"
+                            alt="Retrato próximo de Mônica Lyra" loading="eager" decoding="async" aria-hidden="true">
+                    </div>
                     <div class="about-stamp" aria-label="Cuidado individualizado e acolhedor">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"
                             aria-hidden="true">
@@ -84,39 +93,137 @@
                 </div>
                 <div class="about-copy reveal reveal-delay-1">
                     <span class="eyebrow">Sobre a Mônica</span>
-                    <h2 class="display" id="about-title">Ciência, cuidado e <em>propósito.</em></h2>
-                    <p class="copy">A beleza não precisa de excessos para florescer. Esta proposta de atendimento une
-                        escuta atenta, olhar cuidadoso e uma abordagem contemporânea da estética regenerativa — com
-                        respeito à individualidade de cada pessoa.</p>
-                    <p class="demo-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                            aria-hidden="true">
-                            <circle cx="12" cy="12" r="9" />
-                            <path d="M12 11v5m0-8h.01" />
-                        </svg>Texto e imagem ilustrativos. Apresentação profissional a validar com a cliente.</p>
-                    <div class="about-points">
-                        <div class="about-point"><span class="point-index">01</span>
-                            <div>
-                                <h3>Formação e conhecimento</h3>
-                                <p>Trajetória acadêmica e qualificações a confirmar para a versão final.</p>
-                            </div>
-                        </div>
-                        <div class="about-point"><span class="point-index">02</span>
-                            <div>
-                                <h3>Tecnologia com critério</h3>
-                                <p>Recursos e abordagens definidos conforme avaliação individual.</p>
-                            </div>
-                        </div>
-                        <div class="about-point"><span class="point-index">03</span>
-                            <div>
-                                <h3>Atendimento humanizado</h3>
-                                <p>Escuta, acolhimento e cuidado em cada etapa da jornada.</p>
-                            </div>
-                        </div>
-                    </div>
+                    <h2 class="display" id="about-title">Uma trajetória entre a beleza, a ciência e o <em>cuidado.</em></h2>
+                    <p class="copy">Entre Estética e Beauté, Mônica apresenta uma proposta que une beleza natural,
+                        escuta atenta e respeito à individualidade de cada pessoa.</p>
+
                     <a class="button button--outline" href="#contato">Conheça a proposta <svg viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                             <path d="M4 12h15m-6-6 6 6-6 6" />
                         </svg></a>
+                </div>
+            </div>
+            <div class="wrap about-credentials" aria-labelledby="about-credentials-title">
+                <div class="about-credentials-heading">
+                    <span class="eyebrow">Experiência &amp; qualificações</span>
+                    <h2 class="display" id="about-credentials-title">Conhecimento em duas áreas da <em>beleza.</em></h2>
+                    <p class="copy">Uma visão geral da formação e da experiência profissional de Mônica. Os dados
+                        indicados para confirmação serão completados após validação com ela.</p>
+                </div>
+                <div class="about-credentials-grid">
+                    <article class="about-credential">
+                        <h3 class="about-credential-title">Estética</h3>
+                        <div class="about-credential-years">
+                            <span class="about-credential-value">A confirmar</span>
+                            <span class="about-credential-label">tempo de atuação</span>
+                        </div>
+                        <dl class="about-credential-details">
+                            <div class="about-credential-detail">
+                                <dt>Formação acadêmica</dt>
+                                <dd>[Curso, instituição e ano de conclusão.]</dd>
+                            </div>
+                            <div class="about-credential-detail">
+                                <dt>Especializações, cursos e certificações</dt>
+                                <dd>[Títulos, instituições e anos.]</dd>
+                            </div>
+                            <div class="about-credential-detail">
+                                <dt>Áreas de atuação</dt>
+                                <dd>[Confirmar as áreas e os procedimentos que fazem parte da atuação de Mônica.]</dd>
+                            </div>
+                        </dl>
+                    </article>
+                    <article class="about-credential">
+                        <h3 class="about-credential-title">Beauté</h3>
+                        <div class="about-credential-years">
+                            <span class="about-credential-value">A confirmar</span>
+                            <span class="about-credential-label">tempo de atuação</span>
+                        </div>
+                        <dl class="about-credential-details">
+                            <div class="about-credential-detail">
+                                <dt>Formação em maquiagem</dt>
+                                <dd>[Cursos, instituições e anos.]</dd>
+                            </div>
+                            <div class="about-credential-detail">
+                                <dt>Penteados</dt>
+                                <dd>[Cursos e especializações.]</dd>
+                            </div>
+                            <div class="about-credential-detail">
+                                <dt>Noivas, produções e trabalhos</dt>
+                                <dd>[Experiência com noivas e trabalhos editoriais ou relevantes.]</dd>
+                            </div>
+                        </dl>
+                    </article>
+                </div>
+            </div>
+            <div class="wrap about-accordion-section" aria-labelledby="about-accordion-title">
+                <div class="about-accordion-heading">
+                    <span class="eyebrow">Além da trajetória</span>
+                    <h2 class="display" id="about-accordion-title">Uma visão que valoriza a <em>essência.</em></h2>
+                </div>
+                <div class="about-points" data-about-accordion>
+                    <div class="about-point">
+                        <span class="point-index">01</span>
+                        <button class="about-accordion-trigger" id="about-story-trigger" type="button"
+                            aria-expanded="false" aria-controls="about-story-panel">
+                            <span class="about-accordion-label">Minha história</span>
+                            <span class="about-accordion-icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="about-accordion-panel" id="about-story-panel"
+                            aria-labelledby="about-story-trigger" aria-hidden="true" inert>
+                            <div class="about-accordion-content">
+                                <p class="about-accordion-copy">[Completar com Mônica: sua trajetória pessoal, como
+                                    começou nas áreas de Estética e Beauté e o que a motivou.]</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-point">
+                        <span class="point-index">02</span>
+                        <button class="about-accordion-trigger" id="about-philosophy-trigger" type="button"
+                            aria-expanded="false" aria-controls="about-philosophy-panel">
+                            <span class="about-accordion-label">Minha filosofia</span>
+                            <span class="about-accordion-icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="about-accordion-panel" id="about-philosophy-panel"
+                            aria-labelledby="about-philosophy-trigger" aria-hidden="true" inert>
+                            <div class="about-accordion-content">
+                                <p class="about-accordion-copy">A proposta apresentada no site valoriza a beleza
+                                    natural, a individualidade e um cuidado conduzido com escuta atenta. [Completar com
+                                    Mônica: como relaciona beleza, autoestima e naturalidade em seu trabalho.]</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-point">
+                        <span class="point-index">03</span>
+                        <button class="about-accordion-trigger" id="about-beauty-trigger" type="button"
+                            aria-expanded="false" aria-controls="about-beauty-panel">
+                            <span class="about-accordion-label">Meu olhar sobre a beleza</span>
+                            <span class="about-accordion-icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="about-accordion-panel" id="about-beauty-panel"
+                            aria-labelledby="about-beauty-trigger" aria-hidden="true" inert>
+                            <div class="about-accordion-content">
+                                <p class="about-accordion-copy">[Completar com Mônica: como Estética, maquiagem e
+                                    penteados podem valorizar a beleza individual; incluir exemplos de seu trabalho,
+                                    se desejar.]</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-point">
+                        <span class="point-index">04</span>
+                        <button class="about-accordion-trigger" id="about-dedication-trigger" type="button"
+                            aria-expanded="false" aria-controls="about-dedication-panel">
+                            <span class="about-accordion-label">Dedicação e aperfeiçoamento</span>
+                            <span class="about-accordion-icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="about-accordion-panel" id="about-dedication-panel"
+                            aria-labelledby="about-dedication-trigger" aria-hidden="true" inert>
+                            <div class="about-accordion-content">
+                                <p class="about-accordion-copy">[Completar com Mônica: como mantém os estudos e a
+                                    atualização profissional nas áreas de Estética e Beauté, incluindo cursos e
+                                    conhecimentos que queira destacar.]</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

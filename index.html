@@ -32,6 +32,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js"></script>
     <script defer src="assets/js/treatments-carousel.js"></script>
     <script defer src="assets/js/treatments.js"></script>
+    <script defer src="assets/js/experiences-carousel.js"></script>
     <script defer src="assets/js/animations.js"></script>
     <script defer src="assets/js/forms.js"></script>
 </head>
@@ -68,7 +69,7 @@
                 </div>
                 <a href="#depoimentos">Depoimentos</a>
                 <a href="#diferenciais">Diferenciais</a>
-                <a href="#contato">Contato</a>
+           
             </nav>
             <a class="brand" href="#inicio" aria-label="MÔNICA LYRA — BEAUTÉ & ESTHÉTIQUE, início">
                 <span class="brand-monogram" aria-hidden="true">ml</span>
@@ -82,7 +83,7 @@
                         <path
                             d="M8.8 8.5c.3-.6.5-.6.8-.6h.4c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.6.7c-.2.2-.2.4 0 .7.5.8 1.3 1.5 2.1 1.9.2.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.5 0 .3-.1.8-.4 1.1-.4.4-1.1.7-1.8.6-.8-.1-1.8-.5-2.9-1.2-1.3-.8-2.4-2.1-2.8-2.8-.5-.8-.8-1.7-.7-2.3.1-.4.4-.8.9-1Z" />
                     </svg>
-                    <span>Agendar pelo WhatsApp</span>
+                    <span>Fale pelo WhatsApp</span>
                 </a>
             </div>
         </div>
@@ -95,7 +96,7 @@
             <div class="wrap hero-inner">
                 <div class="hero-content reveal">
                     <span class="eyebrow">Estética regenerativa</span>
-                    <h1 class="hero-title" id="hero-title">Realce o que há de mais <em>bonito</em> em você.</h1>
+                    <h1 class="hero-title" id="hero-title">Embelezar é a minha <em>arte</em>.</h1>
                     <p class="hero-copy">Ciência, cuidado e delicadeza em uma jornada de beleza que respeita a sua
                         essência.</p>
                     <a class="button" href="#contato" data-whatsapp-link>
@@ -504,37 +505,35 @@
             <div class="wrap">
                 <div class="testimonial-heading reveal">
                     <span class="eyebrow">Experiências</span>
-                    <h2 class="display" id="testimonials-title">Cuidado que acolhe, <em>beleza que inspira.</em></h2>
-                    <p class="copy">Um espaço reservado para compartilhar, com autorização, as histórias de quem viveu
-                        essa experiência.</p>
+                    <h2 class="display" id="testimonials-title">Beleza que conta <em>histórias.</em></h2>
+                    <p class="copy">Conheça experiências e resultados de quem confiou seus cuidados à Mônica Lyra.</p>
                 </div>
-                <div class="testimonial-grid">
-                    <article class="quote-card reveal">
-                        <div class="quote-stars" aria-label="Avaliação ilustrativa de cinco estrelas">★★★★★</div>
-                        <blockquote>“Fui recebida com muito carinho. Me senti acolhida desde o primeiro momento.”
-                        </blockquote>
-                        <div class="quote-person"><span class="quote-avatar" aria-hidden="true">C</span>
-                            <div><strong>Cliente ilustrativa</strong><span>Depoimento demonstrativo</span></div>
-                        </div>
-                    </article>
-                    <article class="quote-card reveal reveal-delay-1">
-                        <div class="quote-stars" aria-label="Avaliação ilustrativa de cinco estrelas">★★★★★</div>
-                        <blockquote>“Adorei a atenção aos detalhes e a leveza de todo o atendimento.”</blockquote>
-                        <div class="quote-person"><span class="quote-avatar" aria-hidden="true">C</span>
-                            <div><strong>Cliente ilustrativa</strong><span>Depoimento demonstrativo</span></div>
-                        </div>
-                    </article>
-                    <article class="quote-card reveal reveal-delay-2">
-                        <div class="quote-stars" aria-label="Avaliação ilustrativa de cinco estrelas">★★★★★</div>
-                        <blockquote>“Um cuidado especial, feito com delicadeza e respeito à minha individualidade.”
-                        </blockquote>
-                        <div class="quote-person"><span class="quote-avatar" aria-hidden="true">C</span>
-                            <div><strong>Cliente ilustrativa</strong><span>Depoimento demonstrativo</span></div>
-                        </div>
-                    </article>
+                <div class="experience-carousel" data-experience-carousel>
+                    <p class="experience-empty" data-experience-empty hidden>
+                        Nenhuma experiência autorizada cadastrada até o momento.
+                    </p>
+                    <div class="experience-track swiper experience-swiper" data-experience-track role="region"
+                        aria-label="Carrossel de experiências e resultados">
+                        <div class="swiper-wrapper"></div>
+                    </div>
+                    <div class="experience-carousel-controls" data-experience-controls>
+                        <button class="experience-arrow experience-prev" type="button"
+                            aria-label="Ver experiência anterior" disabled>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                aria-hidden="true"><path d="M19 12H5m6 6-6-6 6-6" /></svg>
+                        </button>
+                        <div class="experience-pagination" data-experience-pagination
+                            role="group" aria-label="Navegar pelas experiências"></div>
+                        <span class="experience-page" data-experience-page aria-live="polite"
+                            aria-atomic="true">0 / 0</span>
+                        <button class="experience-arrow experience-next" type="button"
+                            aria-label="Ver próxima experiência" disabled>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg>
+                        </button>
+                    </div>
                 </div>
-                <p class="testimonials-note">Conteúdo totalmente ilustrativo para demonstração; substituir por
-                    avaliações reais autorizadas.</p>
+                <p class="testimonials-note" data-experience-note></p>
             </div>
         </section>
 
