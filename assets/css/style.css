@@ -1180,7 +1180,7 @@ img {
 
 
 .journey-list::after {
-    background: #be5901;
+    background: var(--cream);
     transform: scaleY(var(--journey-progress));
     transform-origin: top;
     will-change: transform;
@@ -1242,14 +1242,14 @@ img {
 
 
 .journey-step.is-active .journey-marker {
-    color: #be5901;
+    color: var(--cream);
     transform: translateX(3px);
 }
 
 
 
 .journey-step.is-active .journey-marker::after {
-    background: #be5901;
+    background: var(--cream);
     transform: translate(-50%, -50%) scale(1);
 }
 
@@ -1290,7 +1290,7 @@ img {
 
 
 .journey-step.is-active .journey-step-title {
-    color: #be5901;
+    color: var(--cream);
 }
 
 

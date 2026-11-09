@@ -120,7 +120,9 @@
 
         journeyList.style.setProperty("--journey-progress", String(currentProgress));
         const progressPosition = currentProgress * (steps.length - 1);
-        const parallaxRange = Math.max(110, Math.min(300, window.innerWidth * 0.25));
+        const parallaxRange = window.innerWidth >= 768
+            ? Math.max(320, Math.min(460, window.innerWidth * 0.38))
+            : Math.max(110, Math.min(300, window.innerWidth * 0.25));
         stepCopies.forEach((copy, index) => {
             const distance = Math.abs(progressPosition - index);
             const proximity = Math.max(0, 1 - distance);
