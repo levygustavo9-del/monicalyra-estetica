@@ -655,4 +655,14 @@
             .journey-artwork {
                 transform: translateY(-50%);
             }
+
+            .journey-parallax-layer {
+                transform: none;
+                will-change: auto;
+            }
+
+            .journey-step-copy {
+                transform: none;
+                will-change: auto;
+            }
         }

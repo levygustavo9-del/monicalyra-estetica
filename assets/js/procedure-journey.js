@@ -63,9 +63,12 @@
     });
 
     const markers = steps.map((step) => step.querySelector(".journey-marker"));
+    const stepCopies = steps.map((step) => step.querySelector(".journey-step-copy"));
+    const journeyArtwork = journeyList.closest(".journey")?.querySelector(".journey-artwork");
     let activeIndex = -1;
     let currentProgress = 0;
     let animationFrame = 0;
+    let lastFrameTime = 0;
 
     function setActiveStep(nextIndex) {
         if (nextIndex === activeIndex) {
@@ -85,7 +88,7 @@
         });
     }
 
-    function updateProgress() {
+    function updateProgress(timestamp = performance.now()) {
         animationFrame = 0;
 
         const listBounds = journeyList.getBoundingClientRect();
@@ -106,12 +109,32 @@
             : 0;
         const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         const remainingProgress = targetProgress - currentProgress;
+        const elapsedTime = lastFrameTime
+            ? Math.min((timestamp - lastFrameTime) / 1000, 0.05)
+            : 1 / 60;
+        lastFrameTime = timestamp;
 
         currentProgress = prefersReducedMotion || Math.abs(remainingProgress) < 0.001
             ? targetProgress
-            : currentProgress + remainingProgress * 0.12;
+            : currentProgress + remainingProgress * (1 - Math.exp(-elapsedTime / 0.22));
 
         journeyList.style.setProperty("--journey-progress", String(currentProgress));
+        const progressPosition = currentProgress * (steps.length - 1);
+        const parallaxRange = Math.max(54, Math.min(128, window.innerWidth * 0.1));
+        stepCopies.forEach((copy, index) => {
+            const distance = Math.abs(progressPosition - index);
+            const proximity = Math.max(0, 1 - distance);
+            const focus = proximity * proximity * (3 - 2 * proximity);
+
+            copy.style.setProperty("--journey-step-focus-percent", `${(focus * 100).toFixed(1)}%`);
+            copy.style.setProperty("--journey-step-opacity", (0.14 + focus * 0.86).toFixed(3));
+            copy.style.setProperty("--journey-step-offset", `${((1 - focus) * 30).toFixed(2)}px`);
+        });
+        if (journeyArtwork) {
+            journeyArtwork.style.setProperty("--journey-parallax-rings", `${(currentProgress * parallaxRange * 0.45).toFixed(2)}px`);
+            journeyArtwork.style.setProperty("--journey-parallax-arcs", `${(currentProgress * parallaxRange * -0.75).toFixed(2)}px`);
+            journeyArtwork.style.setProperty("--journey-parallax-details", `${(currentProgress * parallaxRange).toFixed(2)}px`);
+        }
         setActiveStep(Math.min(steps.length - 1, Math.round(currentProgress * (steps.length - 1))));
 
         if (!prefersReducedMotion && Math.abs(targetProgress - currentProgress) >= 0.001) {

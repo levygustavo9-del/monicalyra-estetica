@@ -24,16 +24,16 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&family=Italianno&family=Manrope:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=journey-parallax-20261109">
     <link rel="stylesheet" href="assets/css/components.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/responsive.css?v=journey-parallax-20261109">
     <script defer src="assets/js/main.js"></script>
     <script defer src="assets/js/navigation.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js"></script>
     <script defer src="assets/js/treatments-carousel.js"></script>
     <script defer src="assets/js/treatments.js"></script>
     <script defer src="assets/js/experiences-carousel.js"></script>
-    <script defer src="assets/js/procedure-journey.js"></script>
+    <script defer src="assets/js/procedure-journey.js?v=journey-parallax-20261109"></script>
     <script defer src="assets/js/animations.js"></script>
     <script defer src="assets/js/forms.js"></script>
 </head>
@@ -540,14 +540,20 @@
 
         <section class="journey" id="como-funciona" aria-labelledby="journey-title">
             <svg class="journey-artwork" viewBox="0 0 1000 1000" fill="none" aria-hidden="true">
-                <circle class="journey-orbit-ring journey-orbit-ring--outer" cx="500" cy="500" r="486" pathLength="1" stroke="currentColor" stroke-opacity=".12" />
-                <circle class="journey-orbit-ring journey-orbit-ring--middle" cx="500" cy="500" r="405" pathLength="1" stroke="currentColor" stroke-opacity=".08" />
-                <circle class="journey-orbit-ring journey-orbit-ring--inner" cx="500" cy="500" r="322" pathLength="1" stroke="currentColor" stroke-opacity=".11" />
-                <path class="journey-orbit-arc journey-orbit-arc--outer" d="M500 14a486 486 0 0 1 472 370" pathLength="1" stroke="currentColor" stroke-opacity=".24" />
-                <path class="journey-orbit-arc journey-orbit-arc--middle" d="M96 500a404 404 0 0 0 604 350" pathLength="1" stroke="currentColor" stroke-opacity=".13" />
-                <path class="journey-orbit-arc journey-orbit-arc--inner" d="M500 178a322 322 0 0 1 279 161" pathLength="1" stroke="currentColor" stroke-opacity=".18" />
-                <circle class="journey-orbit-accent" cx="972" cy="384" r="4" fill="currentColor" />
-                <circle class="journey-orbit-accent" cx="700" cy="850" r="3" fill="currentColor" fill-opacity=".72" />
+                <g class="journey-parallax-layer journey-parallax-layer--rings">
+                    <circle cx="500" cy="500" r="486" stroke="currentColor" stroke-opacity=".12" />
+                    <circle cx="500" cy="500" r="405" stroke="currentColor" stroke-opacity=".08" />
+                    <circle cx="500" cy="500" r="322" stroke="currentColor" stroke-opacity=".11" />
+                </g>
+                <g class="journey-parallax-layer journey-parallax-layer--arcs">
+                    <path d="M500 14a486 486 0 0 1 472 370" stroke="currentColor" stroke-opacity=".24" />
+                    <path d="M96 500a404 404 0 0 0 604 350" stroke="currentColor" stroke-opacity=".13" />
+                    <path d="M500 178a322 322 0 0 1 279 161" stroke="currentColor" stroke-opacity=".18" />
+                </g>
+                <g class="journey-parallax-layer journey-parallax-layer--details">
+                    <circle cx="972" cy="384" r="4" fill="currentColor" />
+                    <circle cx="700" cy="850" r="3" fill="currentColor" fill-opacity=".72" />
+                </g>
             </svg>
             <div class="wrap">
                 <div class="journey-heading reveal">
