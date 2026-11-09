@@ -116,11 +116,11 @@
 
         currentProgress = prefersReducedMotion || Math.abs(remainingProgress) < 0.001
             ? targetProgress
-            : currentProgress + remainingProgress * (1 - Math.exp(-elapsedTime / 0.22));
+            : currentProgress + remainingProgress * (1 - Math.exp(-elapsedTime / 0.4));
 
         journeyList.style.setProperty("--journey-progress", String(currentProgress));
         const progressPosition = currentProgress * (steps.length - 1);
-        const parallaxRange = Math.max(72, Math.min(172, window.innerWidth * 0.14));
+        const parallaxRange = Math.max(110, Math.min(300, window.innerWidth * 0.25));
         stepCopies.forEach((copy, index) => {
             const distance = Math.abs(progressPosition - index);
             const proximity = Math.max(0, 1 - distance);
@@ -131,9 +131,12 @@
             copy.style.setProperty("--journey-step-offset", `${((1 - focus) * 30).toFixed(2)}px`);
         });
         if (journeyArtwork) {
-            journeyArtwork.style.setProperty("--journey-parallax-rings", `${(currentProgress * parallaxRange * 0.45).toFixed(2)}px`);
-            journeyArtwork.style.setProperty("--journey-parallax-arcs", `${(currentProgress * parallaxRange * -0.75).toFixed(2)}px`);
-            journeyArtwork.style.setProperty("--journey-parallax-details", `${(currentProgress * parallaxRange).toFixed(2)}px`);
+            journeyArtwork.style.setProperty("--journey-parallax-rings-x", `${(currentProgress * parallaxRange * -0.3).toFixed(2)}px`);
+            journeyArtwork.style.setProperty("--journey-parallax-rings", `${(currentProgress * parallaxRange * 0.75).toFixed(2)}px`);
+            journeyArtwork.style.setProperty("--journey-parallax-arcs-x", `${(currentProgress * parallaxRange * 0.5).toFixed(2)}px`);
+            journeyArtwork.style.setProperty("--journey-parallax-arcs", `${(currentProgress * parallaxRange * -0.9).toFixed(2)}px`);
+            journeyArtwork.style.setProperty("--journey-parallax-details-x", `${(currentProgress * parallaxRange * 0.8).toFixed(2)}px`);
+            journeyArtwork.style.setProperty("--journey-parallax-details", `${(currentProgress * parallaxRange * 1.1).toFixed(2)}px`);
         }
         setActiveStep(Math.min(steps.length - 1, Math.round(currentProgress * (steps.length - 1))));
 

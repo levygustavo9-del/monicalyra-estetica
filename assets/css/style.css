@@ -1069,19 +1069,19 @@ img {
 
 
 .journey-parallax-layer--rings {
-    transform: translateY(var(--journey-parallax-rings, 0px));
+    transform: translate(var(--journey-parallax-rings-x, 0px), var(--journey-parallax-rings, 0px));
 }
 
 
 
 .journey-parallax-layer--arcs {
-    transform: translateY(var(--journey-parallax-arcs, 0px));
+    transform: translate(var(--journey-parallax-arcs-x, 0px), var(--journey-parallax-arcs, 0px));
 }
 
 
 
 .journey-parallax-layer--details {
-    transform: translateY(var(--journey-parallax-details, 0px));
+    transform: translate(var(--journey-parallax-details-x, 0px), var(--journey-parallax-details, 0px));
 }
 
 
@@ -1180,7 +1180,7 @@ img {
 
 
 .journey-list::after {
-    background: var(--bronze);
+    background: #be5901;
     transform: scaleY(var(--journey-progress));
     transform-origin: top;
     will-change: transform;
@@ -1231,7 +1231,7 @@ img {
     left: -60px;
     width: 9px;
     height: 9px;
-    border: 1px solid color-mix(in srgb, var(--bronze-light) 80%, transparent);
+    border: 1px solid rgba(213, 171, 135, .8);
     border-radius: 50%;
     background: var(--ink);
     content: "";
@@ -1242,14 +1242,14 @@ img {
 
 
 .journey-step.is-active .journey-marker {
-    color: var(--bronze-light);
+    color: #be5901;
     transform: translateX(3px);
 }
 
 
 
 .journey-step.is-active .journey-marker::after {
-    background: var(--bronze-light);
+    background: #be5901;
     transform: translate(-50%, -50%) scale(1);
 }
 
@@ -1287,6 +1287,12 @@ img {
         color 1s cubic-bezier(.16, 1, .3, 1),
         transform 1.2s cubic-bezier(.16, 1, .3, 1);
 }
+
+
+.journey-step.is-active .journey-step-title {
+    color: #be5901;
+}
+
 
 
 .journey-step-description {

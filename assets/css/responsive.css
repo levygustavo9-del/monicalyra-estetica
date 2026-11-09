@@ -657,12 +657,32 @@
             }
 
             .journey-parallax-layer {
-                transform: none;
                 will-change: auto;
             }
 
+            .journey-parallax-layer--rings {
+                transform: translate(
+                    calc(var(--journey-parallax-rings-x, 0px) * .65),
+                    calc(var(--journey-parallax-rings, 0px) * .65)
+                );
+            }
+
+            .journey-parallax-layer--arcs {
+                transform: translate(
+                    calc(var(--journey-parallax-arcs-x, 0px) * .65),
+                    calc(var(--journey-parallax-arcs, 0px) * .65)
+                );
+            }
+
+            .journey-parallax-layer--details {
+                transform: translate(
+                    calc(var(--journey-parallax-details-x, 0px) * .65),
+                    calc(var(--journey-parallax-details, 0px) * .65)
+                );
+            }
+
             .journey-step-copy {
-                transform: none;
+                transform: translate3d(0, calc(var(--journey-step-offset, 20px) * .25), 0);
                 will-change: auto;
             }
         }
