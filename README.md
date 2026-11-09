@@ -19,6 +19,7 @@ assets/
     animations.js
     forms.js
     experiences-carousel.js
+    procedure-journey.js
 pages/
   politica-de-privacidade.html
   termos-de-uso.html
@@ -41,6 +42,7 @@ Não há compilação, instalação de pacotes, banco de dados ou servidor de ap
 - Navegação por âncoras e menu mobile acessível por teclado.
 - Carrossel de procedimentos que agrupa automaticamente os cards em páginas de cinco, com informações individuais em janelas acessíveis.
 - Animações discretas de entrada ao rolar a página, independentes da preferência de movimento do sistema.
+- Seção editorial da jornada de atendimento com linha do tempo e etapas editáveis em `assets/js/procedure-journey.js`.
 - Formulário com validação nativa de nome, e-mail e mensagem.
 - Ano do rodapé atualizado automaticamente.
 - Links de WhatsApp preparados para ativação após configurar o telefone.

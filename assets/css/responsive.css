@@ -43,6 +43,39 @@
             .footer-top> :first-child {
                 grid-column: span 3;
             }
+
+            .journey-experience {
+                max-width: 860px;
+            }
+
+            .journey-list {
+                padding-left: 80px;
+            }
+
+            .journey-list::before,
+            .journey-list::after {
+                left: 36px;
+            }
+
+            .journey-step {
+                grid-template-columns: 62px minmax(0, 1fr);
+                gap: 12px;
+                min-height: 286px;
+                padding-bottom: 72px;
+            }
+
+            .journey-step:last-child {
+                min-height: 210px;
+            }
+
+            .journey-marker {
+                min-width: 58px;
+                font-size: 58px;
+            }
+
+            .journey-marker::after {
+                left: -44px;
+            }
         }
 
 @media (max-width: 760px) {
@@ -384,6 +417,93 @@
                 font-size: 22px;
             }
 
+            .journey {
+                padding-block: 82px;
+            }
+
+            .journey-artwork {
+                top: 57%;
+                right: -390px;
+                width: 690px;
+            }
+
+            .journey-heading {
+                display: block;
+                margin-bottom: 40px;
+            }
+
+            .journey-heading .eyebrow {
+                margin-bottom: 18px;
+            }
+
+            .journey-heading-main {
+                display: block;
+            }
+
+            .journey-heading .display {
+                margin: 0;
+                font-size: clamp(39px, 10.4vw, 58px);
+                line-height: .98;
+            }
+
+            .journey-heading .copy {
+                max-width: 370px;
+                margin: 20px 0 0;
+            }
+
+            .journey-experience {
+                max-width: none;
+                margin-left: 0;
+            }
+
+            .journey-list {
+                padding: 13px 0 0 61px;
+            }
+
+            .journey-list::before,
+            .journey-list::after {
+                left: 25px;
+            }
+
+            .journey-step {
+                grid-template-columns: 47px minmax(0, 1fr);
+                gap: 12px;
+                min-height: 275px;
+                padding-bottom: 52px;
+            }
+
+            .journey-step:last-child {
+                min-height: 205px;
+                padding-bottom: 0;
+            }
+
+            .journey-marker {
+                min-width: 44px;
+                min-height: 52px;
+                font-size: 43px;
+            }
+
+            .journey-marker::after {
+                left: -35px;
+            }
+
+            .journey-step-copy,
+            .journey-step:nth-child(even) .journey-step-copy {
+                max-width: 390px;
+                margin-left: 0;
+                padding-top: 7px;
+            }
+
+            .journey-step-title {
+                margin-bottom: 10px;
+                font-size: clamp(28px, 7.3vw, 36px);
+            }
+
+            .journey-step-description {
+                font-size: 12px;
+                line-height: 1.85;
+            }
+
             .testimonials {
                 padding-block: 78px;
             }
@@ -515,5 +635,24 @@
 
             .treatment-dialog-contact {
                 width: 100%;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .motion-ready .journey .reveal {
+                opacity: 1;
+                transform: none;
+            }
+
+            .journey .reveal,
+            .journey-list::after,
+            .journey-marker,
+            .journey-step-copy,
+            .journey-step-title {
+                transition: none;
+            }
+
+            .journey-artwork {
+                transform: translateY(-50%);
             }
         }

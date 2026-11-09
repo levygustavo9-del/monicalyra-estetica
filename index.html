@@ -33,6 +33,7 @@
     <script defer src="assets/js/treatments-carousel.js"></script>
     <script defer src="assets/js/treatments.js"></script>
     <script defer src="assets/js/experiences-carousel.js"></script>
+    <script defer src="assets/js/procedure-journey.js"></script>
     <script defer src="assets/js/animations.js"></script>
     <script defer src="assets/js/forms.js"></script>
 </head>
@@ -534,6 +535,31 @@
                     </div>
                 </div>
                 <p class="testimonials-note" data-experience-note></p>
+            </div>
+        </section>
+
+        <section class="journey" id="como-funciona" aria-labelledby="journey-title">
+            <svg class="journey-artwork" viewBox="0 0 1000 1000" fill="none" aria-hidden="true">
+                <circle class="journey-orbit-ring journey-orbit-ring--outer" cx="500" cy="500" r="486" pathLength="1" stroke="currentColor" stroke-opacity=".12" />
+                <circle class="journey-orbit-ring journey-orbit-ring--middle" cx="500" cy="500" r="405" pathLength="1" stroke="currentColor" stroke-opacity=".08" />
+                <circle class="journey-orbit-ring journey-orbit-ring--inner" cx="500" cy="500" r="322" pathLength="1" stroke="currentColor" stroke-opacity=".11" />
+                <path class="journey-orbit-arc journey-orbit-arc--outer" d="M500 14a486 486 0 0 1 472 370" pathLength="1" stroke="currentColor" stroke-opacity=".24" />
+                <path class="journey-orbit-arc journey-orbit-arc--middle" d="M96 500a404 404 0 0 0 604 350" pathLength="1" stroke="currentColor" stroke-opacity=".13" />
+                <path class="journey-orbit-arc journey-orbit-arc--inner" d="M500 178a322 322 0 0 1 279 161" pathLength="1" stroke="currentColor" stroke-opacity=".18" />
+                <circle class="journey-orbit-accent" cx="972" cy="384" r="4" fill="currentColor" />
+                <circle class="journey-orbit-accent" cx="700" cy="850" r="3" fill="currentColor" fill-opacity=".72" />
+            </svg>
+            <div class="wrap">
+                <div class="journey-heading reveal">
+                    <span class="eyebrow">Nossa experiência</span>
+                    <div class="journey-heading-main">
+                        <h2 class="display" id="journey-title">Uma jornada de cuidado, do primeiro contato ao <em>acompanhamento.</em></h2>
+                        <p class="copy">Cada detalhe pensado para proporcionar uma experiência acolhedora e personalizada.</p>
+                    </div>
+                </div>
+                <div class="journey-experience">
+                    <ol class="journey-list" data-journey-list aria-label="Etapas da jornada de atendimento"></ol>
+                </div>
             </div>
         </section>
 
