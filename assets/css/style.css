@@ -1047,7 +1047,7 @@ img {
     width: min(91vw, 1080px);
     height: auto;
     overflow: visible;
-    color: #eb6d00;
+    color: var(--bronze-light);
     pointer-events: none;
     transform-origin: center;
     transform: translateY(-50%);
@@ -1102,7 +1102,7 @@ img {
 
 
 .journey-heading .eyebrow {
-    color: #d5ab87;
+    color: var(--bronze-light);
     margin-bottom: 22px;
 }
 
@@ -1126,7 +1126,7 @@ img {
 
 
 .journey-heading .display em {
-    color: #d5ab87;
+    color: var(--bronze-light);
 }
 
 
@@ -1180,7 +1180,7 @@ img {
 
 
 .journey-list::after {
-    background: #be5901;
+    background: var(--bronze);
     transform: scaleY(var(--journey-progress));
     transform-origin: top;
     will-change: transform;
@@ -1231,7 +1231,7 @@ img {
     left: -60px;
     width: 9px;
     height: 9px;
-    border: 1px solid rgba(213, 171, 135, .8);
+    border: 1px solid color-mix(in srgb, var(--bronze-light) 80%, transparent);
     border-radius: 50%;
     background: var(--ink);
     content: "";
@@ -1242,14 +1242,14 @@ img {
 
 
 .journey-step.is-active .journey-marker {
-    color: #be5901;
+    color: var(--bronze-light);
     transform: translateX(3px);
 }
 
 
 
 .journey-step.is-active .journey-marker::after {
-    background: #be5901;
+    background: var(--bronze-light);
     transform: translate(-50%, -50%) scale(1);
 }
 
@@ -1279,7 +1279,7 @@ img {
     letter-spacing: -.035em;
     line-height: 1.04;
 
-    color: color-mix(in srgb, var(--white), #be5901 var(--journey-step-focus-percent, 0%));
+    color: color-mix(in srgb, var(--white), var(--bronze-light) var(--journey-step-focus-percent, 0%));
 }
 
 .journey-marker {
