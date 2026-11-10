@@ -64,7 +64,9 @@
 
     const markers = steps.map((step) => step.querySelector(".journey-marker"));
     const stepCopies = steps.map((step) => step.querySelector(".journey-step-copy"));
-    const journeyArtwork = journeyList.closest(".journey")?.querySelector(".journey-artwork");
+    const journeySection = journeyList.closest(".journey");
+    const journeyArtwork = journeySection?.querySelector(".journey-artwork");
+    const journeyHeading = journeySection?.querySelector(".journey-heading-main");
     let activeIndex = -1;
     let currentProgress = 0;
     let animationFrame = 0;
@@ -107,22 +109,24 @@
         const targetProgress = lineLength > 0
             ? Math.min(1, Math.max(0, (readingPoint - firstCenter) / lineLength))
             : 0;
-        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         const remainingProgress = targetProgress - currentProgress;
         const elapsedTime = lastFrameTime
             ? Math.min((timestamp - lastFrameTime) / 1000, 0.05)
             : 1 / 60;
         lastFrameTime = timestamp;
 
-        currentProgress = prefersReducedMotion || Math.abs(remainingProgress) < 0.001
+        currentProgress = Math.abs(remainingProgress) < 0.001
             ? targetProgress
             : currentProgress + remainingProgress * (1 - Math.exp(-elapsedTime / 0.4));
 
         journeyList.style.setProperty("--journey-progress", String(currentProgress));
         const progressPosition = currentProgress * (steps.length - 1);
-        const parallaxRange = window.innerWidth >= 768
-            ? Math.max(320, Math.min(460, window.innerWidth * 0.38))
-            : Math.max(110, Math.min(300, window.innerWidth * 0.25));
+        const isWideScreen = window.innerWidth >= 768;
+        const parallaxRange = isWideScreen
+            ? Math.max(440, Math.min(600, window.innerWidth * 0.5))
+            : Math.max(180, Math.min(330, window.innerWidth * 0.32));
+        const headingParallaxOffset = currentProgress * (isWideScreen ? -96 : -56);
+        journeyHeading?.style.setProperty("--journey-heading-parallax", `${headingParallaxOffset.toFixed(2)}px`);
         stepCopies.forEach((copy, index) => {
             const distance = Math.abs(progressPosition - index);
             const proximity = Math.max(0, 1 - distance);
@@ -142,7 +146,7 @@
         }
         setActiveStep(Math.min(steps.length - 1, Math.round(currentProgress * (steps.length - 1))));
 
-        if (!prefersReducedMotion && Math.abs(targetProgress - currentProgress) >= 0.001) {
+        if (Math.abs(targetProgress - currentProgress) >= 0.001) {
             animationFrame = window.requestAnimationFrame(updateProgress);
         }
     }

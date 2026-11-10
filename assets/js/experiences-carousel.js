@@ -239,11 +239,10 @@
         return;
     }
 
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const swiper = new Swiper(track, {
         slidesPerView: 1.04,
         spaceBetween: 14,
-        speed: prefersReducedMotion ? 250 : 700,
+        speed: 700,
         freeMode: false,
         watchOverflow: true,
         keyboard: {

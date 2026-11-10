@@ -533,14 +533,6 @@ img {
 
 
 
-@media (prefers-reduced-motion: reduce) {
-    .about-visual img {
-        transition-duration: 1.3s;
-    }
-}
-
-
-
 .about-stamp {
     position: absolute;
     z-index: 2;
@@ -594,28 +586,59 @@ img {
 .about-credentials {
     margin-top: clamp(72px, 9vw, 120px);
     padding-top: clamp(38px, 5vw, 64px);
-    border-top: .5px solid var(--line);
+    padding-bottom: clamp(48px, 6vw, 76px);
+    background:
+        radial-gradient(circle at 88% 12%,
+            transparent 0 170px,
+            rgba(231, 205, 182, .16) 171px 172px,
+            transparent 173px 210px,
+            rgba(231, 205, 182, .1) 211px 212px,
+            transparent 213px 250px,
+            rgba(231, 205, 182, .07) 251px 252px,
+            transparent 253px),
+        var(--ink);
+    box-shadow: 0 0 0 100vmax var(--ink);
+    clip-path: inset(0 -100vmax);
+    color: var(--white);
 }
 
 
 
 .about-credentials-heading {
-    max-width: 680px;
-    margin-bottom: 38px;
+    display: grid;
+    max-width: 940px;
+    grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
+    align-items: end;
+    column-gap: clamp(36px, 7vw, 92px);
+    margin-bottom: 46px;
+}
+
+.about-credentials-heading .eyebrow {
+    grid-column: 1 / -1;
+    color: #d5ab87;
 }
 
 
 
 .about-credentials-heading .display {
-    margin-bottom: 16px;
+    margin: 18px 0 0;
+    color: var(--white);
     font-size: clamp(38px, 4.2vw, 54px);
+}
+
+.about-credentials-heading .display em {
+    color: #d5ab87;
 }
 
 
 
 .about-credentials-heading .copy {
-    max-width: 560px;
-    margin: 0;
+    grid-column: 1 / -1;
+    max-width: 760px;
+    margin: 20px 0 0;
+    color: rgba(255, 253, 250, .72);
+    font-size: 12px;
+    line-height: 1.9;
 }
 
 
@@ -629,7 +652,8 @@ img {
 
 .about-credential {
     min-width: 0;
-    padding: 0 clamp(24px, 4vw, 56px) 0 0;
+    padding: 23px clamp(24px, 4vw, 56px) 0 0;
+    border-top: .5px solid rgba(255, 255, 255, .2);
 }
 
 
@@ -637,14 +661,14 @@ img {
 .about-credential+.about-credential {
     padding-right: 0;
     padding-left: clamp(24px, 4vw, 56px);
-    border-left: .5px solid var(--line);
+    border-left: .5px solid rgba(255, 255, 255, .16);
 }
 
 
 
 .about-credential-title {
-    margin: 0 0 22px;
-    color: var(--bronze);
+    margin: 0 0 17px;
+    color: #d5ab87;
     font-family: var(--serif);
     font-size: 30px;
     font-weight: 400;
@@ -655,29 +679,34 @@ img {
 
 .about-credential-years {
     display: flex;
-    min-height: 82px;
-    flex-direction: column;
-    justify-content: center;
-    margin-bottom: 18px;
-    padding-block: 12px;
-    border-block: .5px solid var(--line);
+    min-height: 76px;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 12px 15px;
+    border-block: .5px solid rgba(255, 255, 255, .16);
+    background: linear-gradient(100deg, rgba(255, 253, 250, .08), rgba(255, 253, 250, 0));
 }
 
 
 
 .about-credential-value {
+    color: var(--white);
     font-family: var(--serif);
     font-size: clamp(28px, 3.2vw, 40px);
     line-height: 1.1;
+    white-space: nowrap;
 }
 
 
 
 .about-credential-label {
-    margin-top: 4px;
-    color: var(--ink-soft);
+    margin-left: auto;
+    color: rgba(255, 253, 250, .62);
     font-size: 9px;
     letter-spacing: .1em;
+    text-align: right;
     text-transform: uppercase;
 }
 
@@ -691,13 +720,14 @@ img {
 
 .about-credential-detail {
     padding-block: 13px;
-    border-bottom: .5px solid var(--line);
+    border-bottom: .5px solid rgba(255, 255, 255, .14);
 }
 
 
 
 .about-credential-detail dt {
     margin-bottom: 4px;
+    color: #d5ab87;
     font-size: 10px;
     font-weight: 700;
     letter-spacing: .06em;
@@ -708,9 +738,17 @@ img {
 
 .about-credential-detail dd {
     margin: 0;
-    color: var(--ink-soft);
-    font-size: 11px;
-    line-height: 1.7;
+    color: rgba(255, 253, 250, .78);
+    font-size: 12px;
+    line-height: 1.75;
+}
+
+.about-credential:last-child .about-credential-detail:last-child {
+    margin-top: 8px;
+    padding: 15px 16px;
+    border: 0;
+    border-left: 1px solid #d5ab87;
+    background: rgba(255, 253, 250, .08);
 }
 
 
@@ -889,18 +927,6 @@ img {
 .about-accordion-copy strong {
     color: var(--ink);
     font-weight: 600;
-}
-
-
-
-@media (prefers-reduced-motion: reduce) {
-
-    .about-accordion-icon::before,
-    .about-accordion-icon::after,
-    .about-accordion-panel,
-    .about-accordion-content {
-        transition: none;
-    }
 }
 
 
@@ -1110,6 +1136,8 @@ img {
 
 .journey-heading-main {
     display: block;
+    transform: translate3d(0, var(--journey-heading-parallax, 0px), 0);
+    will-change: transform;
 }
 
 
@@ -1445,14 +1473,6 @@ img {
     font-size: 10px;
     font-style: italic;
     text-align: center;
-}
-
-
-
-@media (prefers-reduced-motion: reduce) {
-    .experience-arrow {
-        transition: none;
-    }
 }
 
 

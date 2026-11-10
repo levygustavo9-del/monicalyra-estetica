@@ -360,6 +360,20 @@
 
             .about-credentials-heading {
                 margin-bottom: 28px;
+                grid-template-columns: minmax(0, 1fr);
+                row-gap: 0;
+            }
+
+            .about-credentials-heading .eyebrow {
+                grid-column: auto;
+            }
+
+            .about-credentials-heading .display {
+                margin: 16px 0;
+            }
+
+            .about-credentials-heading .copy {
+                max-width: 600px;
             }
 
             .about-credentials-grid {
@@ -369,13 +383,28 @@
 
             .about-credential,
             .about-credential + .about-credential {
-                padding: 0;
+                padding: 20px 0 0;
                 border-left: 0;
+            }
+
+            .about-credential + .about-credential {
+                padding-top: 27px;
+                border-top-color: var(--line);
             }
 
             .about-credential-title {
                 margin-bottom: 16px;
                 font-size: 27px;
+            }
+
+            .about-credential-years {
+                min-height: 70px;
+                padding-inline: 12px;
+            }
+
+            .about-credential-label {
+                max-width: 118px;
+                font-size: 8px;
             }
 
             .differentials {
@@ -635,54 +664,5 @@
 
             .treatment-dialog-contact {
                 width: 100%;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .motion-ready .journey .reveal {
-                opacity: 1;
-                transform: none;
-            }
-
-            .journey .reveal,
-            .journey-list::after,
-            .journey-marker,
-            .journey-step-copy,
-            .journey-step-title {
-                transition: none;
-            }
-
-            .journey-artwork {
-                transform: translateY(-50%);
-            }
-
-            .journey-parallax-layer {
-                will-change: auto;
-            }
-
-            .journey-parallax-layer--rings {
-                transform: translate(
-                    calc(var(--journey-parallax-rings-x, 0px) * .65),
-                    calc(var(--journey-parallax-rings, 0px) * .65)
-                );
-            }
-
-            .journey-parallax-layer--arcs {
-                transform: translate(
-                    calc(var(--journey-parallax-arcs-x, 0px) * .65),
-                    calc(var(--journey-parallax-arcs, 0px) * .65)
-                );
-            }
-
-            .journey-parallax-layer--details {
-                transform: translate(
-                    calc(var(--journey-parallax-details-x, 0px) * .65),
-                    calc(var(--journey-parallax-details, 0px) * .65)
-                );
-            }
-
-            .journey-step-copy {
-                transform: translate3d(0, calc(var(--journey-step-offset, 20px) * .25), 0);
-                will-change: auto;
             }
         }
