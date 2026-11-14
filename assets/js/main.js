@@ -1,5 +1,5 @@
 (() => {
-    const whatsappPhone = "";
+    const whatsappPhone = "5511992748218";
     const whatsappMessage = "Olá, gostaria de saber mais sobre uma consulta.";
     const phoneDigits = whatsappPhone.replace(/\D/g, "");
 

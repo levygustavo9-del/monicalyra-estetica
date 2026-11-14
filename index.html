@@ -24,9 +24,9 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&family=Italianno&family=Manrope:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/css/style.css?v=journey-parallax-20261110-2">
+    <link rel="stylesheet" href="assets/css/style.css?v=hero-parallax-20261114-3">
     <link rel="stylesheet" href="assets/css/components.css">
-    <link rel="stylesheet" href="assets/css/responsive.css?v=journey-parallax-20261110-2">
+    <link rel="stylesheet" href="assets/css/responsive.css?v=faq-20261111-1">
     <script defer src="assets/js/main.js"></script>
     <script defer src="assets/js/navigation.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js"></script>
@@ -34,7 +34,10 @@
     <script defer src="assets/js/treatments.js"></script>
     <script defer src="assets/js/experiences-carousel.js?v=journey-motion-20261110-1"></script>
     <script defer src="assets/js/procedure-journey.js?v=journey-parallax-20261110-2"></script>
-    <script defer src="assets/js/animations.js"></script>
+    <script defer src="assets/js/faq-accordion.js"></script>
+    <script defer src="assets/js/location-hours.js?v=hours-gallery-1"></script>
+    <script defer src="assets/js/hours-carousel.js?v=hours-carousel-3"></script>
+    <script defer src="assets/js/animations.js?v=hero-parallax-20261114-5"></script>
     <script defer src="assets/js/forms.js"></script>
 </head>
 
@@ -73,9 +76,8 @@
            
             </nav>
             <a class="brand" href="#inicio" aria-label="MÔNICA LYRA — BEAUTÉ & ESTHÉTIQUE, início">
-                <span class="brand-monogram" aria-hidden="true">ml</span>
-                <span class="brand-name">Mônica Lyra</span>
-                <span class="brand-caption">— Beauté &amp; Esthétique</span>
+                <img class="brand-logo" src="imagens/logo-monica-lyra.png"
+                    alt="Logo Mônica Lyra Beauté" decoding="async">
             </a>
             <div class="header-action">
                 <a class="button button--outline" href="#contato" data-whatsapp-link>
@@ -92,8 +94,9 @@
 
     <main id="conteudo">
         <section class="hero" id="inicio" aria-labelledby="hero-title">
-            <div class="hero-photo" role="img"
-                aria-label="Imagem ilustrativa de cuidado facial em ambiente de estética"></div>
+            <div class="hero-photo" aria-hidden="true">
+                <img src="imagens/monica-hero.webp" alt="" fetchpriority="high" decoding="async">
+            </div>
             <div class="wrap hero-inner">
                 <div class="hero-content reveal">
                     <span class="eyebrow">Estética regenerativa</span>
@@ -569,13 +572,260 @@
             </div>
         </section>
 
+        <section class="faq" id="perguntas-frequentes" aria-labelledby="faq-title">
+            <div class="wrap">
+                <div class="faq-aside">
+                    <div class="faq-heading">
+                        <div>
+                            <span class="eyebrow">Dúvidas frequentes</span>
+                            <h2 class="display" id="faq-title">FA<em>Q</em></h2>
+                        </div>
+                        <p class="copy">Cada jornada é única. Aqui, você encontra respostas para algumas das dúvidas mais comuns.</p>
+                    </div>
+                    <img class="faq-illustration" src="imagens/faq-mulher-lupa.png"
+                        alt="Ilustração de uma mulher elegante segurando uma lupa">
+                    <div class="faq-contact">
+                        <a class="faq-contact-link"
+                            href="#contato" data-whatsapp-link>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                                aria-hidden="true">
+                                <path d="M20 11.5a8.4 8.4 0 0 1-12.4 7.4L4 20l1.1-3.4A8.4 8.4 0 1 1 20 11.5Z" />
+                                <path
+                                    d="M8.8 8.5c.3-.6.5-.6.8-.6h.4c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.6.7c-.2.2-.2.4 0 .7.5.8 1.3 1.5 2.1 1.9.2.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.5 0 .3-.1.8-.4 1.1-.4.4-1.1.7-1.8.6-.8-.1-1.8-.5-2.9-1.2-1.3-.8-2.4-2.1-2.8-2.8-.5-.8-.8-1.7-.7-2.3.1-.4.4-.8.9-1Z" />
+                            </svg>
+                            <span>Fale conosco</span>
+                            <svg class="faq-contact-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" aria-hidden="true">
+                                <path d="M7 17 17 7M8 7h9v9" />
+                            </svg>
+                        </a>
+                        <span class="faq-contact-note">Sua dúvida não estava aqui? Fale no WhatsApp</span>
+                    </div>
+                </div>
+                <div class="faq-list" data-faq-accordion>
+                    <article class="faq-item">
+                        <span class="faq-index" aria-hidden="true">01</span>
+                        <button class="faq-trigger" id="faq-question-01" type="button" aria-expanded="false"
+                            aria-controls="faq-answer-01">
+                            <span>Como saber qual tratamento é ideal para mim?</span>
+                            <span class="faq-icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="faq-panel" id="faq-answer-01" role="region" aria-labelledby="faq-question-01"
+                            aria-hidden="true" inert>
+                            <div class="faq-answer">
+                                <p>Cada pessoa possui características, necessidades e objetivos diferentes. Por isso, o primeiro passo é uma avaliação individualizada, na qual conversamos sobre suas expectativas e identificamos as possibilidades de cuidado mais adequadas.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="faq-item">
+                        <span class="faq-index" aria-hidden="true">02</span>
+                        <button class="faq-trigger" id="faq-question-02" type="button" aria-expanded="false"
+                            aria-controls="faq-answer-02">
+                            <span>Os procedimentos apresentam resultados imediatos?</span>
+                            <span class="faq-icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="faq-panel" id="faq-answer-02" role="region" aria-labelledby="faq-question-02"
+                            aria-hidden="true" inert>
+                            <div class="faq-answer">
+                                <p>Isso depende do tratamento realizado. Algumas abordagens podem apresentar mudanças perceptíveis em menos tempo, enquanto outras atuam de maneira gradual. Cada organismo responde de forma particular, e os resultados não podem ser garantidos.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="faq-item">
+                        <span class="faq-index" aria-hidden="true">03</span>
+                        <button class="faq-trigger" id="faq-question-03" type="button" aria-expanded="false"
+                            aria-controls="faq-answer-03">
+                            <span>Os tratamentos são seguros?</span>
+                            <span class="faq-icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="faq-panel" id="faq-answer-03" role="region" aria-labelledby="faq-question-03"
+                            aria-hidden="true" inert>
+                            <div class="faq-answer">
+                                <p>A segurança começa com uma avaliação criteriosa, indicação adequada e esclarecimento sobre técnicas, produtos, possíveis efeitos e cuidados necessários. Cada procedimento deve respeitar as características e o histórico individual.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="faq-item">
+                        <span class="faq-index" aria-hidden="true">04</span>
+                        <button class="faq-trigger" id="faq-question-04" type="button" aria-expanded="false"
+                            aria-controls="faq-answer-04">
+                            <span>Preciso realizar vários procedimentos para alcançar resultados?</span>
+                            <span class="faq-icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="faq-panel" id="faq-answer-04" role="region" aria-labelledby="faq-question-04"
+                            aria-hidden="true" inert>
+                            <div class="faq-answer">
+                                <p>Não necessariamente. A proposta é compreender suas necessidades e construir um planejamento individualizado. Nem sempre realizar mais procedimentos significa obter melhores resultados. O cuidado deve ter propósito e respeitar sua naturalidade.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="faq-item">
+                        <span class="faq-index" aria-hidden="true">05</span>
+                        <button class="faq-trigger" id="faq-question-05" type="button" aria-expanded="false"
+                            aria-controls="faq-answer-05">
+                            <span>Como funciona a primeira consulta?</span>
+                            <span class="faq-icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="faq-panel" id="faq-answer-05" role="region" aria-labelledby="faq-question-05"
+                            aria-hidden="true" inert>
+                            <div class="faq-answer">
+                                <p>É um momento de escuta, avaliação e orientação. Conversamos sobre suas expectativas, analisamos as características da pele ou da região a ser tratada e apresentamos as possibilidades, quando houver indicação.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="faq-item">
+                        <span class="faq-index" aria-hidden="true">06</span>
+                        <button class="faq-trigger" id="faq-question-06" type="button" aria-expanded="false"
+                            aria-controls="faq-answer-06">
+                            <span>Existe algum cuidado após os procedimentos?</span>
+                            <span class="faq-icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="faq-panel" id="faq-answer-06" role="region" aria-labelledby="faq-question-06"
+                            aria-hidden="true" inert>
+                            <div class="faq-answer">
+                                <p>Sim. Os cuidados variam conforme a técnica utilizada e são orientados individualmente. Seguir as recomendações profissionais é importante para uma recuperação adequada e para o acompanhamento dos resultados.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="faq-item">
+                        <span class="faq-index" aria-hidden="true">07</span>
+                        <button class="faq-trigger" id="faq-question-07" type="button" aria-expanded="false"
+                            aria-controls="faq-answer-07">
+                            <span>Os tratamentos são indicados para todas as pessoas?</span>
+                            <span class="faq-icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="faq-panel" id="faq-answer-07" role="region" aria-labelledby="faq-question-07"
+                            aria-hidden="true" inert>
+                            <div class="faq-answer">
+                                <p>Não. Cada procedimento possui indicações, limitações e possíveis contraindicações. Por isso, a avaliação individual é indispensável antes de qualquer decisão.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="hours-section" id="horarios-atendimento" aria-labelledby="hours-title">
+            <div class="wrap">
+                <div class="hours-layout">
+                    <div class="hours-content">
+                        <header class="hours-heading">
+                            <span class="eyebrow">Nosso atendimento</span>
+                            <h2 class="display" id="hours-title">Horários de atendimento</h2>
+                        </header>
+                        <dl class="hours-list">
+                            <div class="hours-row">
+                                <dt>Segunda e terça</dt>
+                                <dd><time datetime="07:00">07:00</time> – <time datetime="21:30">21:30</time></dd>
+                            </div>
+                            <div class="hours-row">
+                                <dt>Quarta e quinta</dt>
+                                <dd><time datetime="08:00">08:00</time> – <time datetime="21:30">21:30</time></dd>
+                            </div>
+                            <div class="hours-row hours-row--closed">
+                                <dt>Sexta-feira</dt>
+                                <dd>Fechado</dd>
+                            </div>
+                            <div class="hours-row">
+                                <dt>Sábado</dt>
+                                <dd><time datetime="09:00">09:00</time> – <time datetime="17:00">17:00</time></dd>
+                            </div>
+                            <div class="hours-row">
+                                <dt>Domingo</dt>
+                                <dd><time datetime="10:00">10:00</time> – <time datetime="22:00">22:00</time></dd>
+                            </div>
+                        </dl>
+                        <p class="hours-note">O indicador considera os horários informados e não confirma disponibilidade em tempo real.</p>
+                        <p class="hours-status" data-opening-status data-state="unknown" role="status"
+                            aria-live="polite">
+                            <span data-opening-status-text>Horários sujeitos à confirmação</span>
+                        </p>
+                        <a class="hours-contact-link"
+                            href="#contato" data-whatsapp-link>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                                aria-hidden="true">
+                                <path d="M20 11.5a8.4 8.4 0 0 1-12.4 7.4L4 20l1.1-3.4A8.4 8.4 0 1 1 20 11.5Z" />
+                                <path
+                                    d="M8.8 8.5c.3-.6.5-.6.8-.6h.4c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.6.7c-.2.2-.2.4 0 .7.5.8 1.3 1.5 2.1 1.9.2.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.5 0 .3-.1.8-.4 1.1-.4.4-1.1.7-1.8.6-.8-.1-1.8-.5-2.9-1.2-1.3-.8-2.4-2.1-2.8-2.8-.5-.8-.8-1.7-.7-2.3.1-.4.4-.8.9-1Z" />
+                            </svg>
+                            <span>Fale conosco</span>
+                            <svg class="hours-contact-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" aria-hidden="true">
+                                <path d="M7 17 17 7M8 7h9v9" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="hours-showcase" role="region" aria-label="Galeria ilustrativa de cuidados estéticos">
+                        <div class="hours-gallery-viewport" data-hours-carousel role="group"
+                            aria-label="Galeria ilustrativa de cuidados estéticos"
+                            aria-roledescription="apresentação de slides">
+                            <figure class="hours-gallery-slide is-active" aria-hidden="false">
+                                <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&amp;fit=crop&amp;w=760&amp;q=82"
+                                    alt="Cuidado facial em momento de relaxamento" loading="lazy" decoding="async">
+                            </figure>
+                            <figure class="hours-gallery-slide" aria-hidden="true">
+                                <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&amp;fit=crop&amp;w=760&amp;q=82"
+                                    alt="Atendimento estético realizado com cuidado" loading="lazy" decoding="async">
+                            </figure>
+                            <figure class="hours-gallery-slide" aria-hidden="true">
+                                <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&amp;fit=crop&amp;w=760&amp;q=82"
+                                    alt="Retrato ilustrativo com pele natural" loading="lazy" decoding="async">
+                            </figure>
+                        </div>
+                        <p class="hours-showcase-note">Imagens demonstrativas</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="location-section" id="localizacao" aria-labelledby="location-title">
+            <div class="wrap">
+                <header class="location-heading">
+                    <span class="eyebrow">Localização</span>
+                    <h2 class="display" id="location-title">Estamos em <em>Maceió.</em></h2>
+                    <address class="location-address">
+                        <strong>Rua Hélio Pradines, 43</strong>
+                        <span>Ponta Verde, Maceió – AL</span>
+                        <span>CEP 57035-220, Brasil</span>
+                    </address>
+                    <p class="copy location-copy">Um espaço pensado para proporcionar cuidado, beleza e uma experiência de atendimento personalizada.</p>
+                </header>
+                <div class="location-map">
+                    <iframe
+                        src="https://www.google.com/maps?q=Rua+H%C3%A9lio+Pradines%2C+43%2C+Ponta+Verde%2C+Macei%C3%B3+-+AL%2C+57035-220%2C+Brasil&amp;output=embed"
+                        title="Mapa da Rua Hélio Pradines, 43, Ponta Verde, Maceió"
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+                </div>
+                <div class="location-links">
+                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20H%C3%A9lio%20Pradines%2C%2043%2C%20Ponta%20Verde%2C%20Macei%C3%B3%20-%20AL%2C%2057035-220%2C%20Brasil"
+                        target="_blank" rel="noopener noreferrer">
+                        Visualizar mapa
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            aria-hidden="true">
+                            <path d="M7 17 17 7M8 7h9v9" />
+                        </svg>
+                    </a>
+                    <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua%20H%C3%A9lio%20Pradines%2C%2043%2C%20Ponta%20Verde%2C%20Macei%C3%B3%20-%20AL%2C%2057035-220%2C%20Brasil"
+                        target="_blank" rel="noopener noreferrer">
+                        Traçar rota
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            aria-hidden="true">
+                            <path d="M4 20 20 4M7 4h13v13" />
+                        </svg>
+                    </a>
+                </div>
+                <a class="location-email" href="mailto:mclcliniqueadm@gmail.com">mclcliniqueadm@gmail.com</a>
+            </div>
+        </section>
+
         <section class="contact" id="contato" aria-labelledby="contact-title">
             <div class="wrap contact-inner reveal">
                 <div>
                     <span class="eyebrow">Vamos conversar</span>
                     <h2 class="display" id="contact-title">Sua jornada de cuidado começa com uma <em>conversa.</em></h2>
-                    <p class="copy">Entre em contato para conhecer a proposta e conversar sobre uma avaliação
-                        individual. O WhatsApp e o formulário precisam ser configurados antes de receber mensagens.</p>
+                    <p class="copy">Entre em contato pelo WhatsApp para conhecer a proposta e conversar sobre uma
+                        avaliação individual. O formulário abaixo é demonstrativo e não envia mensagens.</p>
+                    <a class="button" href="#contato" data-whatsapp-link>Fale pelo WhatsApp</a>
                 </div>
                 <form class="contact-form" id="contact-form" data-contact-form aria-labelledby="contact-title"
                     aria-describedby="contact-form-note">
@@ -613,9 +863,8 @@
             <div class="footer-top">
                 <div>
                     <a class="brand" href="#inicio" aria-label="MÔNICA LYRA — BEAUTÉ & ESTHÉTIQUE, início">
-                        <span class="brand-monogram" aria-hidden="true">ml</span>
-                        <span class="brand-name">Mônica Lyra</span>
-                        <span class="brand-caption">— Beauté &amp; Esthétique</span>
+                        <img class="brand-logo" src="imagens/logo-monica-lyra.png"
+                            alt="Logo Mônica Lyra Beauté" loading="lazy" decoding="async">
                     </a>
                     <p class="footer-brand-copy">Uma proposta de estética regenerativa guiada por ciência, cuidado e
                         beleza natural.</p>
@@ -630,13 +879,13 @@
                 <div class="footer-column">
                     <h3>Contato</h3>
                     <p>Atendimento com hora marcada</p>
-                    <p>Localização e telefone a confirmar</p>
+                    <p>WhatsApp: +55 11 99274-8218</p>
                     <a href="#contato" data-whatsapp-link>Agendamento pelo WhatsApp</a>
                 </div>
                 <div class="footer-column">
                     <h3>Redes sociais</h3>
                     <p>Instagram: perfil a confirmar</p>
-                    <a href="#contato" data-whatsapp-link>WhatsApp: contato a configurar</a>
+                    <a href="#contato" data-whatsapp-link>Fale pelo WhatsApp</a>
                 </div>
                 <div class="footer-column">
                     <h3>Informações legais</h3>
