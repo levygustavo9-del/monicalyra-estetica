@@ -532,6 +532,42 @@
                 line-height: 1.85;
             }
 
+            .studio-space {
+                padding-block: 78px;
+            }
+
+            .studio-space-heading {
+                margin-bottom: 28px;
+            }
+
+            .studio-space-intro {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .studio-space-intro .display {
+                font-size: clamp(40px, 10vw, 58px);
+            }
+
+            .studio-space-intro .copy {
+                max-width: 470px;
+                margin: 0;
+            }
+
+            .space-mosaic {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 6px;
+            }
+
+            .space-tile-word {
+                padding: 12px;
+                font-size: clamp(16px, 4vw, 28px);
+            }
+
+            .space-mosaic-note {
+                text-align: left;
+            }
+
             .testimonials {
                 padding-block: 78px;
             }

@@ -24,9 +24,9 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&family=Italianno&family=Manrope:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/css/style.css?v=hero-parallax-20261114-3">
+    <link rel="stylesheet" href="assets/css/style.css?v=space-mosaic-20261115-3">
     <link rel="stylesheet" href="assets/css/components.css">
-    <link rel="stylesheet" href="assets/css/responsive.css?v=faq-20261111-1">
+    <link rel="stylesheet" href="assets/css/responsive.css?v=space-mosaic-20261115-1">
     <script defer src="assets/js/main.js"></script>
     <script defer src="assets/js/navigation.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js"></script>
@@ -34,6 +34,7 @@
     <script defer src="assets/js/treatments.js"></script>
     <script defer src="assets/js/experiences-carousel.js?v=journey-motion-20261110-1"></script>
     <script defer src="assets/js/procedure-journey.js?v=journey-parallax-20261110-2"></script>
+    <script defer src="assets/js/space-mosaic.js?v=space-mosaic-7"></script>
     <script defer src="assets/js/faq-accordion.js"></script>
     <script defer src="assets/js/location-hours.js?v=hours-gallery-1"></script>
     <script defer src="assets/js/hours-carousel.js?v=hours-carousel-3"></script>
@@ -544,9 +545,9 @@
         <section class="journey" id="como-funciona" aria-labelledby="journey-title">
             <svg class="journey-artwork" viewBox="0 0 1000 1000" fill="none" aria-hidden="true">
                 <g class="journey-parallax-layer journey-parallax-layer--rings">
-                    <circle cx="500" cy="500" r="486" stroke="currentColor" stroke-opacity=".12" />
-                    <circle cx="500" cy="500" r="405" stroke="currentColor" stroke-opacity=".08" />
-                    <circle cx="500" cy="500" r="322" stroke="currentColor" stroke-opacity=".11" />
+                    <circle cx="500" cy="500" r="486" stroke="currentColor" stroke-opacity=".18" />
+                    <circle cx="500" cy="500" r="405" stroke="currentColor" stroke-opacity=".14" />
+                    <circle cx="500" cy="500" r="322" stroke="currentColor" stroke-opacity=".17" />
                 </g>
                 <g class="journey-parallax-layer journey-parallax-layer--arcs">
                     <path d="M500 14a486 486 0 0 1 472 370" stroke="currentColor" stroke-opacity=".24" />
@@ -569,6 +570,55 @@
                 <div class="journey-experience">
                     <ol class="journey-list" data-journey-list aria-label="Etapas da jornada de atendimento"></ol>
                 </div>
+            </div>
+        </section>
+
+        <section class="studio-space" id="espaco" aria-labelledby="studio-space-title" data-space-mosaic>
+            <div class="wrap">
+                <header class="studio-space-heading">
+                    <span class="eyebrow">O espaço Mônica Lyra</span>
+                    <div class="studio-space-intro">
+                        <h2 class="display" id="studio-space-title">Um lugar feito especialmente para <em>VOCÊ.</em></h2>
+                        <p class="copy">Conforto, tecnologia e acolhimento em uma experiência pensada para você, com
+                            privacidade e cuidado em cada detalhe.</p>
+                    </div>
+                </header>
+                <div class="space-mosaic" aria-describedby="space-mosaic-description">
+                    <figure class="space-tile" data-space-tile>
+                        <img src="imagens/conforto.jpg" alt="Recepção da clínica com poltronas em tons naturais"
+                            loading="eager" decoding="async">
+                        <figcaption class="space-tile-word" aria-hidden="true">CONFORTO</figcaption>
+                    </figure>
+                    <figure class="space-tile" data-space-tile>
+                        <img src="imagens/tecnologia.jpg" alt="Sala de atendimento equipada para procedimentos estéticos"
+                            loading="eager" decoding="async">
+                        <figcaption class="space-tile-word" aria-hidden="true">TECNOLOGIA</figcaption>
+                    </figure>
+                    <figure class="space-tile" data-space-tile>
+                        <img src="imagens/acholhimento.jpg" alt="Sala de espera com poltronas confortáveis"
+                            loading="eager" decoding="async">
+                        <figcaption class="space-tile-word" aria-hidden="true">ACOLHIMENTO</figcaption>
+                    </figure>
+                    <figure class="space-tile" data-space-tile>
+                        <img src="imagens/privacidade.jpg" alt="Ambiente reservado para atendimento estético"
+                            loading="eager" decoding="async">
+                        <figcaption class="space-tile-word" aria-hidden="true">PRIVACIDADE</figcaption>
+                    </figure>
+                    <figure class="space-tile" data-space-tile>
+                        <img src="imagens/cuidado.jpg" alt="Sala de espera com decoração em madeira e assentos"
+                            loading="eager" decoding="async">
+                        <figcaption class="space-tile-word" aria-hidden="true">CUIDADO</figcaption>
+                    </figure>
+                    <figure class="space-tile" data-space-tile>
+                        <img src="imagens/sofisticação.jpg" alt="Recepção de clínica com decoração elegante"
+                            loading="eager" decoding="async">
+                        <figcaption class="space-tile-word" aria-hidden="true">SOFISTICAÇÃO</figcaption>
+                    </figure>
+                </div>
+                <p class="space-mosaic-note" id="space-mosaic-description">Cada ambiente reflete um jeito próprio de
+                    acolher e cuidar.</p>
+                <p class="sr-only">As células alternam individualmente entre fotografia e as palavras conforto,
+                    tecnologia, acolhimento, privacidade, cuidado e sofisticação.</p>
             </div>
         </section>
 
