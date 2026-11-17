@@ -30,10 +30,17 @@
 }
 
 .site-header {
-    position: relative;
+    --header-hide-offset: -116px;
+    position: sticky;
+    top: 0;
     z-index: 20;
     background: rgba(247, 243, 237, .96);
     border-bottom: .5px solid rgba(82, 60, 46, .09);
+    transition: top .35s var(--ease-smooth);
+}
+
+.site-header.is-hidden {
+    top: var(--header-hide-offset);
 }
 
 .header-inner {

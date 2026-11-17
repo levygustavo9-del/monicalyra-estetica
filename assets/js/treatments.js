@@ -81,7 +81,7 @@
         {
             id: "prp",
             name: "PRP – Plasma Rico em Plaquetas",
-            image: "imagens/PRP - PLASMA RICO ENM PLAQUETAS.png",
+            image: "imagens/PRP - PLASMA RICO ENM PLAQUETAS.jpeg",
             alt: "Atendimento estético facial relacionado ao plasma rico em plaquetas",
             summary: "Uma opção que utiliza material preparado do próprio sangue, após avaliação.",
             details: {

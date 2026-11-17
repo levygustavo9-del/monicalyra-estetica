@@ -27,7 +27,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px;
+    scroll-padding-top: 116px;
 }
 
 
@@ -1813,6 +1813,10 @@ img {
 
 
 @media (prefers-reduced-motion: reduce) {
+    .site-header {
+        transition: none;
+    }
+
     .hero-photo img {
         animation: none;
         will-change: auto;

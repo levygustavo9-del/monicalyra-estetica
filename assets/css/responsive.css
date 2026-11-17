@@ -68,8 +68,12 @@
         }
 
 @media (max-width: 760px) {
+            .site-header {
+                --header-hide-offset: -78px;
+            }
+
             html {
-                scroll-padding-top: 76px;
+                scroll-padding-top: 78px;
             }
 
             .wrap {
@@ -105,16 +109,22 @@
 
             .header-action .button {
                 width: 42px;
+                height: 42px;
                 min-height: 42px;
+                flex: 0 0 42px;
+                justify-content: center;
+                gap: 0;
                 padding: 0;
                 overflow: hidden;
                 font-size: 0;
+                line-height: 0;
             }
 
             .header-action .button svg {
+                display: block;
                 width: 17px;
                 height: 17px;
-                flex: 0 0 auto;
+                flex: 0 0 17px;
             }
 
             .desktop-nav {
