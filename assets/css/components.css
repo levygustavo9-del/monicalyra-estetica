@@ -69,71 +69,6 @@
     gap: clamp(17px, 2.4vw, 36px);
 }
 
-.nav-dropdown {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.nav-dropdown-toggle {
-    display: inline-flex;
-    width: 20px;
-    height: 32px;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    color: var(--ink-soft);
-    cursor: pointer;
-}
-
-.nav-dropdown-toggle svg {
-    width: 12px;
-    height: 12px;
-    transition: transform .3s var(--ease-smooth);
-}
-
-.nav-dropdown.is-open .nav-dropdown-toggle svg {
-    transform: rotate(180deg);
-}
-
-.nav-dropdown-menu {
-    position: absolute;
-    z-index: 21;
-    top: 100%;
-    left: -16px;
-    display: none;
-    min-width: 230px;
-    margin: 0;
-    padding: 8px 0;
-    border: .5px solid var(--line);
-    background: var(--paper);
-    box-shadow: 0 12px 30px rgba(58, 41, 33, .12);
-    list-style: none;
-}
-
-.nav-dropdown:hover .nav-dropdown-menu,
-.nav-dropdown:focus-within .nav-dropdown-menu,
-.nav-dropdown.is-open .nav-dropdown-menu {
-    display: block;
-}
-
-.nav-dropdown-menu a {
-    display: block;
-    padding: 10px 16px;
-    color: var(--ink-soft);
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: .04em;
-    text-transform: none;
-}
-
-.nav-dropdown-menu a:hover,
-.nav-dropdown-menu a:focus-visible {
-    background: var(--cream);
-}
-
 .treatments-carousel-controls {
     display: flex;
     align-items: center;
@@ -289,6 +224,7 @@
 }
 
 .form-field input,
+.form-field select,
 .form-field textarea {
     width: 100%;
     min-height: 44px;
@@ -480,6 +416,77 @@
     line-height: 1.8;
 }
 
+.service-request-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.service-request-field--wide,
+.service-request-availability-note,
+.service-request-privacy,
+.service-request-status,
+.service-request-submit {
+    grid-column: 1 / -1;
+}
+
+.service-request-form .form-field label {
+    font-size: 11px;
+}
+
+.service-request-form .form-field input,
+.service-request-form .form-field select {
+    min-height: 48px;
+    border-radius: 2px;
+    font-size: 14px;
+}
+
+.service-request-consent {
+    display: grid;
+    grid-template-columns: 18px minmax(0, 1fr);
+    align-items: start;
+    grid-column: 1 / -1;
+    gap: 10px;
+}
+
+.service-request-consent input {
+    width: 16px;
+    height: 16px;
+    min-height: 16px;
+    margin: 3px 0 0;
+    padding: 0;
+    accent-color: var(--bronze);
+}
+
+.service-request-consent label {
+    color: var(--ink-soft);
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.service-request-privacy a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.service-request-status {
+    margin-top: 0;
+}
+
+.service-request-submit:disabled {
+    cursor: not-allowed;
+    opacity: .58;
+    transform: none;
+}
+
+@media (max-width: 600px) {
+    .service-request-form {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
+
 .button svg {
             width: 15px;
             height: 15px;
@@ -497,8 +504,7 @@
             border-color: var(--ink);
         }
 
-.desktop-nav > a,
-.nav-dropdown-link,
+        .desktop-nav > a,
         .footer-nav a {
             position: relative;
             color: var(--ink-soft);
@@ -508,8 +514,7 @@
             text-transform: uppercase;
         }
 
-.desktop-nav > a::after,
-.nav-dropdown-link::after,
+        .desktop-nav > a::after,
         .footer-nav a::after {
             position: absolute;
             right: 0;
@@ -523,8 +528,7 @@
             transition: transform .45s var(--ease-smooth);
         }
 
-.desktop-nav > a:hover::after,
-.nav-dropdown-link:hover::after,
+        .desktop-nav > a:hover::after,
         .footer-nav a:hover::after {
             transform: scaleX(1);
         }

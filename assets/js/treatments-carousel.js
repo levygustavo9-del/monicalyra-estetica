@@ -39,6 +39,7 @@
         }
 
         grid.append(card);
+        grid.dataset.cardCount = String(grid.children.length);
     });
 
     if (typeof Swiper === "undefined") {

@@ -6,7 +6,12 @@
     if (phoneDigits.length > 0 && (phoneDigits.length < 8 || phoneDigits.length > 15)) {
         console.error("Configure o WhatsApp com um número internacional válido, usando apenas dígitos.");
     } else if (phoneDigits.length > 0) {
+        document.body.dataset.whatsappPhone = phoneDigits;
         const whatsappUrl = `https://wa.me/${phoneDigits}?text=${encodeURIComponent(whatsappMessage)}`;
+        const treatmentContact = document.querySelector(".treatment-dialog-contact");
+        if (treatmentContact) {
+            treatmentContact.dataset.whatsappPhone = phoneDigits;
+        }
 
         document.querySelectorAll("[data-whatsapp-link]").forEach((link) => {
             link.href = whatsappUrl;

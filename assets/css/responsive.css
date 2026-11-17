@@ -12,8 +12,7 @@
                 gap: 16px;
             }
 
-            .desktop-nav > a,
-            .nav-dropdown-link {
+            .desktop-nav > a {
                 font-size: 8px;
             }
 
@@ -141,43 +140,14 @@
                 transform: translateY(0);
             }
 
-            .desktop-nav > a,
-            .nav-dropdown-link {
+            .desktop-nav > a {
                 padding: 16px 3px;
                 border-bottom: .5px solid var(--line);
                 font-size: 11px;
             }
 
-            .desktop-nav > a::after,
-            .nav-dropdown-link::after {
+            .desktop-nav > a::after {
                 display: none;
-            }
-
-            .nav-dropdown {
-                display: grid;
-                grid-template-columns: 1fr 44px;
-                align-items: center;
-                border-bottom: .5px solid var(--line);
-            }
-
-            .nav-dropdown-toggle {
-                width: 44px;
-                height: 48px;
-            }
-
-            .nav-dropdown-menu {
-                position: static;
-                grid-column: 1 / -1;
-                min-width: 0;
-                padding: 0 0 8px 12px;
-                border: 0;
-                background: transparent;
-                box-shadow: none;
-            }
-
-            .nav-dropdown-menu a {
-                padding: 10px 3px;
-                font-size: 10px;
             }
 
             .hero,
@@ -285,7 +255,7 @@
                 grid-column: span 1;
             }
 
-            .treatment-card:last-child {
+            .treatment-card:last-child:nth-child(odd) {
                 grid-column: span 2;
                 min-height: 270px;
             }
@@ -302,7 +272,7 @@
             }
 
             .treatment-content p {
-                max-width: 290px;
+                max-width: calc(100% - 38px);
                 font-size: 10px;
             }
 
@@ -313,7 +283,7 @@
                 height: 32px;
             }
 
-            .treatment-card:last-child .card-arrow {
+            .treatment-card:last-child:nth-child(odd) .card-arrow {
                 right: 17px;
                 bottom: 24px;
             }

@@ -24,25 +24,24 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&family=Italianno&family=Manrope:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/css/style.css?v=space-mosaic-20261115-3">
+    <link rel="stylesheet" href="assets/css/style.css?v=treatments-20261116-1">
     <link rel="stylesheet" href="assets/css/components.css">
-    <link rel="stylesheet" href="assets/css/responsive.css?v=space-mosaic-20261115-1">
+    <link rel="stylesheet" href="assets/css/responsive.css?v=treatments-20261116-1">
     <script defer src="assets/js/main.js"></script>
     <script defer src="assets/js/navigation.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js"></script>
-    <script defer src="assets/js/treatments-carousel.js"></script>
     <script defer src="assets/js/treatments.js"></script>
+    <script defer src="assets/js/treatments-carousel.js"></script>
     <script defer src="assets/js/experiences-carousel.js?v=journey-motion-20261110-1"></script>
     <script defer src="assets/js/procedure-journey.js?v=journey-parallax-20261110-2"></script>
     <script defer src="assets/js/space-mosaic.js?v=space-mosaic-7"></script>
     <script defer src="assets/js/faq-accordion.js"></script>
-    <script defer src="assets/js/location-hours.js?v=hours-gallery-1"></script>
-    <script defer src="assets/js/hours-carousel.js?v=hours-carousel-3"></script>
+    <script defer src="assets/js/location-hours.js?v=hours-status-1"></script>
     <script defer src="assets/js/animations.js?v=hero-parallax-20261114-5"></script>
-    <script defer src="assets/js/forms.js"></script>
+    <script defer src="assets/js/service-request.js"></script>
 </head>
 
-<body>
+<body data-service-area="estetica">
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
     <header class="site-header">
         <div class="wrap header-inner">
@@ -55,23 +54,7 @@
             <nav class="desktop-nav" id="primary-navigation" aria-label="Navegação principal">
                 <a href="#inicio">Início</a>
                 <a href="pages/sobre.html">Sobre</a>
-                <div class="nav-dropdown">
-                    <a class="nav-dropdown-link" href="#tratamentos">Tratamentos</a>
-                    <button class="nav-dropdown-toggle" type="button" aria-label="Mostrar tipos de tratamentos"
-                        aria-expanded="false" aria-controls="treatments-navigation">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
-                            aria-hidden="true">
-                            <path d="m6 9 6 6 6-6" />
-                        </svg>
-                    </button>
-                    <ul class="nav-dropdown-menu" id="treatments-navigation">
-                        <li><a href="#bioestimuladores">Bioestimuladores de Colágeno</a></li>
-                        <li><a href="#skinbooster">Skinbooster</a></li>
-                        <li><a href="#harmonizacao-facial">Harmonização Facial</a></li>
-                        <li><a href="#terapias-regenerativas">Terapias Regenerativas</a></li>
-                        <li><a href="#tratamentos-da-pele">Tratamentos da Pele</a></li>
-                    </ul>
-                </div>
+                <a href="#tratamentos">Tratamentos</a>
                 <a href="#depoimentos">Depoimentos</a>
                 <a href="#diferenciais">Diferenciais</a>
            
@@ -104,7 +87,7 @@
                     <h1 class="hero-title" id="hero-title">Embelezar é a minha <em>arte</em>.</h1>
                     <p class="hero-copy">Ciência, cuidado e delicadeza em uma jornada de beleza que respeita a sua
                         essência.</p>
-                    <a class="button" href="#contato" data-whatsapp-link>
+                    <a class="button" href="#contato">
                         Agende sua consulta
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
                             aria-hidden="true">
@@ -145,283 +128,18 @@
                         <span class="eyebrow">Cuidado sob medida</span>
                         <h2 class="display" id="treatments-title">Tratamentos para a sua <em>beleza natural.</em></h2>
                     </div>
-                    <p class="copy">Cada pele tem sua história. Conheça possibilidades de cuidado que podem ser
-                        consideradas em uma avaliação individual.</p>
+                    <p class="copy">Cada tratamento é indicado após avaliação individual. Na consulta, conversamos
+                        sobre seus objetivos, histórico de saúde e opções de cuidado. Você recebe orientações específicas
+                        para o pré e pós-procedimento e acompanhamento conforme o plano definido.</p>
                 </div>
                 <div class="treatments-carousel swiper" role="region" aria-label="Procedimentos">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <div class="treatments-grid">
-                    <!--TRATAMENTO 1 - Bioestimuladores de Colágeno-->
-                    <article class="treatment-card reveal" id="bioestimuladores">
-                        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=760&q=82"
-                            alt="Cuidado facial em momento de relaxamento" loading="lazy" decoding="async">
-                        <span class="treatment-number">01</span>
-                        <div class="treatment-content">
-                            <h3>Bioestimuladores de Colágeno</h3>
-                            <p>Uma possibilidade de cuidado para conversar em consulta.</p>
-                        </div>
-                        <button class="card-arrow" type="button" aria-label="Saiba mais sobre bioestimuladores de colágeno"
-                            aria-haspopup="dialog" aria-controls="treatment-details-dialog"><svg viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                                <path d="M5 12h14m-6-6 6 6-6 6" />
-                            </svg></button>
-                        <template class="treatment-details">
-                            <h3>O que é</h3>
-                            <p>Bioestimuladores de colágeno são uma categoria de tratamentos que pode ser considerada para apoiar a firmeza e a qualidade da pele. A resposta tende a acontecer gradualmente e varia de pessoa para pessoa.</p>
-                            <h3>Quando pode ser indicado</h3>
-                            <p>A possibilidade é avaliada conforme as características da pele, o objetivo de cuidado, o histórico de saúde e as expectativas. A indicação depende de avaliação profissional individual.</p>
-                            <h3>Como é o planejamento</h3>
-                            <p>Na consulta, são discutidos a técnica e o produto apropriados, as áreas de cuidado, o número de sessões e o acompanhamento. Esses detalhes não são iguais para todos.</p>
-                            <h3>O que considerar</h3>
-                            <p>Benefícios, limitações, possíveis efeitos, cuidados antes e depois e prazo para reavaliação devem ser explicados antes de qualquer procedimento. Resultados não são garantidos.</p>
-                        </template>
-                    </article>
-                    <!--TRATAMENTO 2 - Skinbooster-->
-                    <article class="treatment-card reveal reveal-delay-1" id="skinbooster">
-                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=760&q=82"
-                            alt="Atendimento estético realizado com cuidado" loading="lazy" decoding="async">
-                        <span class="treatment-number">02</span>
-                        <div class="treatment-content">
-                            <h3>Skinbooster</h3>
-                            <p>Uma abordagem delicada, sempre avaliada para cada pessoa.</p>
-                        </div>
-                        <button class="card-arrow" type="button" aria-label="Saiba mais sobre Skinbooster"
-                            aria-haspopup="dialog" aria-controls="treatment-details-dialog"><svg
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                aria-hidden="true">
-                                <path d="M5 12h14m-6-6 6 6-6 6" />
-                            </svg></button>
-                        <template class="treatment-details">
-                            <h3>O que é</h3>
-                            <p>Skinbooster é uma abordagem estética que pode envolver a aplicação de produtos injetáveis, frequentemente à base de ácido hialurônico, com foco na hidratação e na qualidade da pele — não em transformar os traços do rosto.</p>
-                            <h3>Quando pode ser indicado</h3>
-                            <p>A indicação depende da avaliação da pele, dos objetivos e do histórico de saúde. A consulta também ajuda a esclarecer se essa abordagem é adequada ou se outra opção faz mais sentido.</p>
-                            <h3>Como é o planejamento</h3>
-                            <p>O profissional explica o produto e a técnica propostos, as áreas a tratar, o número de sessões e o intervalo entre elas. O plano pode variar conforme cada caso.</p>
-                            <h3>O que considerar</h3>
-                            <p>Converse sobre benefícios esperados, limitações, possíveis efeitos e cuidados após o procedimento. A resposta individual varia e não há garantia de resultado.</p>
-                        </template>
-                    </article>
-                    <!--TRATAMENTO 3 - Harmonização Facial -->
-                    <article class="treatment-card reveal reveal-delay-2" id="harmonizacao-facial">
-                        <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=760&q=82"
-                            alt="Retrato ilustrativo com pele natural" loading="lazy" decoding="async">
-                        <span class="treatment-number">03</span>
-                        <div class="treatment-content">
-                            <h3>Harmonização Facial</h3>
-                            <p>Equilíbrio e naturalidade como ponto de partida.</p>
-                        </div>
-                        <button class="card-arrow" type="button" aria-label="Saiba mais sobre harmonização facial"
-                            aria-haspopup="dialog" aria-controls="treatment-details-dialog"><svg
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                aria-hidden="true">
-                                <path d="M5 12h14m-6-6 6 6-6 6" />
-                            </svg></button>
-                        <template class="treatment-details">
-                            <h3>O que é</h3>
-                            <p>Harmonização facial é o planejamento individualizado de cuidados estéticos para buscar equilíbrio entre as características do rosto, respeitando a identidade e as proporções de cada pessoa.</p>
-                            <h3>Quando pode ser indicado</h3>
-                            <p>É considerada a partir dos objetivos, da avaliação facial e do histórico de saúde. Nem toda pessoa precisa de procedimentos, e a proposta deve ser compatível com suas necessidades.</p>
-                            <h3>Como é o planejamento</h3>
-                            <p>Durante a consulta, são conversados os objetivos e as opções possíveis. Se houver indicação, o profissional apresenta a técnica, as etapas, os limites e a necessidade de acompanhamento antes de qualquer decisão.</p>
-                            <h3>O que considerar</h3>
-                            <p>O resultado planejado deve respeitar a individualidade, sem promessas de transformação. Peça informações sobre riscos, possíveis efeitos, cuidados e alternativas.</p>
-                        </template>
-                    </article>
-                    <!--TRATAMENTO 5 - Terapias Regenerativas -->
-                    <article class="treatment-card reveal" id="terapias-regenerativas">
-                        <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=1000&q=82"
-                            alt="Produtos de cuidado com a pele em tons neutros" loading="lazy" decoding="async">
-                        <span class="treatment-number">04</span>
-                        <div class="treatment-content">
-                            <h3>Terapias Regenerativas</h3>
-                            <p>Alternativas apresentadas com responsabilidade e atenção individual.</p>
-                        </div>
-                        <button class="card-arrow" type="button" aria-label="Saiba mais sobre terapias regenerativas"
-                            aria-haspopup="dialog" aria-controls="treatment-details-dialog"><svg
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                aria-hidden="true">
-                                <path d="M5 12h14m-6-6 6 6-6 6" />
-                            </svg></button>
-                        <template class="treatment-details">
-                            <h3>O que são</h3>
-                            <p>“Terapias regenerativas” pode se referir a diferentes abordagens voltadas ao cuidado e à renovação dos tecidos. A técnica, os produtos e a finalidade dependem do protocolo proposto.</p>
-                            <h3>Quando podem ser indicadas</h3>
-                            <p>A avaliação profissional considera a necessidade, o histórico de saúde e as evidências e autorizações aplicáveis a cada método. O nome da categoria, por si só, não define um procedimento específico.</p>
-                            <h3>Como é o planejamento</h3>
-                            <p>Antes de decidir, peça que sejam esclarecidos o método exato, os produtos utilizados, o objetivo, as etapas, as alternativas e o acompanhamento previsto.</p>
-                            <h3>O que considerar</h3>
-                            <p>Benefícios, limitações, riscos e cuidados variam de acordo com a técnica. A indicação e os resultados dependem de avaliação individual e não podem ser garantidos.</p>
-                        </template>
-                    </article>
-
-                    <!--TRATAMENTO 6 - Tratamento de Peles -->
-                    <article class="treatment-card reveal reveal-delay-1" id="tratamentos-da-pele">
-                        <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=1000&q=82"
-                            alt="Rotina de cuidados com a pele" loading="lazy" decoding="async">
-                        <span class="treatment-number">05</span>
-                        <div class="treatment-content">
-                            <h3>Tratamentos da Pele</h3>
-                            <p>Um olhar atento às necessidades e ao momento de cada pele.</p>
-                        </div>
-                        <button class="card-arrow" type="button" aria-label="Saiba mais sobre tratamentos da pele"
-                            aria-haspopup="dialog" aria-controls="treatment-details-dialog"><svg
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                aria-hidden="true">
-                                <path d="M5 12h14m-6-6 6 6-6 6" />
-                            </svg></button>
-                        <template class="treatment-details">
-                            <h3>O que pode incluir</h3>
-                            <p>Os cuidados com a pele podem envolver diferentes rotinas e procedimentos. As opções dependem das características observadas e do objetivo definido em conjunto durante a avaliação.</p>
-                            <h3>Quando pode ser indicado</h3>
-                            <p>A consulta considera o tipo e o momento da pele, a rotina, as sensibilidades e o histórico de saúde. A avaliação ajuda a escolher uma abordagem adequada e segura.</p>
-                            <h3>Como é o planejamento</h3>
-                            <p>O plano pode combinar orientações de cuidado em casa e procedimentos, quando indicados. As etapas, os produtos e o intervalo entre sessões são explicados individualmente.</p>
-                            <h3>O que considerar</h3>
-                            <p>Converse sobre cuidados antes e depois, possíveis reações, limitações e acompanhamento. A resposta varia de pessoa para pessoa; não há resultado garantido.</p>
-                        </template>
-                    </article>
-
-                    <!--TRATAMENTO 1 - Bioestimuladores de Colágeno-->
-                    <article class="treatment-card reveal" id="bioestimuladores">
-                        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=760&q=82"
-                            alt="Cuidado facial em momento de relaxamento" loading="lazy" decoding="async">
-                        <span class="treatment-number">01</span>
-                        <div class="treatment-content">
-                            <h3>Bioestimuladores de Colágeno</h3>
-                            <p>Uma possibilidade de cuidado para conversar em consulta.</p>
-                        </div>
-                        <button class="card-arrow" type="button" aria-label="Saiba mais sobre bioestimuladores de colágeno"
-                            aria-haspopup="dialog" aria-controls="treatment-details-dialog"><svg viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                                <path d="M5 12h14m-6-6 6 6-6 6" />
-                            </svg></button>
-                        <template class="treatment-details">
-                            <h3>O que é</h3>
-                            <p>Bioestimuladores de colágeno são uma categoria de tratamentos que pode ser considerada para apoiar a firmeza e a qualidade da pele. A resposta tende a acontecer gradualmente e varia de pessoa para pessoa.</p>
-                            <h3>Quando pode ser indicado</h3>
-                            <p>A possibilidade é avaliada conforme as características da pele, o objetivo de cuidado, o histórico de saúde e as expectativas. A indicação depende de avaliação profissional individual.</p>
-                            <h3>Como é o planejamento</h3>
-                            <p>Na consulta, são discutidos a técnica e o produto apropriados, as áreas de cuidado, o número de sessões e o acompanhamento. Esses detalhes não são iguais para todos.</p>
-                            <h3>O que considerar</h3>
-                            <p>Benefícios, limitações, possíveis efeitos, cuidados antes e depois e prazo para reavaliação devem ser explicados antes de qualquer procedimento. Resultados não são garantidos.</p>
-                        </template>
-                    </article>
-                    <!--TRATAMENTO 2 - Skinbooster-->
-                    <article class="treatment-card reveal reveal-delay-1" id="skinbooster">
-                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=760&q=82"
-                            alt="Atendimento estético realizado com cuidado" loading="lazy" decoding="async">
-                        <span class="treatment-number">02</span>
-                        <div class="treatment-content">
-                            <h3>Skinbooster</h3>
-                            <p>Uma abordagem delicada, sempre avaliada para cada pessoa.</p>
-                        </div>
-                        <button class="card-arrow" type="button" aria-label="Saiba mais sobre Skinbooster"
-                            aria-haspopup="dialog" aria-controls="treatment-details-dialog"><svg
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                aria-hidden="true">
-                                <path d="M5 12h14m-6-6 6 6-6 6" />
-                            </svg></button>
-                        <template class="treatment-details">
-                            <h3>O que é</h3>
-                            <p>Skinbooster é uma abordagem estética que pode envolver a aplicação de produtos injetáveis, frequentemente à base de ácido hialurônico, com foco na hidratação e na qualidade da pele — não em transformar os traços do rosto.</p>
-                            <h3>Quando pode ser indicado</h3>
-                            <p>A indicação depende da avaliação da pele, dos objetivos e do histórico de saúde. A consulta também ajuda a esclarecer se essa abordagem é adequada ou se outra opção faz mais sentido.</p>
-                            <h3>Como é o planejamento</h3>
-                            <p>O profissional explica o produto e a técnica propostos, as áreas a tratar, o número de sessões e o intervalo entre elas. O plano pode variar conforme cada caso.</p>
-                            <h3>O que considerar</h3>
-                            <p>Converse sobre benefícios esperados, limitações, possíveis efeitos e cuidados após o procedimento. A resposta individual varia e não há garantia de resultado.</p>
-                        </template>
-                    </article>
-                    <!--TRATAMENTO 3 - Harmonização Facial -->
-                    <article class="treatment-card reveal reveal-delay-2" id="harmonizacao-facial">
-                        <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=760&q=82"
-                            alt="Retrato ilustrativo com pele natural" loading="lazy" decoding="async">
-                        <span class="treatment-number">03</span>
-                        <div class="treatment-content">
-                            <h3>Harmonização Facial</h3>
-                            <p>Equilíbrio e naturalidade como ponto de partida.</p>
-                        </div>
-                        <button class="card-arrow" type="button" aria-label="Saiba mais sobre harmonização facial"
-                            aria-haspopup="dialog" aria-controls="treatment-details-dialog"><svg
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                aria-hidden="true">
-                                <path d="M5 12h14m-6-6 6 6-6 6" />
-                            </svg></button>
-                        <template class="treatment-details">
-                            <h3>O que é</h3>
-                            <p>Harmonização facial é o planejamento individualizado de cuidados estéticos para buscar equilíbrio entre as características do rosto, respeitando a identidade e as proporções de cada pessoa.</p>
-                            <h3>Quando pode ser indicado</h3>
-                            <p>É considerada a partir dos objetivos, da avaliação facial e do histórico de saúde. Nem toda pessoa precisa de procedimentos, e a proposta deve ser compatível com suas necessidades.</p>
-                            <h3>Como é o planejamento</h3>
-                            <p>Durante a consulta, são conversados os objetivos e as opções possíveis. Se houver indicação, o profissional apresenta a técnica, as etapas, os limites e a necessidade de acompanhamento antes de qualquer decisão.</p>
-                            <h3>O que considerar</h3>
-                            <p>O resultado planejado deve respeitar a individualidade, sem promessas de transformação. Peça informações sobre riscos, possíveis efeitos, cuidados e alternativas.</p>
-                        </template>
-                    </article>
-                    <!--TRATAMENTO 5 - Terapias Regenerativas -->
-                    <article class="treatment-card reveal" id="terapias-regenerativas">
-                        <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=1000&q=82"
-                            alt="Produtos de cuidado com a pele em tons neutros" loading="lazy" decoding="async">
-                        <span class="treatment-number">04</span>
-                        <div class="treatment-content">
-                            <h3>Terapias Regenerativas</h3>
-                            <p>Alternativas apresentadas com responsabilidade e atenção individual.</p>
-                        </div>
-                        <button class="card-arrow" type="button" aria-label="Saiba mais sobre terapias regenerativas"
-                            aria-haspopup="dialog" aria-controls="treatment-details-dialog"><svg
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                aria-hidden="true">
-                                <path d="M5 12h14m-6-6 6 6-6 6" />
-                            </svg></button>
-                        <template class="treatment-details">
-                            <h3>O que são</h3>
-                            <p>“Terapias regenerativas” pode se referir a diferentes abordagens voltadas ao cuidado e à renovação dos tecidos. A técnica, os produtos e a finalidade dependem do protocolo proposto.</p>
-                            <h3>Quando podem ser indicadas</h3>
-                            <p>A avaliação profissional considera a necessidade, o histórico de saúde e as evidências e autorizações aplicáveis a cada método. O nome da categoria, por si só, não define um procedimento específico.</p>
-                            <h3>Como é o planejamento</h3>
-                            <p>Antes de decidir, peça que sejam esclarecidos o método exato, os produtos utilizados, o objetivo, as etapas, as alternativas e o acompanhamento previsto.</p>
-                            <h3>O que considerar</h3>
-                            <p>Benefícios, limitações, riscos e cuidados variam de acordo com a técnica. A indicação e os resultados dependem de avaliação individual e não podem ser garantidos.</p>
-                        </template>
-                    </article>
-
-                    <!--TRATAMENTO 6 - Tratamento de Peles -->
-                    <article class="treatment-card reveal reveal-delay-1" id="tratamentos-da-pele">
-                        <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=1000&q=82"
-                            alt="Rotina de cuidados com a pele" loading="lazy" decoding="async">
-                        <span class="treatment-number">05</span>
-                        <div class="treatment-content">
-                            <h3>Tratamentos da Pele</h3>
-                            <p>Um olhar atento às necessidades e ao momento de cada pele.</p>
-                        </div>
-                        <button class="card-arrow" type="button" aria-label="Saiba mais sobre tratamentos da pele"
-                            aria-haspopup="dialog" aria-controls="treatment-details-dialog"><svg
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                aria-hidden="true">
-                                <path d="M5 12h14m-6-6 6 6-6 6" />
-                            </svg></button>
-                        <template class="treatment-details">
-                            <h3>O que pode incluir</h3>
-                            <p>Os cuidados com a pele podem envolver diferentes rotinas e procedimentos. As opções dependem das características observadas e do objetivo definido em conjunto durante a avaliação.</p>
-                            <h3>Quando pode ser indicado</h3>
-                            <p>A consulta considera o tipo e o momento da pele, a rotina, as sensibilidades e o histórico de saúde. A avaliação ajuda a escolher uma abordagem adequada e segura.</p>
-                            <h3>Como é o planejamento</h3>
-                            <p>O plano pode combinar orientações de cuidado em casa e procedimentos, quando indicados. As etapas, os produtos e o intervalo entre sessões são explicados individualmente.</p>
-                            <h3>O que considerar</h3>
-                            <p>Converse sobre cuidados antes e depois, possíveis reações, limitações e acompanhamento. A resposta varia de pessoa para pessoa; não há resultado garantido.</p>
-                        </template>
-                    </article>
-
-                    
-                    
-                            </div>
+                            <div class="treatments-grid" id="treatments-grid"></div>
                         </div>
                     </div>
                 </div>
 
-                
                 <div class="treatments-carousel-controls" role="group" aria-label="Navegação dos procedimentos">
                     <button class="treatments-carousel-prev" type="button" aria-label="Ver procedimentos anteriores"
                         disabled>
@@ -636,7 +354,7 @@
                         alt="Ilustração de uma mulher elegante segurando uma lupa">
                     <div class="faq-contact">
                         <a class="faq-contact-link"
-                            href="#contato" data-whatsapp-link>
+                            href="#contato">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
                                 aria-hidden="true">
                                 <path d="M20 11.5a8.4 8.4 0 0 1-12.4 7.4L4 20l1.1-3.4A8.4 8.4 0 1 1 20 11.5Z" />
@@ -719,7 +437,7 @@
                         <div class="faq-panel" id="faq-answer-05" role="region" aria-labelledby="faq-question-05"
                             aria-hidden="true" inert>
                             <div class="faq-answer">
-                                <p>É um momento de escuta, avaliação e orientação. Conversamos sobre suas expectativas, analisamos as características da pele ou da região a ser tratada e apresentamos as possibilidades, quando houver indicação.</p>
+                                <p>É um momento de escuta, avaliação e orientação. Conversamos sobre suas expectativas, analisamos a região a ser tratada e apresentamos as possibilidades de cuidado e um planejamento individualizado.</p>
                             </div>
                         </div>
                     </article>
@@ -755,43 +473,43 @@
             </div>
         </section>
 
-        <section class="hours-section" id="horarios-atendimento" aria-labelledby="hours-title">
+        <section class="hours-section" id="localizacao" aria-labelledby="location-hours-title">
             <div class="wrap">
+                <span id="horarios-atendimento" class="hours-anchor" aria-hidden="true"></span>
+                <header class="hours-heading">
+                    <span class="eyebrow">Nosso espaço &amp; atendimento</span>
+                    <h2 class="display" id="location-hours-title">Seu cuidado começa <em>por aqui.</em></h2>
+                    <p class="copy hours-intro">Encontre nosso espaço em Maceió e confira os horários para planejar sua visita com tranquilidade.</p>
+                </header>
                 <div class="hours-layout">
                     <div class="hours-content">
-                        <header class="hours-heading">
-                            <span class="eyebrow">Nosso atendimento</span>
-                            <h2 class="display" id="hours-title">Horários de atendimento</h2>
-                        </header>
+                        <h3 class="hours-subheading">Horários de atendimento</h3>
                         <dl class="hours-list">
                             <div class="hours-row">
-                                <dt>Segunda e terça</dt>
-                                <dd><time datetime="07:00">07:00</time> – <time datetime="21:30">21:30</time></dd>
+                                <dt>Terça-feira</dt>
+                                <dd><time datetime="13:00">13h</time> às <time datetime="19:30">19h30</time></dd>
                             </div>
                             <div class="hours-row">
-                                <dt>Quarta e quinta</dt>
-                                <dd><time datetime="08:00">08:00</time> – <time datetime="21:30">21:30</time></dd>
+                                <dt>Quinta-feira</dt>
+                                <dd><time datetime="07:00">7h</time> às <time datetime="13:00">13h</time></dd>
                             </div>
-                            <div class="hours-row hours-row--closed">
-                                <dt>Sexta-feira</dt>
-                                <dd>Fechado</dd>
-                            </div>
-                            <div class="hours-row">
-                                <dt>Sábado</dt>
-                                <dd><time datetime="09:00">09:00</time> – <time datetime="17:00">17:00</time></dd>
+                            <div class="hours-row hours-row--appointment">
+                                <dt>Outros dias</dt>
+                                <dd>Somente com hora marcada</dd>
                             </div>
                             <div class="hours-row">
                                 <dt>Domingo</dt>
-                                <dd><time datetime="10:00">10:00</time> – <time datetime="22:00">22:00</time></dd>
+                                <dd>Fechado</dd>
                             </div>
                         </dl>
-                        <p class="hours-note">O indicador considera os horários informados e não confirma disponibilidade em tempo real.</p>
-                        <p class="hours-status" data-opening-status data-state="unknown" role="status"
-                            aria-live="polite">
+                        <p class="hours-note">
+                            Segunda, quarta, sexta e sábado: atendimento somente com hora marcada. Aos domingos, fechado.
+                        </p>
+                        <p class="hours-status" data-opening-status data-state="unknown" role="status" aria-live="polite">
                             <span data-opening-status-text>Horários sujeitos à confirmação</span>
                         </p>
                         <a class="hours-contact-link"
-                            href="#contato" data-whatsapp-link>
+                            href="#contato">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
                                 aria-hidden="true">
                                 <path d="M20 11.5a8.4 8.4 0 0 1-12.4 7.4L4 20l1.1-3.4A8.4 8.4 0 1 1 20 11.5Z" />
@@ -805,66 +523,42 @@
                             </svg>
                         </a>
                     </div>
-                    <div class="hours-showcase" role="region" aria-label="Galeria ilustrativa de cuidados estéticos">
-                        <div class="hours-gallery-viewport" data-hours-carousel role="group"
-                            aria-label="Galeria ilustrativa de cuidados estéticos"
-                            aria-roledescription="apresentação de slides">
-                            <figure class="hours-gallery-slide is-active" aria-hidden="false">
-                                <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&amp;fit=crop&amp;w=760&amp;q=82"
-                                    alt="Cuidado facial em momento de relaxamento" loading="lazy" decoding="async">
-                            </figure>
-                            <figure class="hours-gallery-slide" aria-hidden="true">
-                                <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&amp;fit=crop&amp;w=760&amp;q=82"
-                                    alt="Atendimento estético realizado com cuidado" loading="lazy" decoding="async">
-                            </figure>
-                            <figure class="hours-gallery-slide" aria-hidden="true">
-                                <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&amp;fit=crop&amp;w=760&amp;q=82"
-                                    alt="Retrato ilustrativo com pele natural" loading="lazy" decoding="async">
-                            </figure>
+                    <div class="location-content">
+                        <div class="location-details">
+                            <span class="eyebrow">Onde estamos</span>
+                            <address class="location-address">
+                                <strong>Record Offices, sala 422</strong>
+                                <span>Rua Engenheiro Mário de Gusmão, 988</span>
+                                <span>Ponta Verde, Maceió – AL</span>
+                            </address>
                         </div>
-                        <p class="hours-showcase-note">Imagens demonstrativas</p>
+                        <div class="location-map">
+                            <iframe
+                                src="https://www.google.com/maps?q=Record+Offices%2C+sala+422%2C+Rua+Engenheiro+M%C3%A1rio+de+Gusm%C3%A3o%2C+988%2C+Ponta+Verde%2C+Macei%C3%B3+-+AL&amp;output=embed"
+                                title="Mapa do Record Offices, sala 422, Rua Engenheiro Mário de Gusmão, 988, Maceió"
+                                loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+                        </div>
+                        <div class="location-links">
+                            <a href="https://www.google.com/maps/search/?api=1&amp;query=Record%20Offices%2C%20sala%20422%2C%20Rua%20Engenheiro%20M%C3%A1rio%20de%20Gusm%C3%A3o%2C%20988%2C%20Ponta%20Verde%2C%20Macei%C3%B3%20-%20AL"
+                                target="_blank" rel="noopener noreferrer">
+                                Visualizar mapa
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                    aria-hidden="true">
+                                    <path d="M7 17 17 7M8 7h9v9" />
+                                </svg>
+                            </a>
+                            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Record%20Offices%2C%20sala%20422%2C%20Rua%20Engenheiro%20M%C3%A1rio%20de%20Gusm%C3%A3o%2C%20988%2C%20Ponta%20Verde%2C%20Macei%C3%B3%20-%20AL"
+                                target="_blank" rel="noopener noreferrer">
+                                Traçar rota
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                    aria-hidden="true">
+                                    <path d="M4 20 20 4M7 4h13v13" />
+                                </svg>
+                            </a>
+                        </div>
+                        <a class="location-email" href="mailto:mlcliniqueadm@gmail.com">mlcliniqueadm@gmail.com</a>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="location-section" id="localizacao" aria-labelledby="location-title">
-            <div class="wrap">
-                <header class="location-heading">
-                    <span class="eyebrow">Localização</span>
-                    <h2 class="display" id="location-title">Estamos em <em>Maceió.</em></h2>
-                    <address class="location-address">
-                        <strong>Rua Hélio Pradines, 43</strong>
-                        <span>Ponta Verde, Maceió – AL</span>
-                        <span>CEP 57035-220, Brasil</span>
-                    </address>
-                    <p class="copy location-copy">Um espaço pensado para proporcionar cuidado, beleza e uma experiência de atendimento personalizada.</p>
-                </header>
-                <div class="location-map">
-                    <iframe
-                        src="https://www.google.com/maps?q=Rua+H%C3%A9lio+Pradines%2C+43%2C+Ponta+Verde%2C+Macei%C3%B3+-+AL%2C+57035-220%2C+Brasil&amp;output=embed"
-                        title="Mapa da Rua Hélio Pradines, 43, Ponta Verde, Maceió"
-                        loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-                </div>
-                <div class="location-links">
-                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20H%C3%A9lio%20Pradines%2C%2043%2C%20Ponta%20Verde%2C%20Macei%C3%B3%20-%20AL%2C%2057035-220%2C%20Brasil"
-                        target="_blank" rel="noopener noreferrer">
-                        Visualizar mapa
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                            aria-hidden="true">
-                            <path d="M7 17 17 7M8 7h9v9" />
-                        </svg>
-                    </a>
-                    <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua%20H%C3%A9lio%20Pradines%2C%2043%2C%20Ponta%20Verde%2C%20Macei%C3%B3%20-%20AL%2C%2057035-220%2C%20Brasil"
-                        target="_blank" rel="noopener noreferrer">
-                        Traçar rota
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                            aria-hidden="true">
-                            <path d="M4 20 20 4M7 4h13v13" />
-                        </svg>
-                    </a>
-                </div>
-                <a class="location-email" href="mailto:mclcliniqueadm@gmail.com">mclcliniqueadm@gmail.com</a>
             </div>
         </section>
 
@@ -873,36 +567,86 @@
                 <div>
                     <span class="eyebrow">Vamos conversar</span>
                     <h2 class="display" id="contact-title">Sua jornada de cuidado começa com uma <em>conversa.</em></h2>
-                    <p class="copy">Entre em contato pelo WhatsApp para conhecer a proposta e conversar sobre uma
-                        avaliação individual. O formulário abaixo é demonstrativo e não envia mensagens.</p>
+                    <p class="copy">Preencha o formulário ao lado para solicitar atendimento. Se preferir, você também
+                        pode falar diretamente pelo WhatsApp.</p>
                     <a class="button" href="#contato" data-whatsapp-link>Fale pelo WhatsApp</a>
                 </div>
-                <form class="contact-form" id="contact-form" data-contact-form aria-labelledby="contact-title"
-                    aria-describedby="contact-form-note">
-                    <div class="form-field">
-                        <label for="contact-name">Nome</label>
-                        <input id="contact-name" name="name" type="text" autocomplete="name" maxlength="100" required>
+                <form class="contact-form service-request-form" id="service-request-form"
+                    data-service-request-form aria-labelledby="contact-title"
+                    aria-describedby="service-request-availability-note service-request-privacy service-request-status">
+                    <div class="form-field service-request-field--wide">
+                        <label for="service-request-name">Nome completo</label>
+                        <input id="service-request-name" name="fullName" type="text" autocomplete="off"
+                            maxlength="120" required>
                     </div>
                     <div class="form-field">
-                        <label for="contact-email">E-mail</label>
-                        <input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254"
-                            required>
+                        <label for="service-request-cpf">CPF</label>
+                        <input id="service-request-cpf" name="cpf" type="text" inputmode="numeric"
+                            autocomplete="off" placeholder="000.000.000-00" maxlength="14" required>
                     </div>
                     <div class="form-field">
-                        <label for="contact-phone">Telefone <span>(opcional)</span></label>
-                        <input id="contact-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"
-                            maxlength="30">
+                        <label for="service-request-email">E-mail</label>
+                        <input id="service-request-email" name="email" type="email" autocomplete="off"
+                            maxlength="254" required>
                     </div>
                     <div class="form-field">
-                        <label for="contact-message">Como podemos ajudar?</label>
-                        <textarea id="contact-message" name="message" rows="4" maxlength="2000" required></textarea>
+                        <label for="service-request-phone">Telefone / WhatsApp</label>
+                        <input id="service-request-phone" name="phone" type="tel" inputmode="tel"
+                            autocomplete="off" placeholder="(00) 00000-0000" maxlength="15" required>
                     </div>
-                    <button class="button" type="submit" disabled>Enviar mensagem</button>
-                    <p class="form-note" id="contact-form-note">
-                        Esta prévia não envia os dados digitados. Configure uma integração antes da publicação.
-                        Consulte a <a href="pages/politica-de-privacidade.html">Política de Privacidade</a>.
+                    <div class="form-field">
+                        <label for="service-request-birthdate">Data de nascimento</label>
+                        <input id="service-request-birthdate" name="birthDate" type="date"
+                            autocomplete="off" required>
+                    </div>
+                    <div class="form-field service-request-field--wide">
+                        <label for="service-request-area">Atendimento para</label>
+                        <select id="service-request-area" name="serviceArea" required>
+                            <option value="estetica">Estética</option>
+                            <option value="beaute">Beauté</option>
+                        </select>
+                    </div>
+                    <div class="form-field service-request-field--wide">
+                        <label for="service-request-treatment">Tratamento ou serviço de interesse</label>
+                        <select id="service-request-treatment" name="treatment" required>
+                            <option value="" selected disabled>Selecione a área de atendimento</option>
+                        </select>
+                    </div>
+                    <div class="form-field service-request-field--wide">
+                        <label for="service-request-availability">Dia e horário de preferência</label>
+                        <select id="service-request-availability" name="availability" required>
+                            <option value="" selected disabled>Selecione uma opção</option>
+                            <option value="Terça-feira, das 13h às 19h30">Terça-feira — 13h às 19h30</option>
+                            <option value="Quinta-feira, das 7h às 13h">Quinta-feira — 7h às 13h</option>
+                            <option value="Segunda, quarta, sexta ou sábado — somente com hora marcada">
+                                Seg., qua., sex. ou sáb. — somente com hora marcada
+                            </option>
+                            <option value="Somente informações, sem preferência">Somente informações, sem preferência</option>
+                        </select>
+                    </div>
+                    <p class="form-note service-request-availability-note" id="service-request-availability-note">
+                        Terças, das 13h às 19h30; quintas, das 7h às 13h. Segunda, quarta, sexta e sábado somente
+                        com hora marcada; domingo fechado. A preferência não confirma disponibilidade.
                     </p>
-                    <p class="form-status" id="contact-form-status" role="status" aria-live="polite"></p>
+                    <p class="form-note service-request-privacy" id="service-request-privacy">
+                        Ao continuar, os dados serão incluídos no link do WhatsApp e poderão aparecer na URL e no
+                        histórico do navegador. Revise e envie a mensagem no aplicativo para compartilhá-los com a
+                        clínica. Consulte a <a href="pages/politica-de-privacidade.html">Política de Privacidade</a>.
+                    </p>
+                    <div class="service-request-consent">
+                        <input id="service-request-consent" name="whatsappConsent" type="checkbox" required>
+                        <label for="service-request-consent">
+                            Autorizo incluir os dados informados na mensagem pré-preenchida do WhatsApp e compreendo
+                            que eles poderão constar na URL/histórico do navegador antes do envio.
+                        </label>
+                    </div>
+                    <p class="form-status service-request-status" id="service-request-status" role="status"
+                        aria-live="polite">
+                        A mensagem será aberta no WhatsApp para revisão; a clínica só a receberá após você enviá-la.
+                    </p>
+                    <button class="button service-request-submit" type="submit" disabled>
+                        Continuar pelo WhatsApp
+                    </button>
                 </form>
             </div>
         </section>
@@ -930,12 +674,12 @@
                     <h3>Contato</h3>
                     <p>Atendimento com hora marcada</p>
                     <p>WhatsApp: +55 11 99274-8218</p>
-                    <a href="#contato" data-whatsapp-link>Agendamento pelo WhatsApp</a>
+                    <a href="#contato">Agendamento pelo WhatsApp</a>
                 </div>
                 <div class="footer-column">
                     <h3>Redes sociais</h3>
                     <p>Instagram: perfil a confirmar</p>
-                    <a href="#contato" data-whatsapp-link>Fale pelo WhatsApp</a>
+                    <a href="#contato">Fale pelo WhatsApp</a>
                 </div>
                 <div class="footer-column">
                     <h3>Informações legais</h3>

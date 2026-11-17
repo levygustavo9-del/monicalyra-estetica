@@ -7,7 +7,18 @@
     }
 
     const submitButton = form.querySelector('button[type="submit"]');
-    if (!submitButton) {
+    const objectiveField = form.querySelector('[name="objective"]');
+
+    if (!submitButton || !objectiveField) {
+        console.error("Não foi possível inicializar o formulário de contato.");
+        status.textContent = "O formulário está indisponível. Tente novamente mais tarde.";
+        return;
+    }
+
+    const whatsappPhone = form.dataset.whatsappPhone;
+    if (!/^\d{8,15}$/.test(whatsappPhone || "")) {
+        console.error("Não foi possível encontrar um número de WhatsApp válido para o formulário.");
+        status.textContent = "O WhatsApp está indisponível. Tente novamente mais tarde.";
         return;
     }
 
@@ -18,8 +29,16 @@
             return;
         }
 
-        status.textContent =
-            "Os campos foram validados, mas a mensagem não foi enviada. Este formulário precisa ser conectado a um serviço antes da publicação.";
+        const formData = new FormData(form);
+        const objective = String(formData.get("objective") || "").trim();
+        const message = [
+            "Olá, Mônica!",
+            `Gostaria de conversar sobre: ${objective}.`
+        ].join("\n");
+        const whatsappUrl = `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(message)}`;
+
+        status.textContent = "Abrindo o WhatsApp. Revise a mensagem e envie pelo aplicativo.";
+        window.location.assign(whatsappUrl);
     });
 
     submitButton.disabled = false;

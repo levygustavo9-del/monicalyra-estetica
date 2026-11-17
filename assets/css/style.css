@@ -385,9 +385,18 @@ img {
 
 
 
-.treatment-card:nth-child(n+4) {
+:where(.treatments-grid[data-card-count="5"]) .treatment-card:nth-child(n+4) {
     grid-column: span 3;
     min-height: 380px;
+}
+
+:where(.treatments-grid[data-card-count="4"]) .treatment-card,
+:where(.treatments-grid[data-card-count="2"]) .treatment-card {
+    grid-column: span 3;
+}
+
+:where(.treatments-grid[data-card-count="1"]) .treatment-card {
+    grid-column: span 6;
 }
 
 
@@ -450,7 +459,7 @@ img {
 
 
 .treatment-content p {
-    max-width: 380px;
+    max-width: min(380px, calc(100% - 48px));
     margin: 0;
     color: rgba(255, 253, 250, .78);
     font-size: 11px;
@@ -2215,33 +2224,24 @@ img {
 
 
 
-/* Independent attendance and location sections */
+/* Location and attendance */
 .hours-section {
-    padding-block: 108px;
+    padding-block: 104px;
     background: var(--cream);
 }
 
 
 
-.hours-layout {
-    display: grid;
-    grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
-    align-items: center;
-    gap: clamp(40px, 7vw, 100px);
-}
-
-
-
-.hours-content {
-    min-width: 0;
+.hours-anchor {
+    display: block;
 }
 
 
 
 .hours-heading {
-    padding-top: 18px;
-    border-top: .5px solid var(--line);
-    margin-bottom: 22px;
+    max-width: 780px;
+    margin: 0 auto 52px;
+    text-align: center;
 }
 
 
@@ -2253,8 +2253,40 @@ img {
 
 
 .hours-heading .display {
-    max-width: 440px;
-    margin: 0;
+    margin: 0 0 15px;
+}
+
+
+
+.hours-intro {
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+
+
+.hours-layout {
+    display: grid;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    align-items: start;
+    gap: clamp(38px, 7vw, 88px);
+}
+
+
+
+.hours-content,
+.location-content {
+    min-width: 0;
+}
+
+
+
+.hours-subheading {
+    margin: 0 0 16px;
+    font-family: var(--serif);
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 1.2;
 }
 
 
@@ -2265,7 +2297,7 @@ img {
     gap: 9px;
     margin: 14px 0 0;
     color: var(--bronze);
-    font-size: 10px;
+    font-size: 12px;
     line-height: 1.6;
 }
 
@@ -2293,9 +2325,9 @@ img {
     grid-template-columns: minmax(0, 1fr) max-content;
     align-items: baseline;
     gap: 16px;
-    padding-block: 12px;
+    padding-block: 15px;
     border-bottom: .5px solid var(--line);
-    font-size: 12px;
+    font-size: 15px;
     line-height: 1.6;
 }
 
@@ -2316,7 +2348,7 @@ img {
 
 
 
-.hours-row--closed dd {
+.hours-row--appointment dd {
     color: var(--bronze);
     letter-spacing: .03em;
 }
@@ -2327,7 +2359,7 @@ img {
     max-width: 440px;
     margin: 13px 0 0;
     color: var(--ink-soft);
-    font-size: 10px;
+    font-size: 12px;
     line-height: 1.8;
 }
 
@@ -2342,7 +2374,7 @@ img {
     border: 1px solid var(--bronze);
     border-radius: 999px;
     color: var(--ink);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: .06em;
     text-decoration: none;
     transition: color .35s var(--ease-smooth), background-color .35s var(--ease-smooth),
@@ -2384,86 +2416,14 @@ img {
 
 
 
-.hours-showcase {
-    position: relative;
-    min-width: 0;
+.location-details {
+    margin-bottom: 19px;
 }
 
 
 
-.hours-gallery-viewport {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    aspect-ratio: 1.4 / 1;
-    overflow: hidden;
-    border: .5px solid var(--line);
-    border-radius: 7px;
-}
-
-
-
-.hours-gallery-slide {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    opacity: 0;
-    margin: 0;
-    overflow: hidden;
-    transition: opacity 1.9s cubic-bezier(.4, 0, .2, 1);
-}
-
-
-
-.hours-gallery-slide.is-active {
-    z-index: 2;
-    opacity: 1;
-}
-
-
-
-.hours-gallery-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-
-
-.hours-showcase-note {
-    margin: 11px 0 0;
-    color: var(--ink-soft);
-    font-size: 10px;
-    letter-spacing: .04em;
-    text-align: right;
-}
-
-
-
-.location-section {
-    padding-block: 112px;
-    background: var(--paper);
-}
-
-
-
-.location-heading {
-    max-width: 760px;
-    margin-inline: auto;
-    text-align: center;
-}
-
-
-
-.location-heading .eyebrow {
-    margin-bottom: 18px;
-}
-
-
-
-.location-heading .display {
-    margin: 0 0 24px;
+.location-details .eyebrow {
+    margin-bottom: 12px;
 }
 
 
@@ -2489,23 +2449,16 @@ img {
 .location-address span {
     color: var(--ink-soft);
     font-family: var(--sans);
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.8;
 }
 
 
 
-.location-copy {
-    max-width: 530px;
-    margin: 17px auto 0;
-}
-
-
-
 .location-map {
-    width: min(100%, 900px);
-    height: clamp(220px, 28vw, 300px);
-    margin: 38px auto 0;
+    width: 100%;
+    height: clamp(220px, 26vw, 290px);
+    margin: 0;
     overflow: hidden;
     border: .5px solid var(--line);
     border-radius: 4px;
@@ -2526,7 +2479,7 @@ img {
 .location-links {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 12px 22px;
     margin-top: 18px;
 }
@@ -2538,8 +2491,8 @@ img {
     align-items: center;
     gap: 8px;
     color: var(--ink);
-    font-size: 10px;
-    letter-spacing: .12em;
+    font-size: 12px;
+    letter-spacing: .08em;
     text-transform: uppercase;
     transition: color .3s var(--ease-smooth);
 }
@@ -2586,7 +2539,7 @@ img {
     display: block;
     width: max-content;
     max-width: 100%;
-    margin: 18px auto 0;
+    margin: 16px 0 0;
     color: var(--ink-soft);
     font-size: 11px;
     transition: color .3s var(--ease-smooth);
@@ -2595,35 +2548,39 @@ img {
 
 
 @media (max-width: 760px) {
-    .hours-section,
-    .location-section {
+    .hours-section {
         padding-block: 78px;
+    }
+
+    .hours-heading {
+        margin-bottom: 36px;
+        text-align: left;
+    }
+
+    .hours-heading .display {
+        font-size: clamp(42px, 10vw, 58px);
+    }
+
+    .hours-intro {
+        margin-inline: 0;
     }
 
     .hours-layout {
         grid-template-columns: 1fr;
-        gap: 34px;
+        gap: 38px;
     }
 
-    .hours-gallery-viewport {
-        aspect-ratio: 1.45 / 1;
-    }
-
-    .hours-heading .display {
-        max-width: 560px;
+    .location-content {
+        padding-top: 30px;
+        border-top: .5px solid var(--line);
     }
 
     .hours-status {
         margin-top: 17px;
     }
 
-    .location-heading .display {
-        margin-bottom: 20px;
-    }
-
     .location-map {
         height: 220px;
-        margin-top: 28px;
     }
 }
 

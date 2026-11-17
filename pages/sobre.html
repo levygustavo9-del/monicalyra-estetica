@@ -33,53 +33,55 @@
     <script defer src="/assets/js/animations.js"></script>
     <script defer src="/assets/js/forms.js"></script>
 </head>
-<body>
+
+<body data-service-area="estetica">
 
     <body>
-    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-    <header class="site-header">
-        <div class="wrap header-inner">
-            <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false"
-                aria-controls="primary-navigation">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                    <path d="M3 7h18M3 12h18M3 17h18" />
-                </svg>
-            </button>
-            <nav class="desktop-nav" id="primary-navigation" aria-label="Navegação principal">
-                <a href="/index.html">Início</a>
-                <a href="/pages/sobre.html">Sobre</a>
-                <a href="/#tratamentos">Tratamentos</a>
-                <a href="/#diferenciais">Diferenciais</a>
-                <a href="/#contato">Contato</a>
-            </nav>
-            <a class="brand" href="#inicio" aria-label="MÔNICA LYRA — BEAUTÉ & ESTHÉTIQUE, início">
-                <img class="brand-logo" src="../imagens/logo-monica-lyra.png"
-                    alt="Logo Mônica Lyra Beauté" decoding="async">
-            </a>
-            <div class="header-action">
-                <a class="button button--outline" href="#contato" data-whatsapp-link>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-                        <path d="M20 11.5a8.4 8.4 0 0 1-12.4 7.4L4 20l1.1-3.4A8.4 8.4 0 1 1 20 11.5Z" />
-                        <path
-                            d="M8.8 8.5c.3-.6.5-.6.8-.6h.4c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.6.7c-.2.2-.2.4 0 .7.5.8 1.3 1.5 2.1 1.9.2.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.5 0 .3-.1.8-.4 1.1-.4.4-1.1.7-1.8.6-.8-.1-1.8-.5-2.9-1.2-1.3-.8-2.4-2.1-2.8-2.8-.5-.8-.8-1.7-.7-2.3.1-.4.4-.8.9-1Z" />
+        <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+        <header class="site-header">
+            <div class="wrap header-inner">
+                <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false"
+                    aria-controls="primary-navigation">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                        <path d="M3 7h18M3 12h18M3 17h18" />
                     </svg>
-                    <span>Agendar pelo WhatsApp</span>
+                </button>
+                <nav class="desktop-nav" id="primary-navigation" aria-label="Navegação principal">
+                    <a href="/index.html">Início</a>
+                    <a href="/pages/sobre.html">Sobre</a>
+                    <a href="/#tratamentos">Tratamentos</a>
+                    <a href="/#diferenciais">Diferenciais</a>
+                    <a href="/#contato">Contato</a>
+                </nav>
+                <a class="brand" href="#inicio" aria-label="MÔNICA LYRA — BEAUTÉ & ESTHÉTIQUE, início">
+                    <img class="brand-logo" src="../imagens/logo-monica-lyra.png" alt="Logo Mônica Lyra Beauté"
+                        decoding="async">
                 </a>
+                <div class="header-action">
+                    <a class="button button--outline" href="#contato" data-whatsapp-link>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                            aria-hidden="true">
+                            <path d="M20 11.5a8.4 8.4 0 0 1-12.4 7.4L4 20l1.1-3.4A8.4 8.4 0 1 1 20 11.5Z" />
+                            <path
+                                d="M8.8 8.5c.3-.6.5-.6.8-.6h.4c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.6.7c-.2.2-.2.4 0 .7.5.8 1.3 1.5 2.1 1.9.2.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.5 0 .3-.1.8-.4 1.1-.4.4-1.1.7-1.8.6-.8-.1-1.8-.5-2.9-1.2-1.3-.8-2.4-2.1-2.8-2.8-.5-.8-.8-1.7-.7-2.3.1-.4.4-.8.9-1Z" />
+                        </svg>
+                        <span>Agendar pelo WhatsApp</span>
+                    </a>
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <section class="about" id="sobre" aria-labelledby="about-title">
+        <section class="about" id="sobre" aria-labelledby="about-title">
             <div class="wrap about-grid">
                 <div class="about-visual reveal">
                     <div class="about-slideshow" data-about-carousel role="group"
                         aria-label="Fotografias de Mônica Lyra" aria-roledescription="apresentação de slides">
                         <img class="about-slide is-active" src="/imagens/monica3.jpeg"
                             alt="Mônica Lyra em retrato profissional" loading="eager" decoding="async">
-                        <img class="about-slide" src="/imagens/monica1.jpeg"
-                            alt="Mônica Lyra em retrato elegante" loading="eager" decoding="async" aria-hidden="true">
-                        <img class="about-slide" src="/imagens/monica2.jpeg"
-                            alt="Retrato próximo de Mônica Lyra" loading="eager" decoding="async" aria-hidden="true">
+                        <img class="about-slide" src="/imagens/monica1.jpeg" alt="Mônica Lyra em retrato elegante"
+                            loading="eager" decoding="async" aria-hidden="true">
+                        <img class="about-slide" src="/imagens/monica2.jpeg" alt="Retrato próximo de Mônica Lyra"
+                            loading="eager" decoding="async" aria-hidden="true">
                     </div>
                     <div class="about-stamp" aria-label="Cuidado individualizado e acolhedor">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"
@@ -92,11 +94,13 @@
                 </div>
                 <div class="about-copy reveal reveal-delay-1">
                     <span class="eyebrow">Sobre a Mônica</span>
-                    <h2 class="display" id="about-title">Uma trajetória entre a beleza, a ciência e o <em>cuidado.</em></h2>
-                    <p class="copy">Entre Estética e Beauté, Mônica apresenta uma proposta que une beleza natural,
-                        escuta atenta e respeito à individualidade de cada pessoa.</p>
+                    <h2 class="display" id="about-title">Uma trajetória entre a beleza, a ciência e o <em>cuidado.</em>
+                    </h2>
+                    <p class="copy">Biomédica, maquiadora e beauty artist, Mônica atua nas áreas de estética facial,
+                        corporal e capilar, maquiagem e penteados. Sua proposta reúne naturalidade, cuidado
+                        individualizado e inovação regenerativa.</p>
 
-                    <a class="button button--outline" href="#contato">Conheça a proposta <svg viewBox="0 0 24 24"
+                    <a class="button button--outline" href="../index.html#contato">Conheça a proposta <svg viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                             <path d="M4 12h15m-6-6 6 6-6 6" />
                         </svg></a>
@@ -106,7 +110,13 @@
                 <div class="about-credentials-heading">
                     <span class="eyebrow">Experiência &amp; qualificações</span>
                     <h2 class="display" id="about-credentials-title">Conhecimento em duas áreas da <em>beleza.</em></h2>
-                    <p class="copy">Com uma trajetória iniciada em 2007 na biomedicina estética e em 2009 na beleza, Mônica Lyra construiu sua experiência por meio de formação profissional, especializações e constante aperfeiçoamento. Sua atuação reúne conhecimentos nas áreas de biomedicina estética e beleza, com experiências profissionais em diferentes contextos e produções. Ao longo dessa jornada, investiu em sua formação em instituições de Alagoas, Pernambuco e São Paulo, construindo uma trajetória marcada pela dedicação, pelo cuidado e pela busca contínua de aprimoramento.</p>
+                    <p class="copy">Com uma trajetória iniciada em 2007 na biomedicina estética e em 2009 na beleza,
+                        Mônica Lyra construiu sua experiência por meio de formação profissional, especializações e
+                        constante aperfeiçoamento. Sua atuação reúne conhecimentos nas áreas de biomedicina estética e
+                        beleza, com experiências profissionais em diferentes contextos e produções. Ao longo dessa
+                        jornada, investiu em sua formação em instituições de Alagoas, Pernambuco e São Paulo,
+                        construindo uma trajetória marcada pela dedicação, pelo cuidado e pela busca contínua de
+                        aprimoramento.</p>
                 </div>
                 <div class="about-credentials-grid">
                     <article class="about-credential">
@@ -151,11 +161,13 @@
                             </div>
                             <div class="about-credential-detail">
                                 <dt>Aperfeiçoamento profissional</dt>
-                                <dd>Instituto Prontes, Escola Sophie, Liceu de Maquiagem e formação com outros profissionais em São Paulo.</dd>
+                                <dd>Instituto Prontes, Escola Sophie, Liceu de Maquiagem e formação com outros
+                                    profissionais em São Paulo.</dd>
                             </div>
                             <div class="about-credential-detail">
                                 <dt>Experiência profissional</dt>
-                                <dd>Trabalhos e produções envolvendo Marina Ruy Barbosa, Camila Coutinho e Luiza Sobral.</dd>
+                                <dd>Trabalhos e produções envolvendo Marina Ruy Barbosa, Camila Coutinho e Luiza Sobral.
+                                </dd>
                             </div>
                         </dl>
                     </article>
@@ -174,11 +186,25 @@
                             <span class="about-accordion-label">Minha história</span>
                             <span class="about-accordion-icon" aria-hidden="true"></span>
                         </button>
-                        <div class="about-accordion-panel" id="about-story-panel"
-                            aria-labelledby="about-story-trigger" aria-hidden="true" inert>
+                        <div class="about-accordion-panel" id="about-story-panel" aria-labelledby="about-story-trigger"
+                            aria-hidden="true" inert>
                             <div class="about-accordion-content">
-                                <p class="about-accordion-copy">[Completar com Mônica: sua trajetória pessoal, como
-                                    começou nas áreas de Estética e Beauté e o que a motivou.]</p>
+                                <p class="about-accordion-copy">Iniciei minha trajetória profissional como biomédica
+                                    após concluir a graduação pelo CESMAC, atuando no Hospital do Açúcar, em Maceió,
+                                    onde fui responsável pelo setor de Análises Clínicas.
+
+                                    Em 2017, tornei-me biomédica esteta pela FACEAL, em Recife, Pernambuco.
+                                    Posteriormente, em São Paulo, aprimorei minha formação por meio de cursos de
+                                    capacitação e especialização nas áreas de Harmonização Facial e Corporal, além de
+                                    Tricologia.
+
+                                    Também realizei diversas capacitações voltadas à promoção da saúde e do bem-estar.
+
+                                    Paralelamente à minha atuação na Biomedicina, sou empresária e profissional no
+                                    segmento de serviços de beleza, com especialização em maquiagem e penteados.
+
+                                    São mais de 20 anos de experiência dedicados às áreas de saúde, beleza e bem-estar.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -192,9 +218,9 @@
                         <div class="about-accordion-panel" id="about-philosophy-panel"
                             aria-labelledby="about-philosophy-trigger" aria-hidden="true" inert>
                             <div class="about-accordion-content">
-                                <p class="about-accordion-copy">A proposta apresentada no site valoriza a beleza
-                                    natural, a individualidade e um cuidado conduzido com escuta atenta. [Completar com
-                                    Mônica: como relaciona beleza, autoestima e naturalidade em seu trabalho.]</p>
+                                <p class="about-accordion-copy">Acredito em um cuidado individualizado, guiado pela
+                                    escuta, pela naturalidade e por uma avaliação responsável. Cada plano deve respeitar
+                                    as características e os objetivos de quem me procura.</p>
                             </div>
                         </div>
                     </div>
@@ -208,9 +234,9 @@
                         <div class="about-accordion-panel" id="about-beauty-panel"
                             aria-labelledby="about-beauty-trigger" aria-hidden="true" inert>
                             <div class="about-accordion-content">
-                                <p class="about-accordion-copy">[Completar com Mônica: como Estética, maquiagem e
-                                    penteados podem valorizar a beleza individual; incluir exemplos de seu trabalho,
-                                    se desejar.]</p>
+                                <p class="about-accordion-copy">Minha atuação reúne a estética facial, corporal e
+                                    capilar com maquiagem e penteados. Em cada área, busco valorizar a beleza
+                                    individual com atenção às preferências de cada pessoa.</p>
                             </div>
                         </div>
                     </div>
@@ -224,9 +250,10 @@
                         <div class="about-accordion-panel" id="about-dedication-panel"
                             aria-labelledby="about-dedication-trigger" aria-hidden="true" inert>
                             <div class="about-accordion-content">
-                                <p class="about-accordion-copy">[Completar com Mônica: como mantém os estudos e a
-                                    atualização profissional nas áreas de Estética e Beauté, incluindo cursos e
-                                    conhecimentos que queira destacar.]</p>
+                                <p class="about-accordion-copy">Minha trajetória reúne formação em Biomedicina,
+                                    Biomedicina Estética e Harmonização Facial, além de cursos nas áreas de maquiagem e
+                                    cabelo. O aperfeiçoamento profissional acompanha meu trabalho nas áreas de Estética
+                                    e Beauté.</p>
                             </div>
                         </div>
                     </div>
@@ -235,50 +262,51 @@
         </section>
 
         <footer class="site-footer">
-        <div class="wrap">
-            <div class="footer-top">
-                <div>
-                    <a class="brand" href="#inicio" aria-label="MÔNICA LYRA — BEAUTÉ & ESTHÉTIQUE, início">
-                        <img class="brand-logo" src="../imagens/logo-monica-lyra.png"
-                            alt="Logo Mônica Lyra Beauté" loading="lazy" decoding="async">
-                    </a>
-                    <p class="footer-brand-copy">Uma proposta de estética regenerativa guiada por ciência, cuidado e
-                        beleza natural.</p>
+            <div class="wrap">
+                <div class="footer-top">
+                    <div>
+                        <a class="brand" href="#inicio" aria-label="MÔNICA LYRA — BEAUTÉ & ESTHÉTIQUE, início">
+                            <img class="brand-logo" src="../imagens/logo-monica-lyra.png" alt="Logo Mônica Lyra Beauté"
+                                loading="lazy" decoding="async">
+                        </a>
+                        <p class="footer-brand-copy">Uma proposta de estética regenerativa guiada por ciência, cuidado e
+                            beleza natural.</p>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Navegue</h3>
+                        <nav class="footer-nav" aria-label="Navegação do rodapé">
+                            <a href="#inicio">Início</a><a href="#sobre">Sobre</a><a
+                                href="#tratamentos">Tratamentos</a><a href="#diferenciais">Diferenciais</a>
+                        </nav>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Contato</h3>
+                        <p>Atendimento com hora marcada</p>
+                        <p>WhatsApp: +55 11 99274-8218</p>
+                        <a href="../index.html#contato">Agendamento pelo WhatsApp</a>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Redes sociais</h3>
+                        <p>Instagram: perfil a confirmar</p>
+                        <a href="../index.html#contato">Fale pelo WhatsApp</a>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Informações legais</h3>
+                        <a href="pages/politica-de-privacidade.html">Política de Privacidade</a>
+                        <a href="pages/termos-de-uso.html">Termos de Uso</a>
+                    </div>
                 </div>
-                <div class="footer-column">
-                    <h3>Navegue</h3>
-                    <nav class="footer-nav" aria-label="Navegação do rodapé">
-                        <a href="#inicio">Início</a><a href="#sobre">Sobre</a><a href="#tratamentos">Tratamentos</a><a
-                            href="#diferenciais">Diferenciais</a>
-                    </nav>
-                </div>
-                <div class="footer-column">
-                    <h3>Contato</h3>
-                    <p>Atendimento com hora marcada</p>
-                    <p>WhatsApp: +55 11 99274-8218</p>
-                    <a href="#contato" data-whatsapp-link>Agendamento pelo WhatsApp</a>
-                </div>
-                <div class="footer-column">
-                    <h3>Redes sociais</h3>
-                    <p>Instagram: perfil a confirmar</p>
-                    <a href="#contato" data-whatsapp-link>Fale pelo WhatsApp</a>
-                </div>
-                <div class="footer-column">
-                    <h3>Informações legais</h3>
-                    <a href="pages/politica-de-privacidade.html">Política de Privacidade</a>
-                    <a href="pages/termos-de-uso.html">Termos de Uso</a>
+                <div class="footer-bottom">
+                    <p>© <span id="current-year"></span> Mônica Lyra — Beauté &amp; Esthétique. Todos os direitos
+                        reservados.</p>
+                    <p class="demo-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            aria-hidden="true">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M12 11v5m0-8h.01" />
+                        </svg>Prévia demonstrativa · conteúdo e imagens ilustrativos</p>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>© <span id="current-year"></span> Mônica Lyra — Beauté &amp; Esthétique. Todos os direitos
-                    reservados.</p>
-                <p class="demo-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                        aria-hidden="true">
-                        <circle cx="12" cy="12" r="9" />
-                        <path d="M12 11v5m0-8h.01" />
-                    </svg>Prévia demonstrativa · conteúdo e imagens ilustrativos</p>
-            </div>
-        </div>
-    </footer>
-</body>
+        </footer>
+    </body>
+
 </html>

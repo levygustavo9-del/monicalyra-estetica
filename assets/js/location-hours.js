@@ -8,13 +8,13 @@
     }
 
     const hoursByDay = new Map([
-        [0, { opens: 10 * 60, closes: 22 * 60 }],
-        [1, { opens: 7 * 60, closes: 21 * 60 + 30 }],
-        [2, { opens: 7 * 60, closes: 21 * 60 + 30 }],
-        [3, { opens: 8 * 60, closes: 21 * 60 + 30 }],
-        [4, { opens: 8 * 60, closes: 21 * 60 + 30 }],
+        [0, "closed"],
+        [1, null],
+        [2, { opens: 13 * 60, closes: 19 * 60 + 30 }],
+        [3, null],
+        [4, { opens: 7 * 60, closes: 13 * 60 }],
         [5, null],
-        [6, { opens: 9 * 60, closes: 17 * 60 }]
+        [6, null]
     ]);
     const weekdayIndexes = new Map([
         ["Sun", 0],
@@ -55,9 +55,15 @@
         }
 
         const todayHours = hoursByDay.get(day);
-        if (todayHours === null) {
+        if (todayHours === "closed") {
             status.dataset.state = "closed";
-            statusText.textContent = "Fechado hoje";
+            statusText.textContent = "Fechado aos domingos";
+            return;
+        }
+
+        if (todayHours === null) {
+            status.dataset.state = "appointment";
+            statusText.textContent = "Atendimento com hora marcada";
             return;
         }
 
