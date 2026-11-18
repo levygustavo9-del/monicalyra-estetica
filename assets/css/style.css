@@ -2494,8 +2494,11 @@ img {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    border: .5px solid var(--bronze-light);
     color: var(--ink);
     font-size: 12px;
+    border-radius: 50px;
+    padding: 10px 16px;
     letter-spacing: .08em;
     text-transform: uppercase;
     transition: color .3s var(--ease-smooth);
@@ -2512,7 +2515,7 @@ img {
 
 .location-links a:hover,
 .location-email:hover {
-    color: var(--bronze);
+    color: var(--bronze-light);
 }
 
 

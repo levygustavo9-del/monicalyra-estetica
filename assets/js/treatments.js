@@ -29,7 +29,7 @@
         {
             id: "tratamento-capilar",
             name: "Tratamento capilar: anti-idade, queda e pós-operatório (PRP)",
-            image: "imagens/TRATAMENTO CAPILAR ANTI-IDADE, QUEDA E PÓS OPERATORIO(PRP).jpeg",
+            image: "imagens/TRATAMENTO CAPILAR ANTI-IDADE, QUEDA E PÓS OPERATORIO(PRP).png",
             alt: "Aplicação profissional durante cuidado terapêutico do couro cabeludo",
             summary: "Cuidado do couro cabeludo com investigação da causa e avaliação individual.",
             details: {
@@ -55,7 +55,7 @@
         {
             id: "skinbooster",
             name: "Skinbooster",
-            image: "imagens/SKINBOOSTER.jpeg",
+            image: "imagens/SKINBOOSTER.png",
             alt: "Aplicação estética facial com foco na qualidade da pele",
             summary: "Uma abordagem de hidratação e qualidade da pele, sem foco em mudar traços.",
             details: {
@@ -81,7 +81,7 @@
         {
             id: "prp",
             name: "PRP – Plasma Rico em Plaquetas",
-            image: "imagens/PRP - PLASMA RICO ENM PLAQUETAS.jpeg",
+            image: "imagens/PRP - PLASMA RICO ENM PLAQUETAS.png",
             alt: "Atendimento estético facial relacionado ao plasma rico em plaquetas",
             summary: "Uma opção que utiliza material preparado do próprio sangue, após avaliação.",
             details: {
@@ -133,7 +133,7 @@
         {
             id: "toxina-botulinica",
             name: "Toxina botulínica",
-            image: "imagens/TOXINA BUTOLINICA.jpeg",
+            image: "imagens/TOXINA BUTOLINICA.png",
             alt: "Aplicação estética facial planejada por profissional habilitado",
             summary: "A indicação e a aplicação dependem da avaliação dos músculos e da expressão.",
             details: {
@@ -184,6 +184,8 @@
         }
     ];
 
+    window.monicaTreatmentCatalog = treatments;
+
     const grid = document.querySelector("#treatments-grid");
     const dialog = document.querySelector("#treatment-details-dialog");
     const dialogTitle = dialog?.querySelector("#treatment-dialog-title");
@@ -198,6 +200,10 @@
             .toLowerCase();
         return context.includes("beaute") ? "Beauté" : "Estética";
     };
+
+    if (!grid && !dialog) {
+        return;
+    }
 
     if (!grid || !dialog || typeof dialog.showModal !== "function" || !dialogTitle || !dialogContent) {
         console.error("Não foi possível inicializar a seção de tratamentos.");

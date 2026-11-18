@@ -48,8 +48,15 @@ Não há compilação, instalação de pacotes, banco de dados ou servidor de ap
 - Formulário com validação nativa de nome, e-mail e mensagem.
 - Ano do rodapé atualizado automaticamente.
 - Links de WhatsApp preparados para ativação após configurar o telefone.
+- Assistente virtual sem backend, com consulta ao catálogo existente, descoberta por palavras-chave e encaminhamento contextual ao WhatsApp.
 - Carrossel Swiper de experiências com fotos estáticas de antes e depois lado a lado; cartões-modelo são claramente sinalizados para substituição por conteúdo autorizado.
 - Páginas informativas preliminares de privacidade e termos.
+
+### Assistente virtual
+
+O botão flutuante é implementado por `assets/js/assistant-chat.js` e `assets/css/assistant-chat.css`, nas páginas do site. A conversa acontece apenas no navegador: não usa IA, não coleta dados pessoais e não salva mensagens. Informações sobre horários e endereço só são exibidas quando confirmadas no conteúdo do site; preços, disponibilidade, contraindicações e dúvidas individuais são encaminhados à Mônica.
+
+O catálogo continua sendo mantido em `assets/js/treatments.js`. Esse arquivo também o disponibiliza para o chat, que usa os textos e as imagens cadastrados ali. Ao incluir um tratamento, associe seu `id` a um grupo em `treatmentCategories` e, se apropriado, a palavras-chave em `needMatches` dentro de `assistant-chat.js`. Os serviços Beauté confirmados e suas palavras-chave são mantidos em `beautyServices` e `needMatches`. O telefone não é duplicado no chat: ele é lido de `assets/js/main.js`.
 
 ### Experiências e resultados
 
