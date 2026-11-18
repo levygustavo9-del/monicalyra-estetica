@@ -11,6 +11,7 @@ assets/
     style.css
     responsive.css
     components.css
+    assistant-chat.css
   icons/
     favicon.svg
   js/
@@ -18,6 +19,7 @@ assets/
     navigation.js
     animations.js
     forms.js
+    assistant-chat.js
     experiences-carousel.js
     procedure-journey.js
     space-mosaic.js
@@ -54,7 +56,7 @@ Não há compilação, instalação de pacotes, banco de dados ou servidor de ap
 
 ### Assistente virtual
 
-O botão flutuante é implementado por `assets/js/assistant-chat.js` e `assets/css/assistant-chat.css`, nas páginas do site. A conversa acontece apenas no navegador: não usa IA, não coleta dados pessoais e não salva mensagens. Informações sobre horários e endereço só são exibidas quando confirmadas no conteúdo do site; preços, disponibilidade, contraindicações e dúvidas individuais são encaminhados à Mônica.
+O botão flutuante é implementado por `assets/js/assistant-chat.js` e `assets/css/assistant-chat.css`, nas páginas do site. A conversa acontece apenas no navegador e não usa IA. Com autorização da visitante, o chat também conduz o pré-cadastro com os mesmos campos do formulário de contato; os dados ficam temporariamente na memória da página e são incluídos em uma mensagem pré-preenchida do WhatsApp para revisão. O site não armazena as respostas nem envia a mensagem automaticamente. Informações sobre horários e endereço só são exibidas quando confirmadas no conteúdo do site; preços, disponibilidade, contraindicações e dúvidas individuais são encaminhados à Mônica.
 
 O catálogo continua sendo mantido em `assets/js/treatments.js`. Esse arquivo também o disponibiliza para o chat, que usa os textos e as imagens cadastrados ali. Ao incluir um tratamento, associe seu `id` a um grupo em `treatmentCategories` e, se apropriado, a palavras-chave em `needMatches` dentro de `assistant-chat.js`. Os serviços Beauté confirmados e suas palavras-chave são mantidos em `beautyServices` e `needMatches`. O telefone não é duplicado no chat: ele é lido de `assets/js/main.js`.
 

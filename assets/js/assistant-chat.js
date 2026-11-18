@@ -200,6 +200,8 @@
     let currentNeed = "";
     let visitorName = "";
     let awaitingName = true;
+    let preRegistration = {};
+    let preRegistrationStep = "";
     let currentTurn = null;
     let turnSequence = 0;
     let turnTimer = 0;
@@ -246,10 +248,13 @@
     const setThinking = (thinking) => {
         isThinking = thinking;
         panel.setAttribute("aria-busy", String(thinking));
-        input.disabled = thinking;
-        sendButton.disabled = thinking;
+        const waitingForChoice = [
+            "disclosure", "area", "treatment-category", "treatment", "availability", "consent"
+        ].includes(preRegistrationStep);
+        input.disabled = thinking || waitingForChoice;
+        sendButton.disabled = thinking || waitingForChoice;
         panel.querySelectorAll(".assistant-quick-reply").forEach((button) => {
-            button.disabled = thinking;
+            button.disabled = thinking || button.dataset.actionCompleted === "true";
         });
     };
 
@@ -419,7 +424,8 @@
             { label: "Encontrar algo para o que desejo melhorar", action: "need" },
             { label: "Conhecer a Beauté", action: "beauty" },
             { label: "Tirar uma dúvida", action: "questions" },
-            { label: "Consultar valores ou agendar", action: "booking" }
+            { label: "Consultar valores ou agendar", action: "booking" },
+            { label: "Fazer pré-cadastro", action: "pre-registration" }
         ], "assistant-quick-replies--home");
     };
 
@@ -623,6 +629,408 @@
         input.setAttribute("aria-label", "Descreva brevemente o que gostaria de melhorar");
     };
 
+    const resetChatInput = () => {
+        input.type = "text";
+        input.inputMode = "text";
+        input.maxLength = 500;
+        input.placeholder = "Ou escreva uma dúvida específica";
+        input.setAttribute("aria-label", "Escreva uma dúvida específica");
+    };
+
+    const setPreRegistrationTextStep = (step) => {
+        const fields = {
+            fullName: { label: "Nome completo", placeholder: "Nome e sobrenome", maxLength: 120, inputMode: "text" },
+            cpf: { label: "CPF", placeholder: "Digite os 11 números do CPF", maxLength: 14, inputMode: "numeric" },
+            email: { label: "E-mail", placeholder: "seuemail@exemplo.com", maxLength: 254, inputMode: "email" },
+            phone: { label: "Telefone ou WhatsApp", placeholder: "(00) 00000-0000", maxLength: 15, inputMode: "tel" },
+            birthDate: { label: "Data de nascimento", placeholder: "DD/MM/AAAA", maxLength: 10, inputMode: "numeric" }
+        };
+        const field = fields[step];
+        if (!field) {
+            console.error("Etapa de texto inválida no pré-cadastro.");
+            return;
+        }
+
+        preRegistrationStep = step;
+        input.type = "text";
+        input.inputMode = field.inputMode;
+        input.maxLength = field.maxLength;
+        input.placeholder = field.placeholder;
+        input.setAttribute("aria-label", field.label);
+    };
+
+    const addRegistrationChoices = (bubble, options) => {
+        addQuickReplies(bubble, [
+            ...options,
+            { label: "Cancelar pré-cadastro", action: "pre-registration-cancel" }
+        ], "assistant-quick-replies--catalog");
+    };
+
+    const addPrivacyPolicyLink = (bubble) => {
+        const link = createElement("a", "assistant-chat-link", "Política de Privacidade");
+        link.href = new URL("pages/politica-de-privacidade.html", siteRoot).href;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        bubble.append(link);
+    };
+
+    const showPreRegistrationDisclosure = () => {
+        if (!hasWhatsapp) {
+            const bubble = addMessage("assistant",
+                "O pré-cadastro pelo WhatsApp está indisponível no momento. Você pode usar o formulário de atendimento do site.");
+            const link = createElement("a", "assistant-chat-link", "Ir para o formulário de atendimento");
+            link.href = inPagesDirectory ? "../index.html#contato" : "#contato";
+            bubble.append(link);
+            return;
+        }
+
+        preRegistrationStep = "disclosure";
+        const bubble = addMessage("assistant",
+            "Posso te guiar pelo mesmo pré-cadastro do site: nome completo, CPF, e-mail, telefone, data de nascimento, área, serviço e preferência de horário. As respostas ficam temporariamente na memória desta página e não são salvas em um cadastro pelo site. No final, uma mensagem será preparada no WhatsApp para você revisar; a clínica só recebe os dados se você decidir enviá-la.");
+        addPrivacyPolicyLink(bubble);
+        addRegistrationChoices(bubble, [
+            { label: "Concordo e continuar", action: "pre-registration-start" }
+        ]);
+    };
+
+    const askPreRegistrationField = (step, prompt) => {
+        setPreRegistrationTextStep(step);
+        const bubble = addMessage("assistant", prompt);
+        addRegistrationChoices(bubble, []);
+    };
+
+    const startPreRegistration = () => {
+        preRegistration = {};
+        input.value = "";
+        privacyNote.textContent = "Dados do pré-cadastro ficam temporários e só vão ao WhatsApp após sua autorização.";
+        askPreRegistrationField("fullName",
+            "Vamos começar pelo seu nome completo, com nome e sobrenome.");
+    };
+
+    const showPreRegistrationAreaChoices = () => {
+        preRegistrationStep = "area";
+        const bubble = addMessage("assistant", "Obrigada. Para qual área você gostaria de solicitar atendimento?");
+        addRegistrationChoices(bubble, [
+            { label: "Estética", action: "pre-registration-area", value: "estetica" },
+            { label: "Beauté", action: "pre-registration-area", value: "beaute" }
+        ]);
+    };
+
+    const showPreRegistrationCategories = () => {
+        preRegistrationStep = "treatment-category";
+        const groupedIds = new Set(treatmentCategories.flatMap(({ treatmentIds }) => treatmentIds));
+        const categories = treatmentCategories
+            .filter(({ treatmentIds }) => treatmentIds.some((id) => treatmentsById.has(id)))
+            .map(({ id, label }) => ({ label, action: "pre-registration-category", value: id }));
+        if (treatments.some(({ id }) => !groupedIds.has(id)) || !categories.length) {
+            categories.push({
+                label: "Outros cuidados",
+                action: "pre-registration-category",
+                value: "unassigned"
+            });
+        }
+
+        const bubble = addMessage("assistant", "Qual tema de Estética combina melhor com o que você deseja solicitar?");
+        addRegistrationChoices(bubble, categories);
+    };
+
+    const showPreRegistrationTreatments = (categoryId = "") => {
+        preRegistrationStep = "treatment";
+        let options = [];
+        if (preRegistration.serviceArea === "beaute") {
+            options = beautyServices.map(({ id, label }) => ({
+                label,
+                action: "pre-registration-treatment",
+                value: id
+            }));
+            options.push(
+                {
+                    label: "Outro serviço de Beauté",
+                    action: "pre-registration-treatment",
+                    value: "outro-servico-beaute"
+                },
+                {
+                    label: "Ainda não sei, quero uma avaliação",
+                    action: "pre-registration-treatment",
+                    value: "avaliacao-beaute"
+                }
+            );
+        } else {
+            const selectedCategory = treatmentCategories.find(({ id }) => id === categoryId);
+            const groupedIds = new Set(treatmentCategories.flatMap(({ treatmentIds }) => treatmentIds));
+            const list = selectedCategory
+                ? categoryTreatments(categoryId)
+                : categoryId === "unassigned"
+                    ? treatments.filter(({ id }) => !groupedIds.has(id))
+                    : [];
+            options = list.map((treatment) => ({
+                label: treatment.name,
+                action: "pre-registration-treatment",
+                value: treatment.id
+            }));
+            options.push(
+                {
+                    label: "Outro tratamento de Estética",
+                    action: "pre-registration-treatment",
+                    value: "outro-tratamento-estetica"
+                },
+                {
+                    label: "Ainda não sei, quero uma avaliação",
+                    action: "pre-registration-treatment",
+                    value: "avaliacao-estetica"
+                }
+            );
+        }
+
+        const bubble = addMessage("assistant", "Qual serviço você gostaria de incluir no pré-cadastro?");
+        addRegistrationChoices(bubble, options);
+    };
+
+    const selectPreRegistrationTreatment = (treatmentId) => {
+        const treatment = treatmentsById.get(treatmentId);
+        const beautyService = beautyServices.find(({ id }) => id === treatmentId);
+        const otherServiceLabels = {
+            "outro-tratamento-estetica": "Outro tratamento de Estética",
+            "avaliacao-estetica": "Ainda não sei, quero uma avaliação",
+            "outro-servico-beaute": "Outro serviço de Beauté",
+            "avaliacao-beaute": "Ainda não sei, quero uma avaliação"
+        };
+        const label = treatment?.name || beautyService?.label || otherServiceLabels[treatmentId];
+        if (!label) {
+            console.error("Serviço não reconhecido no pré-cadastro.");
+            showPreRegistrationTreatments();
+            return;
+        }
+        preRegistration.treatment = label;
+        showPreRegistrationAvailability();
+    };
+
+    const showPreRegistrationAvailability = () => {
+        preRegistrationStep = "availability";
+        const bubble = addMessage("assistant", "Agora, escolha sua preferência de dia e horário. Isso não confirma disponibilidade.");
+        addRegistrationChoices(bubble, [
+            {
+                label: "Terça-feira — 13h às 19h30",
+                action: "pre-registration-availability",
+                value: "Terça-feira, das 13h às 19h30"
+            },
+            {
+                label: "Quinta-feira — 7h às 13h",
+                action: "pre-registration-availability",
+                value: "Quinta-feira, das 7h às 13h"
+            },
+            {
+                label: "Segunda, quarta, sexta ou sábado — com hora marcada",
+                action: "pre-registration-availability",
+                value: "Segunda, quarta, sexta ou sábado — somente com hora marcada"
+            },
+            {
+                label: "Somente informações, sem preferência",
+                action: "pre-registration-availability",
+                value: "Somente informações, sem preferência"
+            }
+        ]);
+    };
+
+    const showPreRegistrationConsent = () => {
+        preRegistrationStep = "consent";
+        const bubble = addMessage("assistant",
+            "Antes de preparar a mensagem, confirme se autoriza incluir esses dados no texto pré-preenchido do WhatsApp e se aceita a Política de Privacidade. Você poderá revisar tudo antes de enviar; nada é enviado automaticamente.");
+        addPrivacyPolicyLink(bubble);
+        addRegistrationChoices(bubble, [
+            { label: "Autorizo e preparar mensagem", action: "pre-registration-consent" }
+        ]);
+    };
+
+    const formatCpf = (value) => {
+        const digits = value.replace(/\D/g, "").slice(0, 11);
+        return digits
+            .replace(/(\d{3})(\d)/, "$1.$2")
+            .replace(/(\d{3})(\d)/, "$1.$2")
+            .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+    };
+
+    const calculateCpfDigit = (digits, initialWeight) => {
+        const sum = digits.split("").reduce(
+            (total, digit, index) => total + Number(digit) * (initialWeight - index),
+            0
+        );
+        const remainder = (sum * 10) % 11;
+        return remainder === 10 ? 0 : remainder;
+    };
+
+    const isValidCpf = (value) => {
+        const digits = value.replace(/\D/g, "");
+        if (digits.length !== 11 || /^(\d)\1{10}$/.test(digits)) {
+            return false;
+        }
+
+        const expected = `${calculateCpfDigit(digits.slice(0, 9), 10)}${calculateCpfDigit(digits.slice(0, 10), 11)}`;
+        return digits.slice(9) === expected;
+    };
+
+    const formatPhone = (value) => {
+        const digits = value.replace(/\D/g, "").slice(0, 11);
+        if (digits.length <= 2) {
+            return digits ? `(${digits}` : "";
+        }
+        const areaCode = digits.slice(0, 2);
+        const subscriber = digits.slice(2);
+        const subscriberLength = digits.length === 11 ? 5 : 4;
+        if (subscriber.length <= subscriberLength) {
+            return `(${areaCode}) ${subscriber}`;
+        }
+        return `(${areaCode}) ${subscriber.slice(0, subscriberLength)}-${subscriber.slice(subscriberLength)}`;
+    };
+
+    const validatePreRegistrationValue = (step, value) => {
+        if (step === "fullName") {
+            const fullName = value.trim().replace(/\s+/g, " ");
+            return fullName.length <= 120 && fullName.split(" ").length >= 2 ? fullName : "";
+        }
+        if (step === "cpf") {
+            const cpf = formatCpf(value);
+            return isValidCpf(cpf) ? cpf : "";
+        }
+        if (step === "email") {
+            const email = value.trim();
+            return email.length <= 254 && /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) ? email : "";
+        }
+        if (step === "phone") {
+            const digits = value.replace(/\D/g, "");
+            return digits.length === 10 || digits.length === 11 ? formatPhone(digits) : "";
+        }
+        if (step === "birthDate") {
+            const match = value.trim().match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+            if (!match) {
+                return "";
+            }
+            const [, dayText, monthText, yearText] = match;
+            const day = Number(dayText);
+            const month = Number(monthText);
+            const year = Number(yearText);
+            const date = new Date(year, month - 1, day);
+            const today = new Date();
+            today.setHours(23, 59, 59, 999);
+            if (date.getFullYear() !== year || date.getMonth() !== month - 1
+                || date.getDate() !== day || date > today) {
+                return "";
+            }
+            return `${dayText}/${monthText}/${yearText}`;
+        }
+        return "";
+    };
+
+    const processPreRegistrationText = (value) => {
+        const step = preRegistrationStep;
+        const validatedValue = validatePreRegistrationValue(step, value);
+        if (!validatedValue) {
+            const errorMessages = {
+                fullName: "Para continuar, informe nome e sobrenome.",
+                cpf: "Confira o CPF e tente novamente. Ele precisa ser válido.",
+                email: "Esse e-mail não parece completo. Confira e tente novamente.",
+                phone: "Informe um telefone com DDD, com 10 ou 11 números.",
+                birthDate: "Informe uma data válida no formato DD/MM/AAAA, sem data futura."
+            };
+            runAssistantTurn("", () => {
+                const bubble = addMessage("assistant", errorMessages[step] || "Confira essa informação e tente novamente.");
+                addRegistrationChoices(bubble, []);
+            });
+            return false;
+        }
+
+        preRegistration[step] = validatedValue;
+        input.value = "";
+        runAssistantTurn("", () => {
+            switch (step) {
+                case "fullName":
+                    askPreRegistrationField("cpf", "Obrigada. Agora, informe seu CPF.");
+                    break;
+                case "cpf":
+                    askPreRegistrationField("email", "Certo. Qual é o seu e-mail?");
+                    break;
+                case "email":
+                    askPreRegistrationField("phone", "Obrigada. Qual telefone ou WhatsApp podemos incluir?");
+                    break;
+                case "phone":
+                    askPreRegistrationField("birthDate", "Para finalizar seus dados, informe sua data de nascimento no formato DD/MM/AAAA.");
+                    break;
+                case "birthDate":
+                    showPreRegistrationAreaChoices();
+                    break;
+                default:
+                    console.error("Não foi possível avançar a etapa do pré-cadastro.");
+            }
+        });
+        return true;
+    };
+
+    const completePreRegistration = () => {
+        const requiredFields = [
+            "fullName", "cpf", "email", "phone", "birthDate", "serviceArea", "treatment", "availability"
+        ];
+        if (!hasWhatsapp || requiredFields.some((field) => !preRegistration[field])) {
+            console.error("O pré-cadastro não contém todos os dados necessários para continuar.");
+            const bubble = addMessage("assistant",
+                "Não foi possível preparar o pré-cadastro. Você pode tentar novamente ou usar o formulário do site.");
+            addRegistrationChoices(bubble, [
+                { label: "Tentar novamente", action: "pre-registration" }
+            ]);
+            preRegistration = {};
+            preRegistrationStep = "";
+            resetChatInput();
+            privacyNote.textContent = "Não envie dados pessoais ou informações de saúde.";
+            return;
+        }
+
+        const area = preRegistration.serviceArea === "beaute" ? "Beauté" : "Estética";
+        const message = [
+            "Olá! Gostaria de solicitar atendimento com a clínica Mônica Lyra.",
+            "",
+            `Nome completo: ${preRegistration.fullName}`,
+            `CPF: ${preRegistration.cpf}`,
+            `E-mail: ${preRegistration.email}`,
+            `Telefone / WhatsApp: ${preRegistration.phone}`,
+            `Data de nascimento: ${preRegistration.birthDate}`,
+            `Atendimento para: ${area}`,
+            `Tratamento/serviço de interesse: ${preRegistration.treatment}`,
+            `Preferência de dia/horário: ${preRegistration.availability}`,
+            "",
+            "Autorizo incluir os dados informados nesta mensagem pré-preenchida do WhatsApp e aceito a Política de Privacidade."
+        ].join("\n");
+        const url = `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(message)}`;
+        const bubble = addMessage("assistant",
+            "Seu pré-cadastro está pronto. Abra a mensagem para revisar os dados e envie somente se estiver tudo certo. A clínica só receberá as informações quando você enviar pelo WhatsApp.");
+        const link = createElement("a", "assistant-whatsapp-link", "Revisar e continuar pelo WhatsApp");
+        link.href = url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.setAttribute("aria-label", "Revisar o pré-cadastro e continuar pelo WhatsApp");
+        link.innerHTML += '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 11.5a8.4 8.4 0 0 1-12.4 7.4L4 20l1.1-3.4A8.4 8.4 0 1 1 20 11.5Z"/><path d="M8.8 8.5c.3-.6.5-.6.8-.6h.4c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.6.7c-.2.2-.2.4 0 .7.5.8 1.3 1.5 2.1 1.9.2.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l1.5.7"/></svg>';
+        link.addEventListener("click", () => {
+            window.setTimeout(() => {
+                link.removeAttribute("href");
+                preRegistration = {};
+            }, 0);
+        }, { once: true });
+        bubble.append(link);
+        preRegistrationStep = "";
+        preRegistration = {};
+        resetChatInput();
+        privacyNote.textContent = "Não envie dados pessoais ou informações de saúde.";
+        addReturnOptions(bubble);
+    };
+
+    const cancelPreRegistration = () => {
+        preRegistration = {};
+        preRegistrationStep = "";
+        input.value = "";
+        resetChatInput();
+        privacyNote.textContent = "Não envie dados pessoais ou informações de saúde.";
+        const bubble = addMessage("assistant", "Tudo bem, cancelei o pré-cadastro. Como posso te ajudar agora?");
+        addHomeOptions(bubble);
+    };
+
     const findTreatmentMention = (normalizedText) => {
         const aliases = [
             ["bioestimuladores", ["bioestimulador", "bioestimuladores"]],
@@ -815,12 +1223,47 @@
             case "booking":
                 showBooking();
                 break;
+            case "pre-registration":
+                showPreRegistrationDisclosure();
+                break;
+            case "pre-registration-start":
+                startPreRegistration();
+                break;
+            case "pre-registration-cancel":
+                cancelPreRegistration();
+                break;
+            case "pre-registration-area":
+                preRegistration.serviceArea = value;
+                if (value === "estetica") {
+                    showPreRegistrationCategories();
+                } else if (value === "beaute") {
+                    showPreRegistrationTreatments();
+                } else {
+                    console.error("Área de atendimento não reconhecida no pré-cadastro.");
+                    showPreRegistrationAreaChoices();
+                }
+                break;
+            case "pre-registration-category":
+                showPreRegistrationTreatments(value);
+                break;
+            case "pre-registration-treatment":
+                selectPreRegistrationTreatment(value);
+                break;
+            case "pre-registration-availability":
+                preRegistration.availability = value;
+                showPreRegistrationConsent();
+                break;
+            case "pre-registration-consent":
+                completePreRegistration();
+                break;
             default:
                 console.error("Ação não reconhecida na assistente virtual.");
         }
     };
 
     const resetConversation = () => {
+        preRegistration = {};
+        preRegistrationStep = "";
         cancelCurrentTurn();
         thread.replaceChildren();
         activeTreatmentId = "";
@@ -829,6 +1272,8 @@
         visitorName = "";
         awaitingName = true;
         input.value = "";
+        resetChatInput();
+        privacyNote.textContent = "Não envie dados pessoais ou informações de saúde.";
         showWelcome();
     };
 
@@ -915,6 +1360,12 @@
         const button = event.target.closest("[data-chat-action]");
         if (button && panel.contains(button) && !isThinking) {
             const action = button.dataset.chatAction;
+            button.closest(".assistant-quick-replies")
+                ?.querySelectorAll(".assistant-quick-reply")
+                .forEach((reply) => {
+                    reply.dataset.actionCompleted = "true";
+                    reply.disabled = true;
+                });
             if (action === "restart") {
                 resetConversation();
             } else {
@@ -927,6 +1378,10 @@
     form.addEventListener("submit", (event) => {
         event.preventDefault();
         const message = input.value.trim();
+        if (["fullName", "cpf", "email", "phone", "birthDate"].includes(preRegistrationStep)) {
+            processPreRegistrationText(message);
+            return;
+        }
         if (!message) {
             input.focus();
             return;
