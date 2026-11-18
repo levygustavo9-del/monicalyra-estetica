@@ -2,7 +2,7 @@
     const treatments = [
         {
             id: "bioestimuladores",
-            name: "Bioestimuladores de colágeno",
+            name: "Bioestimulador de colágeno",
             image: "imagens/BIOESTIMULADORDECOLAGENO_clean.png",
             alt: "Rosto feminino em tratamento estético facial",
             summary: "Uma abordagem para conversar sobre firmeza e qualidade da pele.",
@@ -28,7 +28,7 @@
         },
         {
             id: "tratamento-capilar",
-            name: "Tratamento capilar: anti-idade, queda e pós-operatório (PRP)",
+            name: "Tratamento capilar (PRP)",
             image: "imagens/TRATAMENTO CAPILAR ANTI-IDADE, QUEDA E PÓS OPERATORIO(PRP).png",
             alt: "Aplicação profissional durante cuidado terapêutico do couro cabeludo",
             summary: "Cuidado do couro cabeludo com investigação da causa e avaliação individual.",

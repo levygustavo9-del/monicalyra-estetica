@@ -2,7 +2,7 @@
     position: fixed;
     z-index: 40;
     right: 24px;
-    bottom: max(22px, env(safe-area-inset-bottom));
+    bottom: max(52px, env(safe-area-inset-bottom));
     display: grid;
     width: 64px;
     height: 64px;
@@ -58,7 +58,7 @@
     position: fixed;
     z-index: 39;
     right: 98px;
-    bottom: max(32px, calc(env(safe-area-inset-bottom) + 10px));
+    bottom: max(55px, calc(env(safe-area-inset-bottom) + 10px));
     display: flex;
     max-width: min(270px, calc(100vw - 120px));
     align-items: center;
@@ -602,7 +602,7 @@
 @media (max-width: 600px) {
     .assistant-launcher {
         right: max(16px, env(safe-area-inset-right));
-        bottom: max(16px, env(safe-area-inset-bottom));
+        bottom: max(40px, calc(env(safe-area-inset-bottom) + 24px));
         width: 60px;
         height: 60px;
     }
@@ -614,7 +614,7 @@
 
     .assistant-invite {
         right: max(84px, calc(env(safe-area-inset-right) + 68px));
-        bottom: max(25px, calc(env(safe-area-inset-bottom) + 9px));
+        bottom: max(49px, calc(env(safe-area-inset-bottom) + 33px));
         max-width: min(250px, calc(100vw - 108px));
         padding: 9px 8px 9px 11px;
         font-size: 10px;
@@ -623,9 +623,9 @@
     .assistant-chat-panel {
         left: max(8px, env(safe-area-inset-left));
         right: max(8px, env(safe-area-inset-right));
-        bottom: max(76px, calc(env(safe-area-inset-bottom) + 68px));
+        bottom: max(110px, calc(env(safe-area-inset-bottom) + 102px));
         width: min(390px, calc(100vw - 16px));
-        max-height: calc(100dvh - 88px - env(safe-area-inset-bottom));
+        max-height: calc(100dvh - 122px - env(safe-area-inset-bottom));
         transform-origin: bottom right;
     }
 
